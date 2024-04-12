@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="Sharing Place.app/Sharing Place">
+      <BCSymbolMapName>Sharing Place.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>Sharing Place.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>\Users\dokyuhi\Library\Caches\Xamarin\mtbs\builds\SharingPlace\8aef769cece36a681f0615e5470f4f28ff46b402dd8ed156649c25028a9a3235\obj\Debug\net8.0-ios\iossimulator-x64\mtouch-symbols.list</SymbolFile>
+      <DSymName>Sharing Place.app.dSYM</DSymName>
+      <SourceProjectPath>D:\Projects\C#\Sharing Place\Sharing Place</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>
