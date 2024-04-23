@@ -13,7 +13,7 @@ Lecture: **Tran Hong Nghi**
 | | Full name | Student ID |
 | ----- | ----- | ----- |
 | 1 | **Truong Duy Khoi** | 22520702 |
-| 2 | **~~a nice name~~** | ~~with id~~ |
+| 2 | **Tran Manh Kien**  | 22520711 |
 | 3 | **~~a nice name~~** | ~~with id~~ |
 ## License
 Created by TDK, a member of team
