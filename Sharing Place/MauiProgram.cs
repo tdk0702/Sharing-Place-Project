@@ -11,8 +11,8 @@ namespace Sharing_Place
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Times.New.Roman_n.ttf", "TimesNewRomanRegular");
+                    fonts.AddFont("timesbd.ttf", "TimesNewRomanbold");
                 });
 
 #if DEBUG
