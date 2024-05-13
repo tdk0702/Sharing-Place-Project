@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sharing_Place.ListMessage"
+             Title="ListMessage">
+    <ScrollView>
+    <VerticalStackLayout Padding="10" Spacing="10">
+            <HorizontalStackLayout Padding="10" Spacing="10"
+                                   BackgroundColor="LimeGreen">
+                <Image Source="Resources\Images\back.png"
+                       WidthRequest="20"
+                       HeightRequest="20"
+                       HorizontalOptions="Start"/>
+                <Label 
+    Text="Messages"
+    FontSize="Small"
+    FontAttributes="Bold"
+    VerticalOptions="Center" 
+    HorizontalOptions="CenterAndExpand"/>
+            </HorizontalStackLayout>
+
+            <SearchBar Placeholder="Search"/>
+            <Label Text="Online"
+               FontSize="Small"
+               HorizontalOptions="Center"/>
+            <HorizontalStackLayout>
+                <VerticalStackLayout>
+                    <Image Source="Resources\Images\user4.png"
+       WidthRequest="50" HeightRequest="50"
+                           HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Name"
+                           FontSize="Micro"
+                           HorizontalOptions="StartAndExpand"/>
+                </VerticalStackLayout>
+                
+            </HorizontalStackLayout>
+            <Label Text="List Messages"
+   FontSize="Small"
+   HorizontalOptions="Center"/>
+            <HorizontalStackLayout>
+                <Image Source="Resources\Images\user4.png" 
+       WidthRequest="50" HeightRequest="50"
+       HorizontalOptions="StartAndExpand"/>
+                <VerticalStackLayout>
+                    <Label Text="Name"
+                    FontSize="Micro"
+                           FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Message: "
+                           FontSize="Micro"
+                           HorizontalOptions="StartAndExpand"/>
+                </VerticalStackLayout>
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
