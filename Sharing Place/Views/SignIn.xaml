@@ -27,11 +27,21 @@
                     <Entry x:Name="txtPassword" IsPassword="True" Placeholder="Password" Text="" FontSize="Medium" HorizontalTextAlignment="Center"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,5,0,5"/>
                 </StackLayout>
                 <Button Text="Sign In" BackgroundColor="#27D276" FontSize="Medium" Clicked="OnSignInClicked"/>
+                <Label Text="Forget password ?" 
+                       TextColor="Black" 
+                       FontSize="Medium" 
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="10,10,10,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgetClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
                 <!--Margin="100,10,100,5"-->
             </StackLayout>
         </Grid>
-        <Grid Grid.Row="2" VerticalOptions="EndAndExpand" RowDefinitions=".3*, .2*, .5*">
-            <Grid ColumnDefinitions=".5*,.5*">
+        <Grid Grid.Row="2" VerticalOptions="CenterAndExpand" RowDefinitions=".4*, .6*">
+            <!--Grid ColumnDefinitions=".5*,.5*">
                 <Label Text="Forget password ?" 
                        TextColor="Black" 
                        FontSize="Medium" 
@@ -54,8 +64,8 @@
                         <TapGestureRecognizer Tapped="OnRegisterClicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-            </Grid>
-            <Grid Grid.Row="1">
+            </Grid-->
+            <Grid>
                 <StackLayout  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="20,10,20,0">
                     <Line Stroke="Black" X2="{Binding Width, Source={RelativeSource Self}}" HorizontalOptions="Fill" StrokeThickness="2"/>
                     <StackLayout  TranslationY="-15" VerticalOptions="StartAndExpand" HorizontalOptions="Center" >
@@ -63,7 +73,7 @@
                     </StackLayout>
                 </StackLayout>
             </Grid>
-            <Grid Grid.Row="2" ColumnDefinitions=".5*,.5*" HorizontalOptions="Center">
+            <Grid Grid.Row="1" ColumnDefinitions=".5*,.5*" HorizontalOptions="Center">
                 <Label Text="LogoFB" Margin="5"/>
                 <Label Grid.Column="1" Text="LogoGmail" Margin="5"/>
             </Grid>

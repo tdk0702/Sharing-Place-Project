@@ -14,9 +14,10 @@ namespace Sharing_Place
                     fonts.AddFont("Times.New.Roman_n.ttf", "TimesNewRomanRegular");
                     fonts.AddFont("timesbd.ttf", "TimesNewRomanbold");
                 });
+            //var ConnectString = builder.Configuration["ConnectionStrings:SqlConnectString"];
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

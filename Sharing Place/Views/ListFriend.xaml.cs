@@ -1,4 +1,4 @@
-namespace Sharing_Place;
+namespace Sharing_Place.Views;
 
 public partial class ListFriend : ContentPage
 {

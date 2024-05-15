@@ -276,9 +276,6 @@ D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ioss
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon20x20@3x.png
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon20x20@2x.png
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\Contents.json
-D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\dotnet_bot@3x.png
-D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\dotnet_bot@2x.png
-D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\dotnet_bot.png
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\mauiimage.stamp
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\f\MauiInfo.plist
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\iossimulator-x64\mauifont.stamp
@@ -336,3 +333,7 @@ D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\ioss
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\iossimulator-x64\ru\Microsoft.Data.SqlClient.resources.dll
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\iossimulator-x64\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\iossimulator-x64\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\iossimulator-x64\libmono-component-debugger.dylib
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\iossimulator-x64\libmono-component-diagnostics_tracing.dylib
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\iossimulator-x64\libmono-component-hot_reload.dylib
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-ios\iossimulator-x64\libmono-component-marshal-ilgen.dylib

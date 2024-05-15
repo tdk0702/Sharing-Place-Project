@@ -1,8 +1,9 @@
-namespace Sharing_Place;
 
-public partial class NewPage1 : ContentPage
+namespace Sharing_Place.Views;
+
+public partial class SettingInfo : ContentPage
 {
-	public NewPage1()
+	public SettingInfo()
 	{
 		InitializeComponent();
 	}

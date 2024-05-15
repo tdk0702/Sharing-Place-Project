@@ -1,58 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sharing_Place.ListMessage"
-             Title="ListMessage">
-    <ScrollView>
-    <VerticalStackLayout Padding="10" Spacing="10">
-            <HorizontalStackLayout Padding="10" Spacing="10"
+             xmlns:local="clr-namespace:Sharing_Place.ViewModels"
+             x:Class="Sharing_Place.Views.ListMessage"
+             Title="Messages">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="MessageTemplate">
+            <ViewCell>
+                <HorizontalStackLayout>
+                    <Image Source="{Binding ImgAvt}" 
+                                WidthRequest="50" HeightRequest="50"
+                                HorizontalOptions="StartAndExpand"/>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Name}" FontSize="Small" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding Message}" FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ContentPage.Resources>
+    <Grid RowDefinitions=".10*, .90*">
+        <Grid Grid.Row="0">
+            <!--HorizontalStackLayout Padding="10" Spacing="10"
                                    BackgroundColor="LimeGreen">
                 <Image Source="Resources\Images\back.png"
                        WidthRequest="20"
                        HeightRequest="20"
                        HorizontalOptions="Start"/>
-                <Label 
-    Text="Messages"
-    FontSize="Small"
-    FontAttributes="Bold"
-    VerticalOptions="Center" 
-    HorizontalOptions="CenterAndExpand"/>
-            </HorizontalStackLayout>
-
-            <SearchBar Placeholder="Search"/>
-            <Label Text="Online"
-               FontSize="Small"
-               HorizontalOptions="Center"/>
-            <HorizontalStackLayout>
-                <VerticalStackLayout>
-                    <Image Source="Resources\Images\user4.png"
-       WidthRequest="50" HeightRequest="50"
-                           HorizontalOptions="StartAndExpand"/>
-                    <Label Text="Name"
-                           FontSize="Micro"
-                           HorizontalOptions="StartAndExpand"/>
+                <Label Text="Messages" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+            </HorizontalStackLayout-->
+            <VerticalStackLayout HorizontalOptions="Center" Margin="5">
+                <SearchBar Placeholder="Search"/>
+            </VerticalStackLayout>
+        </Grid>
+        <Grid Grid.Row="1" RowDefinitions=".1*, .9*">
+            <VerticalStackLayout HorizontalOptions="Center">
+                <Label Text="List Messages" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+            <Grid Grid.Row="1">
+                <VerticalStackLayout Grid.Row="1" Padding="3" Spacing="5">
+                    <ListView ItemsSource="{Binding MessageModel}"
+                              ItemTemplate="{StaticResource MessageTemplate}">
+                    </ListView>
                 </VerticalStackLayout>
-                
-            </HorizontalStackLayout>
-            <Label Text="List Messages"
-   FontSize="Small"
-   HorizontalOptions="Center"/>
-            <HorizontalStackLayout>
-                <Image Source="Resources\Images\user4.png" 
-       WidthRequest="50" HeightRequest="50"
-       HorizontalOptions="StartAndExpand"/>
-                <VerticalStackLayout>
-                    <Label Text="Name"
-                    FontSize="Micro"
-                           FontAttributes="Bold"
-                    HorizontalOptions="StartAndExpand"/>
-                    <Label Text="Message: "
-                           FontSize="Micro"
-                           HorizontalOptions="StartAndExpand"/>
-                </VerticalStackLayout>
-
-            </HorizontalStackLayout>
-
-        </VerticalStackLayout>
-    </ScrollView>
+            </Grid>
+        </Grid>
+    </Grid>
 </ContentPage>

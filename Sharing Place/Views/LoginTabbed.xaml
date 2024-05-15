@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:Sharing_Place.Views" 
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
+            Shell.NavBarIsVisible="False"
             UnselectedTabColor="White"
             SelectedTabColor="#27D276"
             BarTextColor="Black"

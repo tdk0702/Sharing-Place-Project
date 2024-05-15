@@ -11,7 +11,7 @@ namespace Sharing_Place.Models
     public static class SqlQuery
     {
         //private string SqlConnectString = @"Server=tcp:sharingplace.database.windows.net,1433;Initial Catalog=SharingPlaceDB;Persist Security Info=False;User ID=AdminSP;Password=Sharingplace@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
-        private const string SqlConnectString = @"Data Source=tcp:sharingplace.database.windows.net,1433;Initial Catalog=SharingPlaceDB;User Id=AdminSP@sharingplace;Password=Sharingplace@123";
+        private const string SqlConnectString = @"Data Source=tcp:sharingplace.database.windows.net,1433;Initial Catalog=SharingPlaceDB;User ID=AdminSP;Password=Sharingplace@123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;MultiSubnetFailover=True";
         
         public static DataTable getData(string query)
         {

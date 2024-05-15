@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:essentials="http://schemas.microsoft.com/dotnet/maui/essentials/2022/04"
-             x:Class="Sharing_Place.Message"
+             x:Class="Sharing_Place.Views.Message"
              Title="Message">
     <StackLayout Orientation="Vertical"
         Background="LightPink">

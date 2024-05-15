@@ -2,35 +2,27 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Sharing_Place.Views"
-       x:Class="Sharing_Place.Shells.LoginShell" >
-    <!--Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid BackgroundColor="#27D276">
-                <Label Text="{Binding Title}" />
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate-->
+       x:Class="Sharing_Place.Shells.LoginShell" 
+       Shell.NavBarIsVisible="False">
     <Shell.Resources>
         <Style TargetType="TabBar">
-            <Setter Property="Shell.TabBarBackgroundColor"
-                Value="#27D276" />
             <Setter Property="Shell.TabBarTitleColor"
-                Value="Black" />
+                Value="#27D276" />
             <Setter Property="Shell.TabBarUnselectedColor"
-           Value="White" />
+           Value="Black" />
         </Style>
     </Shell.Resources>
     <TabBar>
         <ShellContent 
             x:Name="signin"
             Title="SIGN IN"
+            Icon="appicon.svg"
             ContentTemplate="{DataTemplate local:SignIn}"
-            Route="SignIn">
-            
-        </ShellContent>
+            Route="SignIn"/>
         <ShellContent 
             x:Name="signup"
             Title="SIGN UP"
+            Icon="appicon.svg"
             ContentTemplate="{DataTemplate local:Register}"
             Route="Register" />
     </TabBar>

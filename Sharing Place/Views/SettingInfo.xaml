@@ -2,20 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:essentials="http://schemas.microsoft.com/dotnet/maui/essentials/2022/04"
-             x:Class="Sharing_Place.NewPage1"
+             x:Class="Sharing_Place.Views.SettingInfo"
              Title="Infomation">
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
-            <StackLayout Orientation="Horizontal" Background="ForestGreen"
+            <!--StackLayout Orientation="Horizontal" Background="ForestGreen"
                                    Padding="10" Spacing="10">
                 <Image Source="Resources\Images\back.png"
-WidthRequest="20" HeightRequest="20"
+                        WidthRequest="20" HeightRequest="20"
                     HorizontalOptions="Start"/>
                 <Label Text="Infomation"
        FontSize="Medium"
        FontAttributes="Bold"
        HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
+            </StackLayout-->
             
             <StackLayout Orientation="Horizontal">
                 <Label Text="Avatar"
@@ -23,20 +23,21 @@ WidthRequest="20" HeightRequest="20"
                 HorizontalOptions="Start"/>
                 
                 <Label Text="Edit " TextColor="Blue"
-FontSize="Micro"
-HorizontalOptions="EndAndExpand"/>
+                        FontSize="Micro"
+                       FontAttributes="Bold"
+                        HorizontalOptions="EndAndExpand"/>
                 
             </StackLayout>
-            <Image Source="Resources\Images\user4.png"
+            <Image Source="logo.jpg"
                    WidthRequest="70" HeightRequest="70"
                    HorizontalOptions="CenterAndExpand"/>
-            <Label Text="Infomation "
-       FontSize="Small" FontAttributes="Bold"
-       HorizontalOptions="Start"/>
+            <Label Text="Infomation"
+                   FontSize="Small" FontAttributes="Bold"
+                   HorizontalOptions="Start"/>
             <StackLayout Orientation="Horizontal">
                 <Image Source="Resources\Images\user.png"
-WidthRequest="20" HeightRequest="20"
-HorizontalOptions="End"/>
+                        WidthRequest="20" HeightRequest="20"
+                        HorizontalOptions="End"/>
                 <Label Text=" Username: "
                        FontSize="Micro"
                        HorizontalOptions="Start"/>

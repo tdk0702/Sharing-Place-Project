@@ -7,7 +7,7 @@ namespace Sharing_Place
         public App()
         {
             InitializeComponent();
-            MainPage = new LoginTabbed();
+            MainPage = new MenuShell();
         }
     }
 }

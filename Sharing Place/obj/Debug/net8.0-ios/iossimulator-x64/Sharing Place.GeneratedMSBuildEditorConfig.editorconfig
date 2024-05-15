@@ -28,11 +28,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.AppShell.xam
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/MainPage.xaml]
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Login.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.MainPage.xaml
-build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
-build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Login.xaml
+build_metadata.AdditionalFiles.TargetPath = Login.xaml
+build_metadata.AdditionalFiles.RelativePath = Login.xaml
 
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -46,17 +46,53 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Resources.St
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Shells/LoginShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Shells.LoginShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\LoginShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\LoginShell.xaml
+
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ForgetPassword.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ForgetPassword.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ForgetPassword.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ForgetPassword.xaml
 
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/Friends.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.Friends.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Friends.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Friends.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ListFriend.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ListFriend.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ListFriend.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ListFriend.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ListMessage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ListMessage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ListMessage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ListMessage.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/LoginTabbed.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.LoginTabbed.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LoginTabbed.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LoginTabbed.xaml
+
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\MainPage.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/Message.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.Message.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Message.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Message.xaml
 
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/PostMenu.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -69,6 +105,18 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.Register.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Register.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Register.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/SettingInfo.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.SettingInfo.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SettingInfo.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SettingInfo.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/SettingMessage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.SettingMessage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SettingMessage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SettingMessage.xaml
 
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/SignIn.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

@@ -29,25 +29,25 @@
     <AppXManifest Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-05-10T14:13:52.449</Modified>
+      <Modified>2024-05-13T13:42:02.879</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-05-10T14:13:51.973</Modified>
+      <Modified>2024-05-13T13:42:02.313</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Sharing Place.runtimeconfig.json">
       <PackagePath>Sharing Place.runtimeconfig.json</PackagePath>
-      <Modified>2024-05-10T14:13:51.353</Modified>
+      <Modified>2024-05-13T13:42:01.507</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Sharing Place.dll">
       <PackagePath>Sharing Place.dll</PackagePath>
-      <Modified>2024-05-10T14:13:47.186</Modified>
+      <Modified>2024-05-13T13:41:57.732</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Sharing Place.exe</PackagePath>
-      <Modified>2024-05-10T14:13:47.588</Modified>
+      <Modified>2024-05-13T13:41:58.311</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -265,29 +265,9 @@
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
       <Modified>2024-04-24T12:48:43.678</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
-      <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2024-04-24T12:48:42.545</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
-      <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2024-04-24T12:48:42.584</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
-      <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2024-04-24T12:48:42.621</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
-      <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2024-04-24T12:48:42.669</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
-      <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2024-04-24T12:48:42.858</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Sharing Place.deps.json">
       <PackagePath>Sharing Place.deps.json</PackagePath>
-      <Modified>2024-05-10T14:13:51.032</Modified>
+      <Modified>2024-05-13T13:42:01.212</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dkduy\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
