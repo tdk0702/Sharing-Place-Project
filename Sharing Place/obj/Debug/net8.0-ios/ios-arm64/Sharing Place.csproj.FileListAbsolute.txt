@@ -19,9 +19,6 @@ D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon20x20@3x.png
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon20x20@2x.png
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\Assets.xcassets\appicon.appiconset\Contents.json
-D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\dotnet_bot@3x.png
-D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\dotnet_bot@2x.png
-D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\dotnet_bot.png
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\mauiimage.stamp
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\f\MauiInfo.plist
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\mauifont.stamp
@@ -336,3 +333,6 @@ D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\Sharing .DDDA6A4B.Up2Date
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\Sharing Place.genruntimeconfig.cache
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\ref\Sharing Place.dll
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\Resources\logo.png
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\Sharing_Place.Resources.Localization.Strings.resources
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\Sharing Place.csproj.GenerateResource.cache
