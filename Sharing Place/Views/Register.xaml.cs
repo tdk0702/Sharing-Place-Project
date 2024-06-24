@@ -61,13 +61,15 @@ public partial class Register : ContentPage
             return;
         }
         string hashpass = SecurePasswordHasher.Hash(txtPass.Text.Trim());
-        query = string.Format("INSERT INTO [User].[Users] VALUES(N'{0}', N'{1}', N'{2}', DEFAULT);", txtUser.Text.Trim(), hashpass, txtEmail.Text.Trim());
+        query = string.Format("INSERT INTO [User].[Users] VALUES(N'{0}', N'{1}', N'{2}', DEFAULT);", 
+            txtUser.Text.Trim(), hashpass, txtEmail.Text.Trim());
         SqlQuery.queryData(query);
         query = string.Format("SELECT id FROM [User].[Users] WHERE username = N'{0}'", txtUser.Text.Trim());
         dt = SqlQuery.getData(query);
         string id = dt.Rows[0]["id"].ToString();
 
-        query = string.Format("INSERT INTO [User].[Info] VALUES({0}, N'{1}', NULL, NULL ,DEFAULT, NULL, DEFAULT);", id, txtFname.Text + " " + txtLname.Text);
+        query = string.Format("INSERT INTO [User].[Info] VALUES({0}, N'{1}', NULL, NULL ,DEFAULT, NULL, DEFAULT);", 
+            id, txtFname.Text + " " + txtLname.Text);
         await DisplayAlert("Congratulation", "Register success", "OK");
         // Work In Progress
     }

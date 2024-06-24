@@ -13,9 +13,8 @@ public partial class AppShell : Shell
 
     private static void RegisterRoutes()
     {
-        Routing.RegisterRoute(nameof(SignIn), typeof(SignIn));
-        Routing.RegisterRoute(nameof(Register), typeof(Register));
-        Routing.RegisterRoute(nameof(ForgetPassword), typeof(ForgetPassword));
+        //Routing.RegisterRoute(nameof(SignIn), typeof(SignIn));
+       // Routing.RegisterRoute(nameof(Register), typeof(Register));
     }
 }
 

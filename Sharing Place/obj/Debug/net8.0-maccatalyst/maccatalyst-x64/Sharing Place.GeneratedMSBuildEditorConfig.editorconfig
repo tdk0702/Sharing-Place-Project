@@ -28,11 +28,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.AppShell.xam
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Login.xaml]
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Page.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Login.xaml
-build_metadata.AdditionalFiles.TargetPath = Login.xaml
-build_metadata.AdditionalFiles.RelativePath = Login.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Page.xaml
+build_metadata.AdditionalFiles.TargetPath = Page.xaml
+build_metadata.AdditionalFiles.RelativePath = Page.xaml
 
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -58,11 +58,17 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Shells.MenuS
 build_metadata.AdditionalFiles.TargetPath = Shells\MenuShell.xaml
 build_metadata.AdditionalFiles.RelativePath = Shells\MenuShell.xaml
 
-[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ForgetPassword.xaml]
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ForgetViews/ForgetPassword.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ForgetPassword.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\ForgetPassword.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\ForgetPassword.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ForgetViews.ForgetPassword.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ForgetViews\ForgetPassword.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ForgetViews\ForgetPassword.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ForgetViews/RenewPass.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ForgetViews.RenewPass.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ForgetViews\RenewPass.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ForgetViews\RenewPass.xaml
 
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/Friends.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
