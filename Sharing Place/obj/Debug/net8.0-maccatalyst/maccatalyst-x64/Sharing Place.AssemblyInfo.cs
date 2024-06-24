@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sharing Place")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+8ea6b73dd41c258469d1bab5e446a8572f81a2f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+2b8660423684fa7aea47ce9e768c0a67fcac8583")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sharing Place")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sharing Place")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

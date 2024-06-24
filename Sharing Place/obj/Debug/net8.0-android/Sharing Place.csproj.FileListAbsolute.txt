@@ -2169,3 +2169,6 @@ D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-android\
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-android\app_shared_libraries\x86\libxamarin-app.so
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable\logo.jpg
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable\logo.png
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-android\Sharing_Place.Resources.Localization.Strings.resources
+D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\obj\Debug\net8.0-android\Sharing Place.csproj.GenerateResource.cache
