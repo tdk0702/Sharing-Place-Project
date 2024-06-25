@@ -14,6 +14,6 @@ Lecture: **Tran Hong Nghi**
 | ----- | ----- | ----- |
 | 1 | **Truong Duy Khoi** | 22520702 |
 | 2 | **Tran Manh Kien**  | 22520711 |
-| 3 | **~~a nice name~~** | ~~with id~~ |
+| 3 | **Tran Nhat Quang Lam** | 22520747 |
 ## License
 Created by TDK, a member of team
