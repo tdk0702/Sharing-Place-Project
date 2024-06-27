@@ -1,5 +1,5 @@
 using Sharing_Place.ViewModels;
-namespace Sharing_Place.Views;
+namespace Sharing_Place.Views.RoomViews;
 
 public partial class ListRoom : ContentPage
 {
@@ -7,4 +7,10 @@ public partial class ListRoom : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+    }
 }

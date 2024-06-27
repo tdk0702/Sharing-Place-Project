@@ -13,11 +13,15 @@ namespace SP_Server
     public class UserClient
     {
         public string Id;
-        public IPEndPoint IPaddress;
+        public IPEndPoint Ip;
         public UserClient(string id, IPEndPoint ip)
         {
             this.Id = id;
-            this.IPaddress = ip;
+            this.Ip = ip;
+        }
+        public UserClient(IPEndPoint ip)
+        {
+            this.Ip = ip;
         }
     }
     public class User
@@ -32,6 +36,13 @@ namespace SP_Server
             this.Username = username;
             this.Email = email;
             this.Info = info;
+        }
+
+        //Load dữ liệu tài khoản User khi có id
+        public static User loadUser(string id)
+        {
+            string query = "SELECT * FROM [User].[Users], [User].[Info] WHERE id = _id AND id = " + id + ";";
+            return loadUser(SqlQuery.getData(query));
         }
 
         //Load dữ liệu tài khoản User khi có DataTable
@@ -50,14 +61,18 @@ namespace SP_Server
         public string Fullname;
         public string Nickname;
         public string Gender;
+        public string Birthdate;
         public string Avatar;
-        public UserInfo(string id, string fullname, string nickname, string gender, string avatar="")
+        public string Created_At;
+        public UserInfo(string id, string fullname, string nickname, string birth, string gender, string avatar="", string created="1-1-2020")
         {
             this.Id = id;
             this.Fullname = fullname;
             this.Nickname = nickname;
+            this.Birthdate = birth;
             this.Gender = gender;
             this.Avatar = avatar;
+            this.Created_At = created;
         }
 
         //Load thông tin User khi có DataTable
@@ -66,8 +81,9 @@ namespace SP_Server
             string id = dt.Rows[index]["_id"].ToString();
             string fname = dt.Rows[index]["fullname"].ToString();
             string nname = dt.Rows[index]["nickname"].ToString();
+            string birth = dt.Rows[index]["date_of_birth"].ToString();
             string gender = dt.Rows[index]["gender"].ToString();
-            UserInfo ui = new UserInfo(id, fname, nname, gender);
+            UserInfo ui = new UserInfo(id, fname, nname, birth, gender);
             return ui;
         }
     }
@@ -78,16 +94,16 @@ namespace SP_Server
         public string Description;
         public string Type; //private | public
         public string Owner;
-        public List<Post> Posts;
-        public List<UserInfo> Members;
+        public Dictionary<string, Post> Posts;
+        public Dictionary<string, UserInfo> Members;
         public Room(string id, string name, string type, string owner)
         {
             this.Id = id;
             this.Name = name;
             this.Owner = owner;
             this.Type = type;
-            this.Posts = new List<Post>();
-            this.Members = new List<UserInfo>();
+            this.Posts = new Dictionary<string,Post>();
+            this.Members = new Dictionary<string, UserInfo>();
         }
         public bool isPrivate()
         {
@@ -103,8 +119,8 @@ namespace SP_Server
         public string Body;
         public string Status;
         public string Owner;
-        public List<Emotion> Emotions;
-        public List<Comment> Comments;
+        public Dictionary<string,Emotion> Emotions;
+        public Dictionary<string,Comment> Comments;
         public Post(string id, string title, string body, string status, string owner)
         {
             this.Id = id;
@@ -112,14 +128,13 @@ namespace SP_Server
             this.Body = body;
             this.Status = status;
             this.Owner = owner;
-            this.Emotions = new List<Emotion>();
-            this.Comments = new List<Comment>();
+            this.Emotions = new Dictionary<string, Emotion>();
+            this.Comments = new Dictionary<string, Comment>();
         }
     }
 
     public class Emotion
     {
-        public string Post_id;
         public string User_id;
         public string Type;
         public Emotion(string user_id, string type)

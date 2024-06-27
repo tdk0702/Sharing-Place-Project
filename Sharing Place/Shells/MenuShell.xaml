@@ -2,6 +2,7 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Sharing_Place.Views"
+       xmlns:roomview="clr-namespace:Sharing_Place.Views.RoomViews"
        x:Class="Sharing_Place.Shells.MenuShell" 
        Shell.FlyoutBehavior="Flyout"
        Shell.BackgroundColor="Black"
@@ -41,7 +42,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:PostMenu}"/>
         </Tab>
         <Tab Title="Rooms" Route="ListRoom" >
-            <ShellContent ContentTemplate="{DataTemplate local:ListRoom}"/>
+            <ShellContent ContentTemplate="{DataTemplate roomview:ListRoom}"/>
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Chatting">
