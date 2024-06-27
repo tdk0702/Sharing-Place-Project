@@ -54,6 +54,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Shells.MenuS
 build_metadata.AdditionalFiles.TargetPath = Shells\MenuShell.xaml
 build_metadata.AdditionalFiles.RelativePath = Shells\MenuShell.xaml
 
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/CommentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.CommentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CommentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CommentPage.xaml
+
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ForgetViews/ForgetPassword.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ForgetViews.ForgetPassword.xaml
@@ -84,12 +90,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ListMe
 build_metadata.AdditionalFiles.TargetPath = Views\ListMessage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ListMessage.xaml
 
-[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ListRoom.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ListRoom.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\ListRoom.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\ListRoom.xaml
-
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/LoginTabbed.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.LoginTabbed.xaml
@@ -108,6 +108,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.Messag
 build_metadata.AdditionalFiles.TargetPath = Views\Message.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Message.xaml
 
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/PostDetail.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.PostDetail.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PostDetail.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PostDetail.xaml
+
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/PostMenu.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.PostMenu.xaml
@@ -120,6 +126,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.Regist
 build_metadata.AdditionalFiles.TargetPath = Views\Register.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Register.xaml
 
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/RoomViews/ListRoom.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.RoomViews.ListRoom.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\RoomViews\ListRoom.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\RoomViews\ListRoom.xaml
+
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/SettingInfo.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.SettingInfo.xaml
@@ -131,6 +143,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.SettingMessage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SettingMessage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\SettingMessage.xaml
+
+[D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/ShareOptionsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.ShareOptionsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ShareOptionsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ShareOptionsPage.xaml
 
 [D:/Projects/GitHub/Sharing-Place-Project/Sharing Place/Views/SignIn.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

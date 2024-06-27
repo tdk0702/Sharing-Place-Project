@@ -1,4 +1,5 @@
 using Sharing_Place.Views;
+using System.Net;
 namespace Sharing_Place.Shells;
 
 public partial class LoginShell : Shell
@@ -13,4 +14,5 @@ public partial class LoginShell : Shell
         Routing.RegisterRoute(nameof(SignIn), typeof(SignIn));
         Routing.RegisterRoute(nameof(Register), typeof(Register));
     }
+
 }

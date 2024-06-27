@@ -107,4 +107,6 @@
 	  </EmbeddedResource>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionSharingPlaceHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>

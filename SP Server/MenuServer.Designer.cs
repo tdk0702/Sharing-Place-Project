@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            ListViewItem listViewItem3 = new ListViewItem(new string[] { "Room1", "Tester", "Admin" }, -1);
-            ListViewItem listViewItem4 = new ListViewItem("Room2");
+            ListViewItem listViewItem1 = new ListViewItem(new string[] { "Room1", "Tester", "Admin" }, -1);
+            ListViewItem listViewItem2 = new ListViewItem("Room2");
             pClients = new Panel();
             btnBan = new Button();
             btnAllClients = new Button();
             lbxClients = new ListBox();
             lbClients = new Label();
             pHost = new Panel();
+            tbxPort = new TextBox();
+            tbxIP = new TextBox();
+            btnStartServer = new Button();
             lbHost = new Label();
             pRoom = new Panel();
             lvRooms = new ListView();
             ilRooms = new ImageList(components);
             lbRooms = new Label();
-            btnStartServer = new Button();
-            tbxIP = new TextBox();
-            textBox2 = new TextBox();
             pClients.SuspendLayout();
             pHost.SuspendLayout();
             pRoom.SuspendLayout();
@@ -103,13 +103,13 @@
             lbClients.Dock = DockStyle.Top;
             lbClients.Location = new Point(5, 64);
             lbClients.Name = "lbClients";
-            lbClients.Size = new Size(117, 15);
+            lbClients.Size = new Size(96, 15);
             lbClients.TabIndex = 9;
-            lbClients.Text = "Số lượng đăng nhập:";
+            lbClients.Text = "Số lượng kết nối:";
             // 
             // pHost
             // 
-            pHost.Controls.Add(textBox2);
+            pHost.Controls.Add(tbxPort);
             pHost.Controls.Add(tbxIP);
             pHost.Controls.Add(btnStartServer);
             pHost.Controls.Add(lbHost);
@@ -119,7 +119,33 @@
             pHost.Padding = new Padding(5);
             pHost.Size = new Size(258, 59);
             pHost.TabIndex = 7;
-            pHost.Visible = false;
+            // 
+            // tbxPort
+            // 
+            tbxPort.Dock = DockStyle.Right;
+            tbxPort.Location = new Point(174, 5);
+            tbxPort.Name = "tbxPort";
+            tbxPort.Size = new Size(79, 23);
+            tbxPort.TabIndex = 11;
+            // 
+            // tbxIP
+            // 
+            tbxIP.Dock = DockStyle.Left;
+            tbxIP.Location = new Point(5, 5);
+            tbxIP.Name = "tbxIP";
+            tbxIP.Size = new Size(147, 23);
+            tbxIP.TabIndex = 10;
+            // 
+            // btnStartServer
+            // 
+            btnStartServer.Dock = DockStyle.Bottom;
+            btnStartServer.Location = new Point(5, 31);
+            btnStartServer.Name = "btnStartServer";
+            btnStartServer.Size = new Size(248, 23);
+            btnStartServer.TabIndex = 9;
+            btnStartServer.Text = "Chạy Server";
+            btnStartServer.UseVisualStyleBackColor = true;
+            btnStartServer.Click += btnStartServer_Click;
             // 
             // lbHost
             // 
@@ -144,9 +170,9 @@
             // lvRooms
             // 
             lvRooms.Dock = DockStyle.Fill;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.StateImageIndex = 0;
-            lvRooms.Items.AddRange(new ListViewItem[] { listViewItem3, listViewItem4 });
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            lvRooms.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
             lvRooms.LargeImageList = ilRooms;
             lvRooms.Location = new Point(5, 20);
             lvRooms.Name = "lvRooms";
@@ -171,32 +197,6 @@
             lbRooms.TabIndex = 2;
             lbRooms.Text = "Số lượng phòng:";
             // 
-            // btnStartServer
-            // 
-            btnStartServer.Dock = DockStyle.Bottom;
-            btnStartServer.Location = new Point(5, 31);
-            btnStartServer.Name = "btnStartServer";
-            btnStartServer.Size = new Size(248, 23);
-            btnStartServer.TabIndex = 9;
-            btnStartServer.Text = "Chạy Server";
-            btnStartServer.UseVisualStyleBackColor = true;
-            // 
-            // tbxIP
-            // 
-            tbxIP.Dock = DockStyle.Left;
-            tbxIP.Location = new Point(5, 5);
-            tbxIP.Name = "tbxIP";
-            tbxIP.Size = new Size(147, 23);
-            tbxIP.TabIndex = 10;
-            // 
-            // textBox2
-            // 
-            textBox2.Dock = DockStyle.Right;
-            textBox2.Location = new Point(174, 5);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(79, 23);
-            textBox2.TabIndex = 11;
-            // 
             // MenuServer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,7 +208,9 @@
             Name = "MenuServer";
             ShowIcon = false;
             Text = "Sharing Place Server";
+            FormClosing += MenuServer_FormClosing;
             Load += MenuServer_Load;
+            KeyDown += MenuServer_KeyDown;
             pClients.ResumeLayout(false);
             pClients.PerformLayout();
             pHost.ResumeLayout(false);
@@ -231,7 +233,7 @@
         private Button btnAllClients;
         private ListBox lbxClients;
         private Label lbClients;
-        private TextBox textBox2;
+        private TextBox tbxPort;
         private TextBox tbxIP;
         private Button btnStartServer;
     }
