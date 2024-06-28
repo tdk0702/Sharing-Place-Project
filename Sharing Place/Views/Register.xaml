@@ -4,6 +4,7 @@
              x:Class="Sharing_Place.Views.Register"
              Title="Register">
     <Grid RowDefinitions=".25*,.65*,.10*">
+        <ActivityIndicator x:Name="loadingIndicator" IsRunning="False" />
         <Grid BackgroundColor="#27D276"/>
         <Grid Grid.Row="1">
             <RoundRectangle Margin="-5,-30,-5,-2" 

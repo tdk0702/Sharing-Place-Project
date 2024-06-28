@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "D:\\Projects\\GitHub\\Sharing-Place-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\views\\signin.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\signin.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2845E95F-F6EA-47F3-90AE-2B272AC46FC5}|SP Server\\SP Server.csproj|d:\\projects\\github\\sharing-place-project\\sp server\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2845E95F-F6EA-47F3-90AE-2B272AC46FC5}|SP Server\\SP Server.csproj|solutionrelative:sp server\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\views\\roomviews\\listroom.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\roomviews\\listroom.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\models\\serverconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\models\\serverconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\views\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2845E95F-F6EA-47F3-90AE-2B272AC46FC5}|SP Server\\SP Server.csproj|d:\\projects\\github\\sharing-place-project\\sp server\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2845E95F-F6EA-47F3-90AE-2B272AC46FC5}|SP Server\\SP Server.csproj|solutionrelative:sp server\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\views\\signin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\signin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\views\\roomviews\\listroom.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\roomviews\\listroom.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\shells\\menushell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\shells\\menushell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,27 +37,83 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "DockedWidth": 101,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Class.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SP Server\\Class.cs",
-              "RelativeDocumentMoniker": "SP Server\\Class.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SP Server\\Class.cs",
-              "RelativeToolTip": "SP Server\\Class.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAYwGkAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T16:10:08.384Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Register.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\Register.xaml.cs",
+              "RelativeDocumentMoniker": "Sharing Place\\Views\\Register.xaml.cs",
+              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\Register.xaml.cs",
+              "RelativeToolTip": "Sharing Place\\Views\\Register.xaml.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAAcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T18:49:12.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SignIn.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\SignIn.xaml.cs",
+              "RelativeDocumentMoniker": "Sharing Place\\Views\\SignIn.xaml.cs",
+              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\SignIn.xaml.cs",
+              "RelativeToolTip": "Sharing Place\\Views\\SignIn.xaml.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T18:49:09.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateDB.sql ",
+              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Data\\CreateDB.sql",
+              "RelativeDocumentMoniker": "SPServer\\Data\\CreateDB.sql",
+              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Data\\CreateDB.sql*",
+              "RelativeToolTip": "SPServer\\Data\\CreateDB.sql*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-06-28T17:43:22.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class.cs",
+              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Class.cs",
+              "RelativeDocumentMoniker": "SPServer\\Class.cs",
+              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Class.cs",
+              "RelativeToolTip": "SPServer\\Class.cs",
+              "ViewState": "AQIAALcAAAAAAAAAAAAAAMUAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T17:29:06.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenuServer.cs",
+              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\MenuServer.cs",
+              "RelativeDocumentMoniker": "SPServer\\MenuServer.cs",
+              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\MenuServer.cs",
+              "RelativeToolTip": "SPServer\\MenuServer.cs",
+              "ViewState": "AQIAALAAAAAAAAAAAAAtwLsAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T17:29:04.927Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 299,
+          "SelectedChildIndex": -1,
+          "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -89,97 +141,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{9b96d899-3214-4b6f-a8b9-182d4bc2f76f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MenuServer.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SP Server\\MenuServer.cs",
-              "RelativeDocumentMoniker": "SP Server\\MenuServer.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SP Server\\MenuServer.cs",
-              "RelativeToolTip": "SP Server\\MenuServer.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAAAAAG0AAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T18:39:00.347Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Sharing Place\\Models\\User.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Models\\User.cs",
-              "RelativeToolTip": "Sharing Place\\Models\\User.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAwwB8AAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T16:19:33.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SignIn.xaml.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\SignIn.xaml.cs",
-              "RelativeDocumentMoniker": "Sharing Place\\Views\\SignIn.xaml.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\SignIn.xaml.cs",
-              "RelativeToolTip": "Sharing Place\\Views\\SignIn.xaml.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACEAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T14:14:47.142Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ServerConnect.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Models\\ServerConnect.cs",
-              "RelativeDocumentMoniker": "Sharing Place\\Models\\ServerConnect.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Models\\ServerConnect.cs",
-              "RelativeToolTip": "Sharing Place\\Models\\ServerConnect.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAEgAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T15:19:19.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ListRoom.xaml.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\RoomViews\\ListRoom.xaml.cs",
-              "RelativeDocumentMoniker": "Sharing Place\\Views\\RoomViews\\ListRoom.xaml.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\RoomViews\\ListRoom.xaml.cs",
-              "RelativeToolTip": "Sharing Place\\Views\\RoomViews\\ListRoom.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T10:15:26.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ListRoom.xaml",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\RoomViews\\ListRoom.xaml",
-              "RelativeDocumentMoniker": "Sharing Place\\Views\\RoomViews\\ListRoom.xaml",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\RoomViews\\ListRoom.xaml",
-              "RelativeToolTip": "Sharing Place\\Views\\RoomViews\\ListRoom.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-26T10:14:53.242Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MenuShell.xaml.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Shells\\MenuShell.xaml.cs",
-              "RelativeDocumentMoniker": "Sharing Place\\Shells\\MenuShell.xaml.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Shells\\MenuShell.xaml.cs",
-              "RelativeToolTip": "Sharing Place\\Shells\\MenuShell.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T10:14:10.848Z",
-              "EditorCaption": ""
             }
           ]
         }

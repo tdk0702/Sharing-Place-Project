@@ -25,11 +25,11 @@ namespace Sharing_Place.Models
             Fullname = "Admin Tester";
             Nickname = "Tester";
             Birthdate = "1/1/2000";
-            Gender = "Male";
+            Gender = "male";
             Created_At = "1-1-2000";
         }
         public User(string id, string username, string email, string fullname, 
-            string nick, string birth, string gender, string created="1-1-2000")
+            string nick="", string birth="1-1-2000", string gender="male", string created="1-1-2000")
         {
             Id = id;
             this.Username = username;
@@ -42,7 +42,7 @@ namespace Sharing_Place.Models
         }
         public bool isMale()
         {
-            return !this.Gender.Contains("Female");
+            return !this.Gender.Contains("female");
         } 
     }
 }
