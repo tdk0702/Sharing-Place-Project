@@ -4,33 +4,14 @@ using System;
 using Microsoft.Data.SqlClient;
 using System.Threading;
 using Sharing_Place.Models;
+using Sharing_Place.Shells;
 namespace Sharing_Place.Views;
 
 public partial class Register : ContentPage
 {
-    private bool isSQLConnected = false;
     public Register()
     {
         InitializeComponent();
-        new Thread(() =>
-        {
-            while (true)
-            {
-                try
-                {
-                    string query = "SELECT * FROM [User].[Users];";
-                    int cnt = 0;
-                    cnt = SqlQuery.getData(query).Rows.Count;
-                    Console.WriteLine("Check SQL : " + cnt.ToString());
-                    if (cnt > 0) { isSQLConnected = true; break; }
-                }
-                catch (Exception expt)
-                {
-                    Console.WriteLine("Lỗi SQL. \r\nErr: " + expt.ToString());
-                }
-            }
-            //Thread.CurrentThread.
-        }).Start();
     }
 
     private async void OnReturnLoginClick(object sender, EventArgs e)
@@ -40,37 +21,50 @@ public partial class Register : ContentPage
 
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
-        while (!isSQLConnected) { }
+        loadingIndicator.IsRunning = true;
         if (txtFname.Text == string.Empty || txtLname.Text==string.Empty ||
             txtUser.Text == string.Empty || txtPass.Text==string.Empty ||
             txtRpPass.Text == string.Empty || txtEmail.Text==string.Empty)
         {
-            await DisplayAlert("Alert", "Textbox cannot be empty", "Retry");
+            loadingIndicator.IsRunning = false;
+            await DisplayAlert("Alert", "Textboxes cannot be empty", "Retry");
             return;
         }
         if (txtPass.Text != txtRpPass.Text)
         {
-            await DisplayAlert("Alert", "Repeat password isn't match", "Retry");
+            loadingIndicator.IsRunning = false;
+            await DisplayAlert("Alert", "Repeat password is not match", "Retry");
             return;
         }
-        string query = string.Format("SELECT id FROM [User].[Users] WHERE username = N'{0}'", txtUser.Text.Trim());
-        DataTable dt = SqlQuery.getData(query);
-        if (dt.Rows.Count > 0)
+        if (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".") || (txtEmail.Text.IndexOf("@") > txtEmail.Text.LastIndexOf(".")))
         {
-            await DisplayAlert("Alert", "The username is already exist", "Retry");
+            loadingIndicator.IsRunning = false;
+            await DisplayAlert("Alert", "Email format is incorrect", "Retry");
             return;
         }
         string hashpass = SecurePasswordHasher.Hash(txtPass.Text.Trim());
-        query = string.Format("INSERT INTO [User].[Users] VALUES(N'{0}', N'{1}', N'{2}', DEFAULT);", 
-            txtUser.Text.Trim(), hashpass, txtEmail.Text.Trim());
-        SqlQuery.queryData(query);
-        query = string.Format("SELECT id FROM [User].[Users] WHERE username = N'{0}'", txtUser.Text.Trim());
-        dt = SqlQuery.getData(query);
-        string id = dt.Rows[0]["id"].ToString();
-
-        query = string.Format("INSERT INTO [User].[Info] VALUES({0}, N'{1}', NULL, NULL ,DEFAULT, NULL, DEFAULT);", 
-            id, txtFname.Text + " " + txtLname.Text);
+        string fullname = txtLname.Text.Trim() + " " + txtFname.Text.Trim();
+        //Command:  ./register <client_id> <username> <email> <password> <fullname>
+        string command = string.Format("./register {0} {1} {2} {3} {4}", 
+            ServerConnect.Id, txtUser.Text.Trim(), txtEmail.Text.Trim(), hashpass, fullname);
+        string data = ServerConnect.getData(command);
+        if (data.Contains("[EXIST]"))
+        {
+            loadingIndicator.IsRunning = false;
+            await DisplayAlert("Alert", "The username is already exist", "Retry");
+            return;
+        }
+        if (!data.Contains("[OK]"))
+        {
+            loadingIndicator.IsRunning = false;
+            await DisplayAlert("Alert", "Cannot create account, try again later", "Retry");
+            return;
+        }
+        string[] dsplit = data.Split(" ");
+        SignIn.UserAccount = new User(dsplit[1], txtUser.Text.Trim(), txtEmail.Text.Trim(), fullname.Replace(" ","_"));
+        loadingIndicator.IsRunning = false;
         await DisplayAlert("Congratulation", "Register success", "OK");
+        Application.Current.MainPage = new MenuShell();
         // Work In Progress
     }
 }
