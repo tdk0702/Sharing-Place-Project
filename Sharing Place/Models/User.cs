@@ -9,33 +9,40 @@ namespace Sharing_Place.Models
 {
     public class User
     {
-        string username, fullname, id, email, nickname, birth;
-        bool gender;
+        public string Id;
+        public string Username;
+        public string Email; 
+        public string Fullname;
+        public string Nickname;
+        public string Birthdate;
+        public string Created_At;
+        public string Gender; 
         public User()
         {
-            username = "usertest";
-            id = "0";
-            fullname = "Admin Tester";
-            nickname = "Tester";
-            email = "22520702@gm.uit.edu.vn";
-            birth = "1/1/2000";
-            gender = true;
+            Id = "0";
+            Username = "usertest";
+            Email = "22520702@gm.uit.edu.vn";
+            Fullname = "Admin Tester";
+            Nickname = "Tester";
+            Birthdate = "1/1/2000";
+            Gender = "male";
+            Created_At = "1-1-2000";
         }
-        public User(string id)
+        public User(string id, string username, string email, string fullname, 
+            string nick="", string birth="1-1-2000", string gender="male", string created="1-1-2000")
         {
-            this.id = id;
-            getInfo(id);
+            Id = id;
+            this.Username = username;
+            this.Email = email;
+            this.Fullname = fullname;
+            this.Nickname = nick;
+            this.Birthdate = birth;
+            this.Gender = gender;
+            this.Created_At = created;
         }
-        private void getInfo(string id)
+        public bool isMale()
         {
-            string query = string.Format("SELECT * FROM [User].[Users],[User].[Info] WHERE id = '{0}';", id);
-            DataTable dt = SqlQuery.getData(query);
-            username = dt.Rows[0]["username"].ToString();
-            email = dt.Rows[0]["email"].ToString();
-            fullname = dt.Rows[0]["fullname"].ToString();
-            nickname = dt.Rows[0]["nickname"].ToString();
-            birth = dt.Rows[0]["birth"].ToString();
-            gender = !(dt.Rows[0]["gender"].ToString().Contains("female"));
-        }
+            return !this.Gender.Contains("female");
+        } 
     }
 }
