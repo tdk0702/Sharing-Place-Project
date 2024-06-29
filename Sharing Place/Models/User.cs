@@ -46,6 +46,6 @@ namespace Sharing_Place.Models
             Nickname = dt.Rows[0]["nickname"].ToString();
             Birth = dt.Rows[0]["birth"].ToString();
             Gender = !(dt.Rows[0]["gender"].ToString().Contains("female"));
-        }
+		}
     }
 }

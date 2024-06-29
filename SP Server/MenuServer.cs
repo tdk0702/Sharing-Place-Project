@@ -530,7 +530,6 @@ namespace SP_Server
             string data = Encoding.UTF8.GetString(completeData.ToArray());
             return data;
         }
-
         private void saveVoiceMessageToDatabase(string senderId, string receiverId, string audioBase64)
         {
             string query = "INSERT INTO [Messages].[Messages] (sender_id, receiver_id, message, date, time, type) VALUES (@senderId, @receiverId, @audioBase64, GETDATE(), GETDATE(), 'voice')";

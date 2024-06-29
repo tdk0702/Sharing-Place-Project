@@ -9,7 +9,6 @@ namespace Sharing_Place.Views
     {
         private ObservableCollection<User> _userSuggestions;
         public ReadOnlyObservableCollection<User> UserSuggestions { get; }
-
         public ObservableCollection<MessageModel> Messages { get; set; }
 
         public ListMessage()
@@ -68,8 +67,6 @@ namespace Sharing_Place.Views
             return users.Where(user => user.Username.Contains(searchText, StringComparison.OrdinalIgnoreCase));
         }
     }
-
-    
     public class MessageModel
     {
         public string Name { get; set; }

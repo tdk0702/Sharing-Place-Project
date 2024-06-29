@@ -67,7 +67,7 @@ namespace Sharing_Place.Views
         private async void OnSendMessageTapped(object sender, EventArgs e)
         {
             var messageText = MessageEntry.Text;
-            var receiverId = clientId;
+            var receiverId = "ReceiverClientId";
 
             if (!string.IsNullOrEmpty(messageText))
             {
@@ -148,13 +148,10 @@ namespace Sharing_Place.Views
                     ShouldShowPlaybackControls = true
                 };
             }
-
             mediaView.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(async () => await Navigation.PushAsync(new MediaViewPage(filePath, isImage)))
             });
-
-
             var timestampLabel = new Label
             {
                 Text = DateTime.Now.ToString("h:mm tt"),
@@ -235,7 +232,6 @@ namespace Sharing_Place.Views
                 {
                     formattedMessage = $"./message {clientId} {receiverId} {messageId} {message}";
                 }
-
                 var messageBytes = Encoding.UTF8.GetBytes(formattedMessage);
                 await udpClient.SendAsync(messageBytes, messageBytes.Length, remoteEndPoint);
             }
@@ -249,7 +245,6 @@ namespace Sharing_Place.Views
         {
             using var udpClient = new UdpClient(7070);
             HashSet<string> processedMessageIds = new HashSet<string>();
-
             while (true)
             {
                 try
@@ -335,7 +330,6 @@ namespace Sharing_Place.Views
                 }
             }
         }
-
         private async Task ReceiveFileAsync(UdpClient udpClient, string fileName, long fileSize, string fileType)
         {
             try
@@ -598,7 +592,5 @@ namespace Sharing_Place.Views
                 await DisplayAlert("Error", $"Failed to send file: {ex.Message}", "OK");
             }
         }
-
-
     }
 }

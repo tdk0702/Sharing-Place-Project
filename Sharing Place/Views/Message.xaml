@@ -102,7 +102,6 @@
                         <TapGestureRecognizer Tapped="OnChatVoiceButtonClicked"/>
                     </Image.GestureRecognizers>
                 </Image>
-               
                 <Entry x:Name="MessageEntry" Placeholder="Type Message" HorizontalOptions="FillAndExpand"/>
                 <Image Source="send1.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End">
                     <Image.GestureRecognizers>
