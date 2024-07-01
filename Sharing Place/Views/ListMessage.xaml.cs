@@ -6,21 +6,24 @@ namespace Sharing_Place.Views
 {
     public partial class ListMessage : ContentPage
     {
-        public ObservableCollection<User1> UserSuggestions { get; set; }
+        private ObservableCollection<User1> _userSuggestions;
+        public ReadOnlyObservableCollection<User1> UserSuggestions { get; }
+
         public ObservableCollection<MessageModel> Messages { get; set; }
 
         public ListMessage()
         {
             InitializeComponent();
-            UserSuggestions = new ObservableCollection<User1>();
+            _userSuggestions = new ObservableCollection<User1>();
+            UserSuggestions = new ReadOnlyObservableCollection<User1>(_userSuggestions);
             Messages = new ObservableCollection<MessageModel>();
 
-            this.BindingContext = this;
+            BindingContext = this;
         }
 
         private void OnSearchBarTextChanged(object sender, TextChangedEventArgs e)
         {
-            string searchText = e.NewTextValue;
+            string searchText = e.NewTextValue?.Trim();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -38,16 +41,17 @@ namespace Sharing_Place.Views
             if (e.SelectedItem is User1 selectedUser)
             {
                 Navigation.PushAsync(new Message(selectedUser));
+                UserSuggestionListView.SelectedItem = null;
             }
         }
 
         private void UpdateUserSuggestions(string searchText)
         {
-            var suggestions = GetUserSuggestions(searchText);
-            UserSuggestions.Clear();
+            var suggestions = GetUserSuggestions(searchText).ToList();
+            _userSuggestions.Clear();
             foreach (var suggestion in suggestions)
             {
-                UserSuggestions.Add(suggestion);
+                _userSuggestions.Add(suggestion);
             }
         }
 
@@ -60,7 +64,7 @@ namespace Sharing_Place.Views
                 new User1 { Name = "User3", ImgAvt = "user3.png", IsOnline = true, CommonFriendsCount = 2 }
             };
 
-            return users.Where(user => user.Name.ToLower().Contains(searchText.ToLower()));
+            return users.Where(user => user.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase));
         }
     }
 

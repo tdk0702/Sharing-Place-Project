@@ -116,6 +116,11 @@ namespace Sharing_Place.Views
                 };
             }
 
+            mediaView.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(async () => await Navigation.PushAsync(new MediaViewPage(filePath, isImage)))
+            });
+
             var timestampLabel = new Label
             {
                 Text = DateTime.Now.ToString("h:mm tt"),
@@ -362,6 +367,14 @@ namespace Sharing_Place.Views
             {
                 Console.WriteLine($"Error sending file: {ex.Message}");
                 await DisplayAlert("Error", $"Failed to send file: {ex.Message}", "OK");
+            }
+        }
+
+        private async void OnCallButtonClicked(object sender, EventArgs e)
+        {
+            if (BindingContext is User1 user)
+            {
+                await Navigation.PushAsync(new CallPage(user));
             }
         }
     }

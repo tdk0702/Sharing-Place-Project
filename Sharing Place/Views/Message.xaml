@@ -36,13 +36,13 @@
                        HorizontalOptions="StartAndExpand"/>
             </VerticalStackLayout>
             <Image Source="telephone1.png" 
-                   WidthRequest="20" 
-                   HeightRequest="20" 
-                   HorizontalOptions="EndAndExpand"/>
-            <Image Source="video2.png" 
-                   WidthRequest="20" 
-                   HeightRequest="20" 
-                   HorizontalOptions="End"/>
+       WidthRequest="20" 
+       HeightRequest="20" 
+       HorizontalOptions="EndAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCallButtonClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
         </StackLayout>
 
         <!-- Messages List -->

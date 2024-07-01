@@ -6,6 +6,18 @@
              Title="Messages">
 
     <ContentPage.Resources>
+        <DataTemplate x:Key="UserSuggestionTemplate">
+            <ViewCell>
+                <HorizontalStackLayout Padding="10" Spacing="10">
+                    <Image Source="{Binding ImgAvt}" 
+                           WidthRequest="50" HeightRequest="50"
+                           HorizontalOptions="Start"/>
+                    <Label Text="{Binding Name}" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="StartAndExpand"/>
+                </HorizontalStackLayout>
+            </ViewCell>
+        </DataTemplate>
         <DataTemplate x:Key="MessageTemplate">
             <ViewCell>
                 <HorizontalStackLayout Padding="10" Spacing="10">
@@ -29,32 +41,26 @@
         </DataTemplate>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions=".10*, .90*">
-        <Grid Grid.Row="0">
-            <VerticalStackLayout HorizontalOptions="Center" Margin="5">
-                <SearchBar Placeholder="Search" TextChanged="OnSearchBarTextChanged"/>
-                <ListView x:Name="UserSuggestionListView" 
-                          ItemsSource="{Binding UserSuggestions}" 
-                          ItemTemplate="{StaticResource UserSuggestionTemplate}" 
-                          IsVisible="False" 
-                          ItemSelected="OnUserSelected">
-                </ListView>
-            </VerticalStackLayout>
-        </Grid>
-        <Grid Grid.Row="1" RowDefinitions=".1*, .9*">
-            <VerticalStackLayout HorizontalOptions="Center">
-                <Label Text="List Messages" 
-                       FontSize="Medium" 
-                       HorizontalTextAlignment="Center"/>
-            </VerticalStackLayout>
-            <Grid Grid.Row="1">
-                <VerticalStackLayout Padding="3" Spacing="5">
-                    <ListView x:Name="MessagesListView" 
-                              ItemsSource="{Binding Messages}" 
-                              ItemTemplate="{StaticResource MessageTemplate}">
-                    </ListView>
-                </VerticalStackLayout>
-            </Grid>
-        </Grid>
+    <Grid RowDefinitions="Auto, *">
+        <VerticalStackLayout Padding="5" Grid.Row="0">
+            <SearchBar Placeholder="Search" TextChanged="OnSearchBarTextChanged"/>
+            <CollectionView x:Name="UserSuggestionListView" 
+                            ItemsSource="{Binding UserSuggestions}" 
+                            ItemTemplate="{StaticResource UserSuggestionTemplate}" 
+                            IsVisible="False" 
+                            SelectionChanged="OnUserSelected">
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Padding="5" Grid.Row="1">
+            <Label Text="List Messages" 
+                   FontSize="Medium" 
+                   HorizontalTextAlignment="Center"
+                   Padding="10"/>
+            <CollectionView x:Name="MessagesListView" 
+                            ItemsSource="{Binding Messages}" 
+                            ItemTemplate="{StaticResource MessageTemplate}">
+            </CollectionView>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>
