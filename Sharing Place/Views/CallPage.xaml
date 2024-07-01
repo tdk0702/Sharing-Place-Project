@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sharing_Place.Views.CallPage"
+             Title="CallPage">
+
+    <VerticalStackLayout BackgroundColor="#27D276" Spacing="20" Padding="30">
+        <!-- Thông tin người gọi -->
+        <Image Source="{Binding ImgAvt}"
+               WidthRequest="100" HeightRequest="100" 
+               HorizontalOptions="Center"/>
+        <Label Text="{Binding Name}"
+               FontSize="Large"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="Center"/>
+
+        <!-- Trạng thái đang kết nối -->
+        <Label x:Name="ConnectingLabel"
+               Text="Đang kết nối đến ..."
+               FontSize="Medium"
+               TextColor="White"
+               HorizontalOptions="Center"
+               IsVisible="{Binding IsConnecting}"/>
+
+        <!-- Thời gian cuộc gọi -->
+        <Label x:Name="CallDurationLabel"
+               Text="{Binding CallDuration, StringFormat='{}{0:mm\\:ss}'}"
+               FontSize="Medium"
+               TextColor="White"
+               HorizontalOptions="Center"
+               IsVisible="{Binding IsInCall}"/>
+
+        <!-- Nút hủy khi đang kết nối -->
+        <Button x:Name="CancelButton"
+                Text="Hủy"
+                TextColor="White"
+                BackgroundColor="Red"
+                WidthRequest="150"
+                HorizontalOptions="Center"
+                IsVisible="{Binding IsConnecting}"
+                Command="{Binding CancelCommand}"/>
+
+        <!-- Các nút điều khiển khi đang trong cuộc gọi -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" IsVisible="{Binding IsInCall}">
+            <Button Text="{Binding IsMuted, Converter={StaticResource BoolToTextConverter}, ConverterParameter='Tắt tiếng|Bật tiếng'}"
+            Command="{Binding MuteCommand}"
+            WidthRequest="100"
+            BackgroundColor="#f0f0f0"
+            TextColor="Black"/>
+            <Button Text="{Binding IsSpeakerOn, Converter={StaticResource BoolToTextConverter}, ConverterParameter='Loa ngoài|Tắt loa'}"
+            Command="{Binding SpeakerCommand}"
+            WidthRequest="100"
+            BackgroundColor="#f0f0f0"
+            TextColor="Black"/>
+            <Button Text="Kết thúc"
+            Command="{Binding EndCallCommand}"
+            WidthRequest="100"
+            BackgroundColor="Red"
+            TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <!-- Thông tin cuộc gọi đến -->
+        <VerticalStackLayout IsVisible="{Binding IsIncomingCall}" Spacing="20">
+            <Label Text="Có cuộc gọi đến từ"
+                   FontSize="Medium"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Button Text="Chấp nhận"
+                        Command="{Binding AcceptCallCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"/>
+                <Button Text="Từ chối"
+                        Command="{Binding RejectCallCommand}"
+                        BackgroundColor="Red"
+                        TextColor="White"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

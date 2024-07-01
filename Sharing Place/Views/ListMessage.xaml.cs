@@ -63,7 +63,6 @@ namespace Sharing_Place.Views
                 new User {Username = "User2", ImgAvt = "user2.png", IsOnline = false },
                 new User { Username = "User3", ImgAvt = "user3.png", IsOnline = true },
             };
-
             return users.Where(user => user.Username.Contains(searchText, StringComparison.OrdinalIgnoreCase));
         }
     }

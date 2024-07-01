@@ -592,5 +592,13 @@ namespace Sharing_Place.Views
                 await DisplayAlert("Error", $"Failed to send file: {ex.Message}", "OK");
             }
         }
+
+        private async void OnCallButtonClicked(object sender, EventArgs e)
+        {
+            if (BindingContext is User1 user)
+            {
+                await Navigation.PushAsync(new CallPage(user));
+            }
+        }
     }
 }

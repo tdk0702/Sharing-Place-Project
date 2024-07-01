@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\App\\Sharing-Place-Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\mediaviewpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\mediaviewpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\mediaviewpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\mediaviewpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\message.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\message.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -91,6 +99,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MediaViewPage.xaml",
+              "DocumentMoniker": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\MediaViewPage.xaml",
+              "RelativeDocumentMoniker": "Sharing Place\\Views\\MediaViewPage.xaml",
+              "ToolTip": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\MediaViewPage.xaml",
+              "RelativeToolTip": "Sharing Place\\Views\\MediaViewPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-01T09:45:34.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ListFriend.xaml.cs",
+              "DocumentMoniker": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\ListFriend.xaml.cs",
+              "RelativeDocumentMoniker": "Sharing Place\\Views\\ListFriend.xaml.cs",
+              "ToolTip": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\ListFriend.xaml.cs",
+              "RelativeToolTip": "Sharing Place\\Views\\ListFriend.xaml.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowB8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T07:56:25.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Message.xaml.cs",
               "DocumentMoniker": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\Message.xaml.cs",
               "RelativeDocumentMoniker": "Sharing Place\\Views\\Message.xaml.cs",
