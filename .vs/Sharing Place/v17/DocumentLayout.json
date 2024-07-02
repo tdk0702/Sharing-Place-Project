@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\sharing place\\views\\postmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\postmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\sharing place\\views\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 101,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,28 +46,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PostMenu.xaml",
               "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\PostMenu.xaml",
               "RelativeDocumentMoniker": "Sharing Place\\Views\\PostMenu.xaml",
               "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\PostMenu.xaml",
               "RelativeToolTip": "Sharing Place\\Views\\PostMenu.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-06-29T15:29:49.613Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Class.cs",
-              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Class.cs",
-              "RelativeDocumentMoniker": "SPServer\\Class.cs",
-              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Class.cs",
-              "RelativeToolTip": "SPServer\\Class.cs",
-              "ViewState": "AQIAAKMAAAAAAAAAAAAAALcAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T17:29:06.519Z",
               "EditorCaption": ""
             },
             {
@@ -80,8 +67,7 @@
               "RelativeToolTip": "Sharing Place\\Views\\Register.xaml.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAAAAcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T18:49:12.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T18:49:12.069Z"
             },
             {
               "$type": "Document",
@@ -93,33 +79,43 @@
               "RelativeToolTip": "Sharing Place\\Views\\SignIn.xaml.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T18:49:09.277Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T18:49:09.277Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CreateDB.sql",
               "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Data\\CreateDB.sql",
               "RelativeDocumentMoniker": "SPServer\\Data\\CreateDB.sql",
               "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Data\\CreateDB.sql",
               "RelativeToolTip": "SPServer\\Data\\CreateDB.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-06-28T17:43:22.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T17:43:22.483Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MenuServer.cs",
               "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\MenuServer.cs",
               "RelativeDocumentMoniker": "SPServer\\MenuServer.cs",
               "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\MenuServer.cs",
               "RelativeToolTip": "SPServer\\MenuServer.cs",
-              "ViewState": "AQIAALAAAAAAAAAAAAAtwLsAAABHAAAA",
+              "ViewState": "AQIAADoAAAAAAAAAAAAQwEcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-28T17:29:04.927Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Class.cs",
+              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Class.cs",
+              "RelativeDocumentMoniker": "SPServer\\Class.cs",
+              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Class.cs",
+              "RelativeToolTip": "SPServer\\Class.cs",
+              "ViewState": "AQIAAKMAAAAAAAAAAAAAALcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T17:29:06.519Z"
             }
           ]
         },

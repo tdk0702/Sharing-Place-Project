@@ -94,3 +94,30 @@ D:\Projects\GitHub\Sharing-Place-Project\SPServer\bin\Debug\net8.0-windows\runti
 D:\Projects\GitHub\Sharing-Place-Project\SPServer\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
 D:\Projects\GitHub\Sharing-Place-Project\SPServer\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Projects\GitHub\Sharing-Place-Project\SPServer\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\SPServer.exe
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\SPServer.deps.json
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\SPServer.runtimeconfig.json
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\SPServer.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\SPServer.pdb
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.csproj.AssemblyReference.cache
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SP_Server.ListAccount.resources
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SP_Server.LogMenu.resources
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SP_Server.MenuServer.resources
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.csproj.GenerateResource.cache
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.GeneratedMSBuildEditorConfig.editorconfig
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.AssemblyInfoInputs.cache
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.AssemblyInfo.cs
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.csproj.CoreCompileInputs.cache
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.sourcelink.json
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.csproj.Up2Date
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\refint\SPServer.dll
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.pdb
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\SPServer.genruntimeconfig.cache
+E:\Lap trinh ung dung di dong\DO AN\Sharing\SPServer\obj\Debug\net8.0-windows\ref\SPServer.dll
