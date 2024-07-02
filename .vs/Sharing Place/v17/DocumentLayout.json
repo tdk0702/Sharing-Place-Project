@@ -1,34 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\GitHub\\Sharing-Place-Project\\",
+  "WorkspaceRootPath": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\sharing place\\views\\postmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\postmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\spserver\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\views\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\sharing place\\views\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\projects\\github\\sharing-place-project\\sharing place\\views\\signin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|e:\\lap trinh ung dung di dong\\do an\\sharing\\sharing place\\views\\signin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\signin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|d:\\projects\\github\\sharing-place-project\\spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
-      "RelativeMoniker": "D:0:0:{ECF3E3F2-2345-4607-9786-5A0E1E85D58A}|SPServer\\SPServer.csproj|solutionrelative:spserver\\data\\createdb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,19 +34,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 101,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "PostMenu.xaml",
+              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\PostMenu.xaml",
+              "RelativeDocumentMoniker": "Sharing Place\\Views\\PostMenu.xaml",
+              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\PostMenu.xaml",
+              "RelativeToolTip": "Sharing Place\\Views\\PostMenu.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-29T15:29:49.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Class.cs",
+              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Class.cs",
+              "RelativeDocumentMoniker": "SPServer\\Class.cs",
+              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Class.cs",
+              "RelativeToolTip": "SPServer\\Class.cs",
+              "ViewState": "AQIAAKMAAAAAAAAAAAAAALcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T17:29:06.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Register.xaml.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\Register.xaml.cs",
+              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\Register.xaml.cs",
               "RelativeDocumentMoniker": "Sharing Place\\Views\\Register.xaml.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\Register.xaml.cs",
+              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\Register.xaml.cs",
               "RelativeToolTip": "Sharing Place\\Views\\Register.xaml.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAAAAcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -59,11 +85,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SignIn.xaml.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\SignIn.xaml.cs",
+              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\SignIn.xaml.cs",
               "RelativeDocumentMoniker": "Sharing Place\\Views\\SignIn.xaml.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Views\\SignIn.xaml.cs",
+              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Views\\SignIn.xaml.cs",
               "RelativeToolTip": "Sharing Place\\Views\\SignIn.xaml.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -72,36 +98,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CreateDB.sql ",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Data\\CreateDB.sql",
+              "DocumentIndex": 2,
+              "Title": "CreateDB.sql",
+              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Data\\CreateDB.sql",
               "RelativeDocumentMoniker": "SPServer\\Data\\CreateDB.sql",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Data\\CreateDB.sql*",
-              "RelativeToolTip": "SPServer\\Data\\CreateDB.sql*",
+              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\Data\\CreateDB.sql",
+              "RelativeToolTip": "SPServer\\Data\\CreateDB.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2024-06-28T17:43:22.483Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Class.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Class.cs",
-              "RelativeDocumentMoniker": "SPServer\\Class.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\Class.cs",
-              "RelativeToolTip": "SPServer\\Class.cs",
-              "ViewState": "AQIAALcAAAAAAAAAAAAAAMUAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T17:29:06.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MenuServer.cs",
-              "DocumentMoniker": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\MenuServer.cs",
+              "DocumentMoniker": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\MenuServer.cs",
               "RelativeDocumentMoniker": "SPServer\\MenuServer.cs",
-              "ToolTip": "D:\\Projects\\GitHub\\Sharing-Place-Project\\SPServer\\MenuServer.cs",
+              "ToolTip": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\MenuServer.cs",
               "RelativeToolTip": "SPServer\\MenuServer.cs",
               "ViewState": "AQIAALAAAAAAAAAAAAAtwLsAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
