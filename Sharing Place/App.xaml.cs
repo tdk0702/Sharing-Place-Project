@@ -8,12 +8,11 @@ namespace Sharing_Place
 {
     public partial class App : Application
     {
-        //public static IPEndPoint Server;
         public App()
         {
             InitializeComponent();
-            MainPage = new LoginShell();
-            connectServer();
+            MainPage = new MenuShell();
+            //new Thread(() =>{ connectServer(); }).Start();
         }
         private void connectServer()
         {
@@ -43,6 +42,7 @@ namespace Sharing_Place
             string[] datasplit = data.Split(" ");
             ServerConnect.Id = datasplit[2];
             ServerConnect.Server = new IPEndPoint(IPAddress.Parse(datasplit[3]), 7070);
+            ServerConnect.isConnected = true;
         }
     }
 }

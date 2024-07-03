@@ -9,14 +9,14 @@ namespace Sharing_Place.Models
 {
     public class User
     {
-        public string Id;
-        public string Username;
-        public string Email; 
-        public string Fullname;
-        public string Nickname;
-        public string Birthdate;
-        public string Created_At;
-        public string Gender; 
+        public string Id { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Fullname { get; set; }
+        public string Nickname { get; set; }
+        public string Birthdate { get; set; }
+        public string Created_At { get; set; }
+        public string Gender { get; set; }
         public User()
         {
             Id = "0";
