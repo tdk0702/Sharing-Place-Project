@@ -19,6 +19,7 @@ GO
 CREATE SCHEMA [Group]
 GO
 
+
 CREATE TABLE [Images] (
   [id] int PRIMARY KEY IDENTITY(0, 1),
   [link] nvarchar(255) DEFAULT 'link',

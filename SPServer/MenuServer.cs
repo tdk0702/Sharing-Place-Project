@@ -8,6 +8,9 @@ using System.Data.SqlClient;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using System.Reflection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SP_Server
 {
@@ -118,7 +121,7 @@ namespace SP_Server
                 return;
             }
 
-            if (command.Contains("./register "))
+            if (command.Contains("./register"))
             {
                 //Command:  ./register <client_id> <username> <email> <password> <fullname>
                 //Example: ./register 1 tdk@123 tester@gm.com XXXXXXX Tester_User
@@ -131,8 +134,8 @@ namespace SP_Server
             if (command.Contains("./loadview"))
             {
                 //Command:  ./loadview <client_id> <view> [<subview_id>]
-                //Example: ./loadview 1 000001 rooms 
-                //Example: ./loadview 1 000001 roompost 1 
+                //Example: ./loadview 1 rooms 
+                //Example: ./loadview 1 roompost 1 
                 string[] cmdsplit = command.Split(" ");
                 writeLog(command, cmdsplit[1]);
                 if (!userClients.ContainsKey(cmdsplit[1])) { writeLog("Lỗi - Không tìm thấy client có id:" + cmdsplit[1]); return; }
@@ -147,12 +150,35 @@ namespace SP_Server
             //Quên mật khẩu, lấy mã PIN xác thực
             if (command.Contains("./forgetpass"))
             {
-                //Command: ./forgetpass <client_id> <user_id>
-                //Example: ./forgetpass 1 000001 
+                //Command: ./forgetpass <client_id> <username>|<email>
+                //Example: ./forgetpass 1 tdk0702 
+                //Example: ./forgetpass 1 tester@gm.com 
                 string[] cmdsplit = command.Split(" ");
                 writeLog(command, cmdsplit[1]);
                 forgetPassword(cmdsplit[1], cmdsplit[2]);
                 return;
+            }
+            //Đặt lại mật khẩu
+            if (command.Contains("./renewpass"))
+            {
+                //Command: ./renewpass <client_id> <user_id> <password>
+                //Example: ./renewpass 1 001 XXXXXX 
+                string[] cmdsplit = command.Split(" ");
+                writeLog(command, cmdsplit[1]);
+                renewPassword(cmdsplit[1], cmdsplit[2], cmdsplit[3]);
+                return;
+            }
+            if (command.Contains("./runquery"))
+            {
+                //Command: ./runquery <client_id> <query>
+                //Example: ./runquery 1 SELECT Id,name,fullname [User].[Users] WHERE ...
+                //Bỏ ./runquery
+                string query = command.Substring(command.IndexOf(" ") + 1);
+                string id = query.Substring(0,command.IndexOf(" "));
+                query = query.Substring(command.IndexOf(" ") + 1);
+                //Lấy selected items: id, name, fullname 
+                string[] items = command.Substring(command.IndexOf(" ") + 1, command.IndexOf("]") - 1).Split(",");
+                runQuery(userClients[id], query, items);
             }
         }
 
@@ -174,7 +200,7 @@ namespace SP_Server
 
             string id = dt.Rows[0]["id"].ToString();
             string password = dt.Rows[0]["password"].ToString();
-            if (pass != password) { writeLog("Mật khẩu không khớp"); sendData(userClients[client_id].Ip, "[WRONG PASS]"); return; }
+            if (!Hasher.Verify(pass, password)) { writeLog("Mật khẩu không khớp"); sendData(userClients[client_id].Ip, "[WRONG PASS]"); return; }
             userClients[client_id].Id = id;
             writeLog("Đăng nhập thành công UserID: " + id);
             sendData(userClients[client_id].Ip, "[OK] " + getUser(id));
@@ -185,7 +211,7 @@ namespace SP_Server
             string query = string.Format("SELECT id FROM [User].[Users] WHERE username = '{0}' OR email = '{1}';", username, email);
             DataTable dt = SqlQuery.getData(query); 
             if (dt.Rows.Count > 0) { writeLog("Đã tồn tại tài khoản id: " + dt.Rows[0]["id"].ToString()); sendData(userClients[client_id].Ip, "[EXIST]"); return; }
-            query = string.Format("INSERT INTO [User].[Users] VALUES (N'{0}', N'{1}', N'{2}', DEFAULT);", username, email, pass);
+            query = string.Format("INSERT INTO [User].[Users] VALUES (N'{0}', N'{1}', N'{2}', DEFAULT);", username, pass, email);
             SqlQuery.queryData(query);
             query = "SELECT id FROM [User].[Users] WHERE username = '" + username +"';";
             dt = SqlQuery.getData(query);
@@ -208,20 +234,30 @@ namespace SP_Server
             data += " " + user.Info.Gender;
             return data;
         }
-        private void forgetPassword(string client_id, string user_id)
+        private void forgetPassword(string client_id, string username)
         {
             if (!userClients.ContainsKey(client_id)) { writeLog("Lỗi - Không tìm thấy client có id:" + client_id); return; }
-            User user = User.loadUser(user_id);
-            string PIN = sendEmailForget(user.Email);
-            sendData(userClients[client_id].Ip, "[OK] " + PIN);
+            string query = string.Format("SELECT id,username,email FROM [User].[Users] WHERE username = '{0}' OR email = '{0}';", username);
+            DataTable dt = SqlQuery.getData(query);
+            if (dt.Rows.Count <= 0) { writeLog("Không tồn tại tài khoản: " + username); sendData(userClients[client_id].Ip, "[EXIST]"); return; }
+            string email;
+            string id = dt.Rows[0]["id"].ToString();
+            if (!(username.Contains("@") && username.Contains(".")))
+            {
+                email = dt.Rows[0]["email"].ToString();
+            }
+            else email = username;
+            string PIN = sendEmailForget(email);
+            writeLog("Đã gửi mail, mã PIN: " + PIN);
+            sendData(userClients[client_id].Ip, string.Join(" ","[OK]",id,PIN));
         }
         private string sendEmailForget(string email)
         {
-            //eojh pefj sann yywt
+            //skad yybw ohhd sfml
             string PIN = randomOTP();
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             NetworkCredential credential = new NetworkCredential(
-                "sharingplace.mobile@gmail.com", "eojhpefjsannyywt");
+                "sharingplace.mobile@gmail.com", "skadyybwohhdsfml");
             MailMessage message = new MailMessage();
             smtp.Credentials = credential;
             smtp.EnableSsl = true;
@@ -230,10 +266,12 @@ namespace SP_Server
             message.Subject = "XÁC THỰC LẤY LẠI MẬT KHẨU";
             message.Body = "Mã xác thực: " + PIN;
             message.IsBodyHtml = true;
-            while (true)
+            int TTL = 3;
+            while (TTL>0)
             {
                 try
                 {
+                    TTL--;
                     smtp.Send(message);
                     break;
                 }
@@ -245,6 +283,20 @@ namespace SP_Server
         private string randomOTP()
         {
             return new Random().Next(100000, 999999).ToString();
+        }
+
+        private void renewPassword(string client_id, string user_id ,string password)
+        {
+            if (!userClients.ContainsKey(client_id)) { writeLog("Lỗi - Không tìm thấy client có id:" + client_id); return; }
+            string query = string.Format("SELECT id FROM [User].[Users] WHERE id = {0} ;", user_id);
+            DataTable dt = SqlQuery.getData(query);
+            if (dt.Rows.Count <= 0) { writeLog("Không tồn tại tài khoản id: " + user_id); sendData(userClients[client_id].Ip, "[EXIST]"); return; }
+
+            query = string.Format("UPDATE [User].[Users] SET password = N'{1}' WHERE id = {0};", user_id, password);
+            bool isquery = SqlQuery.queryData(query);
+
+            if (!isquery) { writeLog("Không thể update CSDL"); sendData(userClients[client_id].Ip, "[ERROR]"); }
+            else { writeLog("Cập nhật mật khẩu thành công id: " + user_id); sendData(userClients[client_id].Ip, "[OK]"); }
         }
         private void loadView(KeyValuePair<string, UserClient> host, string view, string subview_id = "-1")
         {
@@ -260,9 +312,9 @@ namespace SP_Server
             string data = string.Empty;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                data += dt.Rows[i]["id"] + " ";
-                data += dt.Rows[i]["roomname"] + " ";
-                data += dt.Rows[i]["type"] + ";";
+                data += dt.Rows[i]["id"].ToString() + " ";
+                data += dt.Rows[i]["roomname"].ToString().Replace(" ","_") + " ";
+                data += dt.Rows[i]["type"].ToString() + ";";
             }
             writeLog(data, host.Key);
             sendData(host.Value.Ip, data);
@@ -411,6 +463,22 @@ namespace SP_Server
                 lvRooms.Items.Add(lvi);
             }
 
+        }
+        //Chạy query
+        private void runQuery(UserClient host,string query, string[] items)
+        {
+            DataTable dt = SqlQuery.getData(query);
+            if (dt.Rows.Count <= 0) { writeLog("Sai query"); sendData(host.Ip, "[ERROR]"); return; }
+            string data = string.Empty;
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                try
+                {
+                    for (int j = 0; j < items.Length; j++) data += dt.Rows[i][items[j]].ToString().Replace(" ","_") + " ";
+                }
+                catch (Exception ex) { writeLog("Sai query"); sendData(host.Ip, "[ERROR]"); return; }
+                data = data.Trim() + ";";
+            }    
         }
         //Viết lịch sử lệnh gửi nhận
         public static void writeLog(string data, string client_id = null)
