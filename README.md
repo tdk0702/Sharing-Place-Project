@@ -5,6 +5,7 @@
   
 ## Features  
 - Sharing story
+- Chatting together
 - 
 ## Course
 Class: **NT118.O22 - Mobile Device Application Development**  
