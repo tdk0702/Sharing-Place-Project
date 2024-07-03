@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Sharing Place.csproj": {}
+    "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Sharing Place.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Sharing Place.csproj": {
+    "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Sharing Place.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Sharing Place.csproj",
+        "projectUniqueName": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Sharing Place.csproj",
         "projectName": "Sharing Place",
-        "projectPath": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\Sharing Place.csproj",
-        "packagesPath": "C:\\Users\\dkduy\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\GitHub\\Sharing-Place-Project\\Sharing Place\\obj\\",
+        "projectPath": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\Sharing Place.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\Sharing Place\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dkduy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -76,11 +76,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -123,11 +123,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -170,11 +170,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -218,11 +218,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.21, )"
             }
           },
           "imports": [

@@ -107,6 +107,9 @@
     <MauiXaml Update="Views\RoomViews\ListRoom.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+	  <MauiXaml Update="Views\NewPostPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>s
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
