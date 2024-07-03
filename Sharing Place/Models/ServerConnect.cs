@@ -19,15 +19,18 @@ namespace Sharing_Place.Models
         public static string Id;
         public static IPEndPoint Client;
         public static IPEndPoint Server = new IPEndPoint(IPAddress.Broadcast, 7070);
+        public static bool isConnected = false;
         public static string getData(string command)
         {
             string data = null;
+            int TTL = 5;
             new Thread(() =>
             {
                 data = ServerConnect.receivePacket();
             }).Start();
             ServerConnect.sendServer(command);
-            while (data == null) Thread.Sleep(1000); 
+            while (data == null || TTL > 0) { Thread.Sleep(1000); TTL--; }
+            if (data == null) return "[NO RCV]";
             return data;
         }
         public static void sendServer(string data)
@@ -62,6 +65,10 @@ namespace Sharing_Place.Models
                     return data;
                 }
             }
+        }
+        public static bool checkReceived(string data)
+        {
+            return !data.Contains("[NO RCV]");
         }
         public IPEndPoint getIP()
         {
