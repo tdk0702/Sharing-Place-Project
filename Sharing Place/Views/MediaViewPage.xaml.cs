@@ -1,4 +1,4 @@
-using CommunityToolkit.Maui.Views;
+﻿using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 using System.IO;
 using System.Threading.Tasks;
@@ -68,6 +68,7 @@ namespace Sharing_Place.Views
                 await DisplayAlert("Error", $"Failed to download file: {ex.Message}", "OK");
             }
         }
+
         private async void Exit(object sender, EventArgs e)
         {
             await Navigation.PopAsync(); // Quay lại trang trước đó

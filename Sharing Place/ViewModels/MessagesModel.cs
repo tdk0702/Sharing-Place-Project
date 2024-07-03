@@ -13,6 +13,7 @@ namespace Sharing_Place.ViewModels
             public string Message { get; set; }
             public string ImgAvt { get; set; }
             public string SentAt { get; set; }
+            
         }
     }
 }
