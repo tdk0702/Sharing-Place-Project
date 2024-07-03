@@ -69,14 +69,7 @@ namespace Sharing_Place.Views
         }
     }
 
-    public class User1
-    {
-        public string Name { get; set; }
-        public string ImgAvt { get; set; }
-        public bool IsOnline { get; set; }
-        public int CommonFriendsCount { get; set; }
-    }
-
+    
     public class MessageModel
     {
         public string Name { get; set; }

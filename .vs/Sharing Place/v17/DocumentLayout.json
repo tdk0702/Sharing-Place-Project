@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\message.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\message.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\message.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\listfriend.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\listfriend.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2845E95F-F6EA-47F3-90AE-2B272AC46FC5}|SP Server\\SP Server.csproj|d:\\app\\sharing-place-project\\sp server\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2845E95F-F6EA-47F3-90AE-2B272AC46FC5}|SP Server\\SP Server.csproj|solutionrelative:sp server\\menuserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\listmessage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\listmessage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\message.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\message.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\views\\listfriend.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|solutionrelative:sharing place\\views\\listfriend.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D72E482-AB8C-4249-8AC0-0817F7D3648B}|Sharing Place\\Sharing Place.csproj|d:\\app\\sharing-place-project\\sharing place\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,20 +54,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MenuServer.cs",
               "DocumentMoniker": "D:\\App\\Sharing-Place-Project\\SP Server\\MenuServer.cs",
               "RelativeDocumentMoniker": "SP Server\\MenuServer.cs",
               "ToolTip": "D:\\App\\Sharing-Place-Project\\SP Server\\MenuServer.cs",
               "RelativeToolTip": "SP Server\\MenuServer.cs",
-              "ViewState": "AQIAAB0CAAAAAAAAAAAswC8CAAAFAAAA",
+              "ViewState": "AQIAAFECAACAZmZmZmYGwGMCAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T07:56:17.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-02T07:56:17.61Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Message.xaml",
               "DocumentMoniker": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\Message.xaml",
               "RelativeDocumentMoniker": "Sharing Place\\Views\\Message.xaml",
@@ -75,12 +74,11 @@
               "RelativeToolTip": "Sharing Place\\Views\\Message.xaml",
               "ViewState": "AQIAAEwAAAAAAAAAAAAAAFgAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-01T14:07:20.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-01T14:07:20.611Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ListFriend.xaml.cs",
               "DocumentMoniker": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\ListFriend.xaml.cs",
               "RelativeDocumentMoniker": "Sharing Place\\Views\\ListFriend.xaml.cs",
@@ -88,8 +86,7 @@
               "RelativeToolTip": "Sharing Place\\Views\\ListFriend.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T04:06:10.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-03T04:06:10.973Z"
             },
             {
               "$type": "Document",
@@ -99,20 +96,20 @@
               "RelativeDocumentMoniker": "Sharing Place\\Views\\Message.xaml.cs",
               "ToolTip": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\Message.xaml.cs",
               "RelativeToolTip": "Sharing Place\\Views\\Message.xaml.cs",
-              "ViewState": "AQIAADYCAAAAAAAAAAAAACgBAAAAAAAA",
+              "ViewState": "AQIAAD8CAAAAAAAAAAAAABcCAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-01T14:26:55.483Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ListMessage.xaml.cs",
               "DocumentMoniker": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\ListMessage.xaml.cs",
               "RelativeDocumentMoniker": "Sharing Place\\Views\\ListMessage.xaml.cs",
               "ToolTip": "D:\\App\\Sharing-Place-Project\\Sharing Place\\Views\\ListMessage.xaml.cs",
               "RelativeToolTip": "Sharing Place\\Views\\ListMessage.xaml.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAAAEwAAAAzAAAA",
+              "ViewState": "AQIAADYAAAAAAAAAAAAqwEcAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-03T03:30:57.556Z"
             }

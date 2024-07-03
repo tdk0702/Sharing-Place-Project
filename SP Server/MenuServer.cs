@@ -153,6 +153,16 @@ namespace SP_Server
                 forwardVoiceMessage(receiverId, audioBase64);
                 return;
             }
+            if (command.Contains("./groupmessage"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string roomId = cmdsplit[2];
+                string message = string.Join(" ", cmdsplit, 3, cmdsplit.Length - 3);
+                saveGroupMessageToDatabase(senderId, roomId, message);
+                forwardGroupMessage(roomId, senderId, message);
+                return;
+            }
         }
 
         //Nhận lệnh connect và gửi lại xác nhận.
@@ -552,6 +562,52 @@ namespace SP_Server
             if (receiver != null)
             {
                 sendData(receiver, audioBase64);
+            }
+        }
+
+        private void saveGroupMessageToDatabase(string senderId, string roomId, string message)
+        {
+            try
+            {
+                string query = "INSERT INTO [GroupMessages] (SenderId, RoomId, Message, Timestamp) VALUES (@SenderId, @RoomId, @Message, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@RoomId", roomId);
+                        cmd.Parameters.AddWithValue("@Message", message);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved group message to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving group message to database: " + ex.Message);
+            }
+        }
+
+        private void forwardGroupMessage(string roomId, string senderId, string message)
+        {
+            Room room = Rooms.Find(r => r.Id == roomId);
+            if (room != null)
+            {
+                foreach (UserInfo member in room.Members)
+                {
+                    UserClient receiver = userClients.Find(uc => uc.Id == member.Id);
+                    if (receiver != null && receiver.Id != senderId)
+                    {
+                        sendData(receiver, $"./groupmessage {roomId} {senderId} {message}");
+                        writeLog($"Forwarded group message to {receiver.Id} in room {roomId}");
+                    }
+                }
+            }
+            else
+            {
+                writeLog($"Room with id {roomId} not found");
             }
         }
         private void btnStartServer_Click(object sender, EventArgs e)

@@ -19,11 +19,12 @@ namespace Sharing_Place.Views
         private readonly string clientId;
         private readonly User chatUser;
         private readonly AudioRecorderService audioRecorderService;
+        private List<User> groupMembers;
         public Message(User user)
         {
             InitializeComponent();
             chatUser = user;
-
+            List<User> members = null;
             udpClient = new UdpClient();
             remoteEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 7070);
 
@@ -31,8 +32,17 @@ namespace Sharing_Place.Views
 
             Task.Run(ReceiveMessagesAsync);
 
-            Title = user.Username;
-            DisplayUserInfo(user);
+            if (members != null)
+            {
+                groupMembers = members;
+                Title = "Group Chat";
+                DisplayGroupInfo();
+            }
+            else
+            {
+                Title = user.Username;
+                DisplayUserInfo(user);
+            }
             audioRecorderService = new AudioRecorderService
             {
                 StopRecordingOnSilence = true, // Dừng ghi âm khi không có tiếng động
@@ -40,7 +50,12 @@ namespace Sharing_Place.Views
                 AudioSilenceTimeout = TimeSpan.FromSeconds(2) // Giới hạn thời gian không có tiếng động tối đa
             };
         }
-        
+        private void DisplayGroupInfo()
+        {
+            UserImage.Source = "group_icon.png"; // Thay bằng icon nhóm thích hợp
+            UserNameLabel.Text = $"Group ({groupMembers.Count} members)";
+            UserStatusLabel.Text = "Active";
+        }
         public void DisplayUserInfo(User user)
         {
             
@@ -210,7 +225,17 @@ namespace Sharing_Place.Views
             try
             {
                 string messageId = Guid.NewGuid().ToString();
-                string formattedMessage = $"./message {clientId} {receiverId} {messageId} {message}";
+                string formattedMessage;
+
+                if (groupMembers != null)
+                {
+                    formattedMessage = $"./group_message {clientId} {messageId} {message}";
+                }
+                else
+                {
+                    formattedMessage = $"./message {clientId} {receiverId} {messageId} {message}";
+                }
+
                 var messageBytes = Encoding.UTF8.GetBytes(formattedMessage);
                 await udpClient.SendAsync(messageBytes, messageBytes.Length, remoteEndPoint);
             }
@@ -284,7 +309,16 @@ namespace Sharing_Place.Views
                                 });
                             }
                             break;
-
+                        case "./group_message":
+                            if (parts.Length >= 4)
+                            {
+                                var messageText = parts[3];
+                                MainThread.BeginInvokeOnMainThread(() =>
+                                {
+                                    AddMessage(messageText, senderId == clientId);
+                                });
+                            }
+                            break;
                         default:
                             Console.WriteLine($"Unknown command: {command}");
                             break;
@@ -355,8 +389,9 @@ namespace Sharing_Place.Views
             try
             {
                 var messageId = Guid.NewGuid().ToString();
-                var senderId = "SenderId";
-                var command = $"./emotion {senderId} {messageId} {emotion}";
+                var command = groupMembers != null
+            ? $"./group_emotion {clientId} {messageId} {emotion}"
+            : $"./emotion {clientId} {messageId} {emotion}";
                 var messageBytes = Encoding.UTF8.GetBytes(command);
                 await udpClient.SendAsync(messageBytes, messageBytes.Length, remoteEndPoint);
             }
@@ -409,7 +444,9 @@ namespace Sharing_Place.Views
 
                 var fileName = Path.GetFileName(filePath);
                 var fileId = Guid.NewGuid().ToString();
-                var message = $"./file {fileType} {fileName} {fileId} {fileInfo.Length}";
+                var message = groupMembers != null
+        ? $"./group_file {fileType} {fileName} {fileId} {fileInfo.Length}"
+        : $"./file {fileType} {fileName} {fileId} {fileInfo.Length}";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
 
                 // Send file info
