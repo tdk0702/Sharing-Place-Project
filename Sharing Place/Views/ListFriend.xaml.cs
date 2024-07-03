@@ -1,22 +1,23 @@
 using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Sharing_Place.Models;
 
 namespace Sharing_Place.Views
 {
     public partial class ListFriend : ContentPage
     {
-        public ObservableCollection<User1> Friends { get; set; }
+        public ObservableCollection<User> Friends { get; set; }
         public string FriendsCount => $"{Friends.Count} ";
 
         public ListFriend()
         {
             InitializeComponent();
-            Friends = new ObservableCollection<User1>
+            Friends = new ObservableCollection<User>
             {
-                new User1 { Name = "User1", ImgAvt = "user1.png", CommonFriendsCount = 10 },
-                new User1 { Name = "User2", ImgAvt = "user2.png", CommonFriendsCount = 8 },
-                new User1 { Name = "User3", ImgAvt = "user3.png", CommonFriendsCount = 5 }
+                new User { Username = "User1", ImgAvt = "user1.png", CommonFriendsCount = 10 },
+                new User { Username = "User2", ImgAvt = "user2.png", CommonFriendsCount = 8 },
+                new User { Username = "User3", ImgAvt = "user3.png", CommonFriendsCount = 5 }
             };
             this.BindingContext = this;
         }
@@ -24,7 +25,7 @@ namespace Sharing_Place.Views
         private async void ButtonMessage(object sender, EventArgs e)
         {
             var button = sender as Button;
-            var user = button?.BindingContext as User1;
+            var user = button?.BindingContext as User;
 
             if (user != null)
             {
@@ -35,7 +36,7 @@ namespace Sharing_Place.Views
         private void ButtonDelete(object sender, EventArgs e)
         {
             var button = sender as Button;
-            var user = button?.BindingContext as User1;
+            var user = button?.BindingContext as User;
 
             if (user != null)
             {
@@ -54,7 +55,7 @@ namespace Sharing_Place.Views
             }
             else
             {
-                FriendsListView.ItemsSource = Friends.Where(user => user.Name.ToLower().Contains(searchText));
+                FriendsListView.ItemsSource = Friends.Where(user => user.Username.ToLower().Contains(searchText));
             }
         }
     }

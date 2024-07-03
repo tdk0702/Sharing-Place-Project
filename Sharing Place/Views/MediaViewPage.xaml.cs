@@ -1,4 +1,4 @@
-using CommunityToolkit.Maui.Views;
+﻿using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,20 +22,20 @@ namespace Sharing_Place.Views
         {
             TitleLabel.Text = Path.GetFileName(mediaPath);
 
+            View mediaView;
             if (isImage)
             {
-                var image = new Image
+                mediaView = new Image
                 {
                     Source = ImageSource.FromFile(mediaPath),
                     Aspect = Aspect.AspectFit,
                     WidthRequest = 300,
                     HeightRequest = 300
                 };
-                MediaContainer.Children.Add(image);
             }
             else
             {
-                var video = new MediaElement
+                mediaView = new MediaElement
                 {
                     Source = mediaPath,
                     Aspect = Aspect.AspectFit,
@@ -44,8 +44,9 @@ namespace Sharing_Place.Views
                     ShouldAutoPlay = false,
                     ShouldShowPlaybackControls = true
                 };
-                MediaContainer.Children.Add(video);
             }
+
+            MediaContainer.Children.Add(mediaView);
         }
 
         private async void OnDownloadButtonClicked(object sender, EventArgs e)
@@ -68,12 +69,10 @@ namespace Sharing_Place.Views
                 await DisplayAlert("Error", $"Failed to download file: {ex.Message}", "OK");
             }
         }
+
         private async void Exit(object sender, EventArgs e)
         {
-            if (BindingContext is User1 user)
-            {
-                await Navigation.PushAsync(new CallPage(user));
-            }
+            await Navigation.PopAsync(); // Quay lại trang trước đó
         }
     }
 }

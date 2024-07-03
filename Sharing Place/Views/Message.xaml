@@ -35,14 +35,6 @@
                        VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"/>
             </VerticalStackLayout>
-            <Image Source="telephone1.png" 
-       WidthRequest="20" 
-       HeightRequest="20" 
-       HorizontalOptions="EndAndExpand">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnCallButtonClicked"/>
-                </Image.GestureRecognizers>
-            </Image>
         </StackLayout>
 
         <!-- Messages List -->
@@ -52,7 +44,7 @@
 
         <!-- Emotion and File Stacks -->
         <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="10" Spacing="10" Grid.Row="2">
-            <Grid x:Name="EmotionGrid" BackgroundColor="LightGray" Padding="5" IsVisible="False">
+            <Grid x:Name="EmotionGrid" BackgroundColor="White" Padding="5" IsVisible="False">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -85,9 +77,14 @@
                 <Button Text="😒" Clicked="OnSendEmotionTapped" Grid.Row="3" Grid.Column="1"/>
                 <Button Text="👌" Clicked="OnSendEmotionTapped" Grid.Row="3" Grid.Column="2"/>
             </Grid>
-            <StackLayout x:Name="FileStack" Orientation="Horizontal" IsVisible="False" BackgroundColor="LightGray" Padding="10">
-                <Button Text="Picture" Clicked="OnSelectFileTapped"/>
-                <Button Text="Video" Clicked="OnSelectFileTapped"/>
+            <StackLayout x:Name="FileStack" Orientation="Horizontal" IsVisible="False" BackgroundColor="White" Padding="5">
+                <Button Text="Picture" BackgroundColor="#27D276" Clicked="OnSelectFileTapped"/>
+                <Button Text="Video" BackgroundColor="#27D276" Clicked="OnSelectFileTapped"/>
+            </StackLayout>
+            <StackLayout x:Name="RecordingStack" Orientation="Horizontal" IsVisible="False" BackgroundColor="White" Padding="5">
+                <ProgressBar x:Name="RecordingProgressBar" IsVisible="False" />
+                <Label x:Name="RecordingTimeLabel" IsVisible="False" Text="00:00" />
+                <Button x:Name="StopRecordingButton" Text="Stop Recording" IsVisible="False" Clicked="OnStopRecordingButtonClicked" />
             </StackLayout>
             <StackLayout Orientation="Horizontal" BackgroundColor="White" Spacing="10">
                 <Image Source="happiness.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="Start">
@@ -100,6 +97,12 @@
                         <TapGestureRecognizer Tapped="OnFileButtonClicked"/>
                     </Image.GestureRecognizers>
                 </Image>
+                <Image Source="interface_icon.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnChatVoiceButtonClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+               
                 <Entry x:Name="MessageEntry" Placeholder="Type Message" HorizontalOptions="FillAndExpand"/>
                 <Image Source="send1.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End">
                     <Image.GestureRecognizers>

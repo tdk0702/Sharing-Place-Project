@@ -143,6 +143,16 @@ namespace SP_Server
                 handleFileTransfer(command);
                 return;
             }
+            if (command.Contains("./voice"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string receiverId = cmdsplit[2];
+                string audioBase64 = cmdsplit[3];
+                saveVoiceMessageToDatabase(senderId, receiverId, audioBase64);
+                forwardVoiceMessage(receiverId, audioBase64);
+                return;
+            }
         }
 
         //Nhận lệnh connect và gửi lại xác nhận.
@@ -509,6 +519,40 @@ namespace SP_Server
 
             string data = Encoding.UTF8.GetString(completeData.ToArray());
             return data;
+        }
+
+        private void saveVoiceMessageToDatabase(string senderId, string receiverId, string audioBase64)
+        {
+            string query = "INSERT INTO [Messages].[Messages] (sender_id, receiver_id, message, date, time, type) VALUES (@senderId, @receiverId, @audioBase64, GETDATE(), GETDATE(), 'voice')";
+            List<SqlParameter> parameters = new List<SqlParameter>
+    {
+        new SqlParameter("@senderId", senderId),
+        new SqlParameter("@receiverId", receiverId),
+        new SqlParameter("@audioBase64", audioBase64)
+    };
+
+            string connectionString = "Connected";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddRange(parameters.ToArray());
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        private void forwardVoiceMessage(string receiverId, string audioBase64)
+        {
+            UserClient receiver = userClients.Find(uc => uc.Id == receiverId);
+            if (receiver != null)
+            {
+                sendData(receiver, audioBase64);
+            }
         }
         private void btnStartServer_Click(object sender, EventArgs e)
         {

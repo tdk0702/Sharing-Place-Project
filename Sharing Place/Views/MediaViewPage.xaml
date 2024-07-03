@@ -4,7 +4,7 @@
              x:Class="Sharing_Place.Views.MediaViewPage">
     <StackLayout>
         <StackLayout Orientation="Horizontal">
-        <Label x:Name="TitleLabel" FontSize="Medium" HorizontalOptions="Center" />
+            <Label x:Name="TitleLabel" FontSize="Medium" HorizontalOptions="Center" />
             <ImageButton Source="close.png" WidthRequest="30" 
                          HeightRequest="30" HorizontalOptions="EndAndExpand"
                          Clicked="Exit"/>

@@ -1,21 +1,22 @@
 using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using System.Linq;
-
+using Sharing_Place.Models;
+using Sharing_Place.ViewModels;
 namespace Sharing_Place.Views
 {
     public partial class ListMessage : ContentPage
     {
-        private ObservableCollection<User1> _userSuggestions;
-        public ReadOnlyObservableCollection<User1> UserSuggestions { get; }
+        private ObservableCollection<User> _userSuggestions;
+        public ReadOnlyObservableCollection<User> UserSuggestions { get; }
 
         public ObservableCollection<MessageModel> Messages { get; set; }
 
         public ListMessage()
         {
             InitializeComponent();
-            _userSuggestions = new ObservableCollection<User1>();
-            UserSuggestions = new ReadOnlyObservableCollection<User1>(_userSuggestions);
+            _userSuggestions = new ObservableCollection<User>();
+            UserSuggestions = new ReadOnlyObservableCollection<User>(_userSuggestions);
             Messages = new ObservableCollection<MessageModel>();
 
             BindingContext = this;
@@ -38,7 +39,7 @@ namespace Sharing_Place.Views
 
         private void OnUserSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem is User1 selectedUser)
+            if (e.SelectedItem is User selectedUser)
             {
                 Navigation.PushAsync(new Message(selectedUser));
                 UserSuggestionListView.SelectedItem = null;
@@ -55,16 +56,16 @@ namespace Sharing_Place.Views
             }
         }
 
-        private IEnumerable<User1> GetUserSuggestions(string searchText)
+        private IEnumerable<User> GetUserSuggestions(string searchText)
         {
-            var users = new List<User1>
+            var users = new List<User>
             {
-                new User1 { Name = "User1", ImgAvt = "user1.png", IsOnline = true, CommonFriendsCount = 5 },
-                new User1 { Name = "User2", ImgAvt = "user2.png", IsOnline = false, CommonFriendsCount = 3 },
-                new User1 { Name = "User3", ImgAvt = "user3.png", IsOnline = true, CommonFriendsCount = 2 }
+                new User { Username = "User1", ImgAvt = "user1.png", IsOnline = true },
+                new User {Username = "User2", ImgAvt = "user2.png", IsOnline = false },
+                new User { Username = "User3", ImgAvt = "user3.png", IsOnline = true },
             };
 
-            return users.Where(user => user.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+            return users.Where(user => user.Username.Contains(searchText, StringComparison.OrdinalIgnoreCase));
         }
     }
 
