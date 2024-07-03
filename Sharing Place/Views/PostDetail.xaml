@@ -4,63 +4,63 @@
              x:Class="Sharing_Place.Views.PostDetail"
              Title="PostDetail">
     <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="10">
+        <VerticalStackLayout>
             <!-- Header with Logo and Button -->
-            <Grid BackgroundColor="#27D276" Padding="5">
-                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Start">
+            <Grid VerticalOptions="Fill" HorizontalOptions="Fill" Padding="5" BackgroundColor="#27D276">
+                <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center">
                     <Image Source="logo.png"
                            WidthRequest="50" HeightRequest="50"
                            HorizontalOptions="StartAndExpand"/>
-                    <Button x:Name="btnLogin"
-                            Text="New posts" 
-                            FontSize="Medium" 
-                            FontAttributes="Bold" 
-                            TextColor="Black" 
-                            BackgroundColor="White" 
-                            Margin="10"
-                            />
                 </HorizontalStackLayout>
             </Grid>
 
             <!-- Post Container -->
-            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White" Padding="10"
-                    BorderColor="#27D276" Margin="0">
-                <VerticalStackLayout Spacing="5">
-                    <!-- Post Header -->
-                    <HorizontalStackLayout Spacing="10">
-                        <Image Source="profile-pic.jpg"
-                               WidthRequest="40" HeightRequest="40"
-                               />
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <RoundRectangle Margin="-5,-10,-5,-2" 
+                                CornerRadius="40,40,0,0"
+                                Fill="White"/>
+                <VerticalStackLayout Padding="3" Spacing="5">
+                    <Frame CornerRadius="10" 
+                           HasShadow="True"
+                           BorderColor="#27D276"
+                           Margin="10,0,10,0">
                         <VerticalStackLayout>
-                            <Label Text="John Doe" FontAttributes="Bold" FontSize="Medium"/>
-                            <Label Text="2 hrs" FontSize="Small" TextColor="Gray"/>
+                            <HorizontalStackLayout HorizontalOptions="Fill">
+                                <Image Source="profile-pic.jpg"
+                                       WidthRequest="50" HeightRequest="50"
+                                       HorizontalOptions="StartAndExpand"/>
+                                <VerticalStackLayout Margin="10,0,0,0">
+                                    <Label Text="John Doe" FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label Text="2 hrs" FontSize="Small" FontAttributes="Italic"
+                                           HorizontalTextAlignment="End" HorizontalOptions="End"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                            <VerticalStackLayout>
+                                <Label Text="This is an example post content!"
+                                       FontSize="Small"/>
+                            </VerticalStackLayout>
+                            <Image Source="post-image.jpg" Aspect="AspectFill" HeightRequest="200"/>
+                            <Grid ColumnDefinitions="*,*,*" HorizontalOptions="Fill" Margin="0,5,0,0" ColumnSpacing="5">
+                                <StackLayout>
+                                    <Button Text="Likes" FontSize="Small" FontAttributes="Bold"
+                                            BackgroundColor="#27D276" TextColor="White"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1">
+                                    <Button x:Name="btnComment" Text="Comments" FontSize="Small" FontAttributes="Bold"
+                                            BackgroundColor="#27D276" TextColor="White" Clicked="btnComment_Click"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="2">
+                                    <Button x:Name="btnShare" Text="Share" FontSize="Small" FontAttributes="Bold"
+                                            BackgroundColor="#27D276" TextColor="White" Clicked="btnShare_Click"/>
+                                </StackLayout>
+                            </Grid>
                         </VerticalStackLayout>
-                        <Label Text="..." VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
-                    </HorizontalStackLayout>
-
-                    <!-- Post Content -->
-                    <Label Text="This is an example post content!"/>
-
-                    <!-- Post Image -->
-                    <Image Source="post-image.jpg" Aspect="AspectFill" HeightRequest="200"/>
-
-                    <!-- Post Actions -->
-                    <Grid ColumnDefinitions="*,*,*" HorizontalOptions="Fill" Margin="0,5,0,0" ColumnSpacing="5">
-                        <StackLayout>
-                            <Button Text="Emotes" FontSize="Small" FontAttributes="Bold" 
-                BackgroundColor="#27D276" TextColor="White"/>
-                        </StackLayout>
-                        <StackLayout Grid.Column="1">
-                            <Button x:Name="btnComment" Text="Comments" FontSize="Small" FontAttributes="Bold" 
-                BackgroundColor="#27D276" TextColor="White" Clicked="btnComment_Click"/>
-                        </StackLayout>
-                        <StackLayout Grid.Column="2">
-                            <Button x:Name="btnShare" Text="Share" FontSize="Small" FontAttributes="Bold" 
-                BackgroundColor="#27D276" TextColor="White" Clicked="btnShare_Click"/>
-                        </StackLayout>
-                    </Grid>
+                    </Frame>
+                    <ListView>
+                        <!-- Add ListView items here if needed -->
+                    </ListView>
                 </VerticalStackLayout>
-            </Frame>
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

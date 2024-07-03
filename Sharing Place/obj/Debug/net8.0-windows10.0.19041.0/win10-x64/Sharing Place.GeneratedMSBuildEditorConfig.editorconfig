@@ -108,6 +108,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.Messag
 build_metadata.AdditionalFiles.TargetPath = Views\Message.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Message.xaml
 
+[E:/Lap trinh ung dung di dong/DO AN/Sharing/Sharing Place/Views/NewPostPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.NewPostPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NewPostPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NewPostPage.xaml
+
 [E:/Lap trinh ung dung di dong/DO AN/Sharing/Sharing Place/Views/PostDetail.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sharing_Place.Views.PostDetail.xaml

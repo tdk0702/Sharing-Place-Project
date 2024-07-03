@@ -5,16 +5,16 @@
              Title="Posts">
     <Grid RowDefinitions=".15*, .85*">
         <Grid VerticalOptions="Fill" HorizontalOptions="Fill" Padding="5" BackgroundColor="#27D276">
-            <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center" >
+            <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center">
                 <Image Source="logo.png"
                    WidthRequest="50" HeightRequest="50"
                    HorizontalOptions="StartAndExpand"/>
-                <Button
-                    Text="New posts" 
-                    FontSize="Medium" 
-                    FontAttributes="Bold" 
-                    TextColor="Black" 
-                    BackgroundColor="White" Margin="10"/>
+                <Button Text="New posts" 
+                        FontSize="Medium" 
+                        FontAttributes="Bold" 
+                        TextColor="Black" 
+                        BackgroundColor="White" Margin="10"
+                        Clicked="OnNewPostsClicked"/>
             </HorizontalStackLayout>
         </Grid>
         <Grid Grid.Row="1">
@@ -26,6 +26,9 @@
                        HasShadow="True"
                        BorderColor="#27D276"
                        Margin="10,0,10,0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                    </Frame.GestureRecognizers>
                     <VerticalStackLayout>
                         <HorizontalStackLayout HorizontalOptions="Fill">
                             <Image Source="logo.png" 
@@ -43,7 +46,7 @@
                         </VerticalStackLayout>
                         <Grid ColumnDefinitions="*,*,*" HorizontalOptions="Fill" Margin="0,5,0,0" ColumnSpacing="5">
                             <StackLayout>
-                                <Button Text="Emotes" FontSize="Small" FontAttributes="Bold" 
+                                <Button Text="Likes" FontSize="Small" FontAttributes="Bold" 
                                         BackgroundColor="#27D276" TextColor="White"/>
                             </StackLayout>
                             <StackLayout Grid.Column="1">
