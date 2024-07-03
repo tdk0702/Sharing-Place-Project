@@ -17,6 +17,8 @@ namespace Sharing_Place.Models
         public string Birthdate { get; set; }
         public string Created_At { get; set; }
         public string Gender { get; set; }
+        public string ImgAvt { get; set; }
+        public bool IsOnline { get; set; }
         public User()
         {
             Id = "0";
@@ -44,5 +46,17 @@ namespace Sharing_Place.Models
         {
             return !this.Gender.Contains("female");
         } 
+
+        private void GetInfo(string id)
+        {
+            string query = string.Format("SELECT * FROM [User].[Users],[User].[Info] WHERE id = '{0}';", id);
+            DataTable dt = SqlQuery.getData(query);
+            Username = dt.Rows[0]["username"].ToString();
+            Email = dt.Rows[0]["email"].ToString();
+            Fullname = dt.Rows[0]["fullname"].ToString();
+            Nickname = dt.Rows[0]["nickname"].ToString();
+            Birth = dt.Rows[0]["birth"].ToString();
+            Gender = !(dt.Rows[0]["gender"].ToString().Contains("female"));
+		}
     }
 }

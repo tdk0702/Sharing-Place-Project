@@ -56,20 +56,30 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
+	<!--ItemGroup>
 	  <MauiImage Remove="Resources\Images\home_icon_color.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\circle.png" />
+	  <None Remove="Resources\Images\close.png" />
+	  <None Remove="Resources\Images\delete.png" />
+	  <None Remove="Resources\Images\interface_icon.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\Logo_UIT_updated.jpg" />
-	</ItemGroup>
+	  <None Remove="Resources\Images\volume.png" />
+	</ItemGroup-->
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="4.0.0" />
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Plugin.AudioRecorder" Version="1.1.0" />
+		<PackageReference Include="Plugin.Maui.Audio" Version="3.0.0" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -98,6 +108,9 @@
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
 	  <MauiXaml Update="Views\NewPostPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MediaViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -91,7 +91,8 @@ namespace SP_Server
                 }
             }
         }
-        private void sendData(IPEndPoint host, string data)
+        
+	private void sendData(IPEndPoint host, string data)
         {
             using (UdpClient udpClient = new UdpClient())
             {
@@ -166,6 +167,51 @@ namespace SP_Server
                 string[] cmdsplit = command.Split(" ");
                 writeLog(command, cmdsplit[1]);
                 renewPassword(cmdsplit[1], cmdsplit[2], cmdsplit[3]);
+                return;
+            }
+	    if (command.Contains("./message"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string receiverId = cmdsplit[2];
+                string message = string.Join(" ", cmdsplit, 3, cmdsplit.Length - 3);
+                saveMessageToDatabase(senderId, receiverId, message);
+                forwardMessage(receiverId, message);
+                return;
+            }
+            if (command.Contains("./emotion"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string messageId = cmdsplit[2];
+                string emotion = cmdsplit[3];
+                saveEmotionToDatabase(senderId, messageId, emotion);
+                forwardEmotion(senderId, messageId, emotion);
+                return;
+            }
+            if (command.StartsWith("./file"))
+            {
+                handleFileTransfer(command);
+                return;
+            }
+            if (command.Contains("./voice"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string receiverId = cmdsplit[2];
+                string audioBase64 = cmdsplit[3];
+                saveVoiceMessageToDatabase(senderId, receiverId, audioBase64);
+                forwardVoiceMessage(receiverId, audioBase64);
+                return;
+            }
+            if (command.Contains("./groupmessage"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string roomId = cmdsplit[2];
+                string message = string.Join(" ", cmdsplit, 3, cmdsplit.Length - 3);
+                saveGroupMessageToDatabase(senderId, roomId, message);
+                forwardGroupMessage(roomId, senderId, message);
                 return;
             }
             if (command.Contains("./runquery"))
@@ -479,6 +525,273 @@ namespace SP_Server
                 catch (Exception ex) { writeLog("Sai query"); sendData(host.Ip, "[ERROR]"); return; }
                 data = data.Trim() + ";";
             }    
+        }
+	private void forwardMessage(string receiverId, string message)
+        {
+            UserClient receiver = userClients.Find(uc => uc.Id == receiverId);
+            if (receiver != null)
+            {
+                sendData(receiver, message);
+                writeLog("Forwarded message to " + receiverId);
+            }
+        }
+
+        private void saveMessageToDatabase(string senderId, string receiverId, string message)
+        {
+            try
+            {
+                string query = "INSERT INTO [Messages] (SenderId, ReceiverId, Message, Timestamp) VALUES (@SenderId, @ReceiverId, @Message, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@ReceiverId", receiverId);
+                        cmd.Parameters.AddWithValue("@Message", message);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved message to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving message to database: " + ex.Message);
+            }
+        }
+
+        private void saveEmotionToDatabase(string senderId, string messageId, string emotion)
+        {
+            try
+            {
+                string query = "INSERT INTO [Emotions] (SenderId, MessageId, Emotion, Timestamp) VALUES (@SenderId, @MessageId, @Emotion, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@MessageId", messageId);
+                        cmd.Parameters.AddWithValue("@Emotion", emotion);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved emotion to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving emotion to database: " + ex.Message);
+            }
+        }
+        private void forwardEmotion(string senderId, string messageId, string emotion)
+        {
+            foreach (var client in userClients)
+            {
+                sendData(client, $"./emotion {senderId} {messageId} {emotion}");
+                writeLog("Forwarded emotion to " + client.Id);
+            }
+        }
+
+        private const int MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
+
+        private void handleFileTransfer(string command)
+        {
+            string[] cmdsplit = command.Split(" ");
+            string senderId = cmdsplit[1];
+            string receiverId = cmdsplit[2];
+            string fileType = cmdsplit[3];
+            string fileName = cmdsplit[4];
+            byte[] fileData = Convert.FromBase64String(cmdsplit[5]);
+
+            if (fileData.Length > MAX_FILE_SIZE)
+            {
+                writeLog($"File size exceeds 100MB limit. Actual size: {fileData.Length / (1024 * 1024)}MB");
+                return;
+            }
+
+            saveFileToDatabase(senderId, receiverId, fileType, fileName, fileData);
+            forwardFile(receiverId, fileType, fileName, fileData);
+        }
+
+        private void saveFileToDatabase(string senderId, string receiverId, string fileType, string fileName, byte[] fileData)
+        {
+            try
+            {
+                string query = "INSERT INTO [Files] (SenderId, ReceiverId, FileType, FileName, FileData, Timestamp) VALUES (@SenderId, @ReceiverId, @FileType, @FileName, @FileData, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@ReceiverId", receiverId);
+                        cmd.Parameters.AddWithValue("@FileType", fileType);
+                        cmd.Parameters.AddWithValue("@FileName", fileName);
+                        cmd.Parameters.AddWithValue("@FileData", fileData);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved file to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving file to database: " + ex.Message);
+            }
+        }
+
+        private void forwardFile(string receiverId, string fileType, string fileName, byte[] fileData)
+        {
+            UserClient receiver = userClients.Find(uc => uc.Id == receiverId);
+            if (receiver != null)
+            {
+                string fileDataBase64 = Convert.ToBase64String(fileData);
+                sendFile(receiver, $"./file {fileType} {fileName} {fileDataBase64}");
+                writeLog("Forwarded file to " + receiverId);
+            }
+        }
+
+
+        private void sendFile(UserClient uc, string data)
+        {
+            using (UdpClient udpClient = new UdpClient())
+            {
+                byte[] sendBytes = Encoding.UTF8.GetBytes(data);
+                int maxChunkSize = 65000; // Slightly less than maximum UDP packet size for safety
+                int chunkId = 0;
+                int totalChunks = (int)Math.Ceiling((double)sendBytes.Length / maxChunkSize);
+
+                for (int i = 0; i < sendBytes.Length; i += maxChunkSize)
+                {
+                    int remainingBytes = Math.Min(maxChunkSize, sendBytes.Length - i);
+                    byte[] chunk = new byte[remainingBytes + 8]; // 4 bytes for chunkId, 4 bytes for totalChunks
+
+                    Array.Copy(BitConverter.GetBytes(chunkId), 0, chunk, 0, 4);
+                    Array.Copy(BitConverter.GetBytes(totalChunks), 0, chunk, 4, 4);
+                    Array.Copy(sendBytes, i, chunk, 8, remainingBytes);
+
+                    udpClient.Send(chunk, chunk.Length, uc.IPaddress);
+                    chunkId++;
+                }
+            }
+        }
+
+        private string receiveFile(UdpClient udp)
+        {
+            IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            Dictionary<int, byte[]> receivedChunks = new Dictionary<int, byte[]>();
+            int totalChunks = -1;
+
+            while (true)
+            {
+                Byte[] receiveBytes = udp.Receive(ref RemoteIpEndPoint);
+                int chunkId = BitConverter.ToInt32(receiveBytes, 0);
+                int currentTotalChunks = BitConverter.ToInt32(receiveBytes, 4);
+
+                if (totalChunks == -1)
+                {
+                    totalChunks = currentTotalChunks;
+                }
+
+                byte[] chunkData = new byte[receiveBytes.Length - 8];
+                Array.Copy(receiveBytes, 8, chunkData, 0, chunkData.Length);
+                receivedChunks[chunkId] = chunkData;
+
+                if (receivedChunks.Count == totalChunks)
+                {
+                    break;
+                }
+            }
+
+            List<byte> completeData = new List<byte>();
+            for (int i = 0; i < totalChunks; i++)
+            {
+                completeData.AddRange(receivedChunks[i]);
+            }
+
+            string data = Encoding.UTF8.GetString(completeData.ToArray());
+            return data;
+        }
+        private void saveVoiceMessageToDatabase(string senderId, string receiverId, string audioBase64)
+        {
+            string query = "INSERT INTO [Messages].[Messages] (sender_id, receiver_id, message, date, time, type) VALUES (@senderId, @receiverId, @audioBase64, GETDATE(), GETDATE(), 'voice')";
+            List<SqlParameter> parameters = new List<SqlParameter>
+    {
+        new SqlParameter("@senderId", senderId),
+        new SqlParameter("@receiverId", receiverId),
+        new SqlParameter("@audioBase64", audioBase64)
+    };
+
+            string connectionString = "Connected";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddRange(parameters.ToArray());
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        private void forwardVoiceMessage(string receiverId, string audioBase64)
+        {
+            UserClient receiver = userClients.Find(uc => uc.Id == receiverId);
+            if (receiver != null)
+            {
+                sendData(receiver, audioBase64);
+            }
+        }
+
+        private void saveGroupMessageToDatabase(string senderId, string roomId, string message)
+        {
+            try
+            {
+                string query = "INSERT INTO [GroupMessages] (SenderId, RoomId, Message, Timestamp) VALUES (@SenderId, @RoomId, @Message, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@RoomId", roomId);
+                        cmd.Parameters.AddWithValue("@Message", message);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved group message to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving group message to database: " + ex.Message);
+            }
+        }
+
+        private void forwardGroupMessage(string roomId, string senderId, string message)
+        {
+            Room room = Rooms.Find(r => r.Id == roomId);
+            if (room != null)
+            {
+                foreach (UserInfo member in room.Members)
+                {
+                    UserClient receiver = userClients.Find(uc => uc.Id == member.Id);
+                    if (receiver != null && receiver.Id != senderId)
+                    {
+                        sendData(receiver, $"./groupmessage {roomId} {senderId} {message}");
+                        writeLog($"Forwarded group message to {receiver.Id} in room {roomId}");
+                    }
+                }
+            }
+            else
+            {
+                writeLog($"Room with id {roomId} not found");
+            }
         }
         //Viết lịch sử lệnh gửi nhận
         public static void writeLog(string data, string client_id = null)
