@@ -8,8 +8,8 @@ public partial class PostMenu : ContentPage
 	}
     private async void OnFrameTapped(object sender, EventArgs e)
     {
-        // Navigate to the MainPage
-        await Navigation.PushAsync(new Sharing_Place.Page());
+       
+        await Navigation.PushAsync(new Sharing_Place.Views.PostDetail());
     }
     private async void OnNewPostsClicked(object sender, EventArgs e)
     {
