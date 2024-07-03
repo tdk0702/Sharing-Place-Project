@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sharing_Place.Views"
+             x:Class="Sharing_Place.Views.ListMessage"
+             Title="Messages">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="UserSuggestionTemplate">
+            <ViewCell>
+                <HorizontalStackLayout Padding="10" Spacing="10">
+                    <Image Source="{Binding ImgAvt}" 
+                           WidthRequest="50" HeightRequest="50"
+                           HorizontalOptions="Start"/>
+                    <Label Text="{Binding Name}" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="StartAndExpand"/>
+                </HorizontalStackLayout>
+            </ViewCell>
+        </DataTemplate>
+        <DataTemplate x:Key="MessageTemplate">
+            <ViewCell>
+                <HorizontalStackLayout Padding="10" Spacing="10">
+                    <Image Source="{Binding ImgAvt}" 
+                           WidthRequest="50" HeightRequest="50"
+                           HorizontalOptions="Start"/>
+                    <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                        <Label Text="{Binding Name}" 
+                               FontSize="Small" 
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding MessageText}" 
+                               FontSize="Small"/>
+                    </VerticalStackLayout>
+                    <Button Text="Delete" 
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:ListMessage}}, Path=BindingContext.DeleteMessageCommand}" 
+                            CommandParameter="{Binding .}" 
+                            BackgroundColor="Red" 
+                            TextColor="White"/>
+                </HorizontalStackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, *">
+        <VerticalStackLayout Padding="5" Grid.Row="0">
+            <SearchBar Placeholder="Search" TextChanged="OnSearchBarTextChanged"/>
+            <CollectionView x:Name="UserSuggestionListView" 
+                            ItemsSource="{Binding UserSuggestions}" 
+                            ItemTemplate="{StaticResource UserSuggestionTemplate}" 
+                            IsVisible="False" 
+                            SelectionChanged="OnUserSelected">
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Padding="5" Grid.Row="1">
+            <Label Text="List Messages" 
+                   FontSize="Medium" 
+                   HorizontalTextAlignment="Center"
+                   Padding="10"/>
+            <CollectionView x:Name="MessagesListView" 
+                            ItemsSource="{Binding Messages}" 
+                            ItemTemplate="{StaticResource MessageTemplate}">
+            </CollectionView>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
