@@ -5,35 +5,50 @@
              xmlns:local="clr-namespace:Sharing_Place.Resources.Localization"
              x:Class="Sharing_Place.Views.RoomViews.ListRoom"
              Title="{x:Static local:Strings.rooms_tittle}">
-    <ContentPage.Resources>
-        <DataTemplate x:Key="RoomTemplate">
-            <ViewCell>
-                <HorizontalStackLayout>
-                    <Image Source="{Binding ImgAvt}" 
-                                WidthRequest="50" HeightRequest="50"
-                                HorizontalOptions="StartAndExpand"/>
-                    <VerticalStackLayout>
-                        <Label Text="{Binding Name}" FontSize="Small" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
-                        <Label Text="{Binding Message}" FontSize="Small" HorizontalOptions="StartAndExpand"/>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </ViewCell>
-        </DataTemplate>
-    </ContentPage.Resources>
-    <Grid RowDefinitions=".10*, .90*">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static local:Strings.rooms_more0}" Clicked="AddRoomCommand">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialIconsOutlined-Regular"
+                        Glyph="&#xe145;"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Text="{x:Static local:Strings.rooms_more1}" Order="Secondary" />
+        <ToolbarItem Text="{x:Static local:Strings.rooms_more2}" Order="Secondary"/>
+        <ToolbarItem Text="{x:Static local:Strings.rooms_more3}" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid RowDefinitions=".05*, .95*">
         <Grid Grid.Row="0">
-            <VerticalStackLayout HorizontalOptions="Center">
-                <Label Text="{x:Static local:Strings.rooms_content}" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <VerticalStackLayout HorizontalOptions="Center" Margin="5">
+                <Label Text="{x:Static local:Strings.rooms_content}" FontSize="Medium" HorizontalTextAlignment="Center"
+                       VerticalOptions="Center"/>
             </VerticalStackLayout>
         </Grid>
-        <Grid Grid.Row="1" RowDefinitions=".1*, .9*">
-            <Grid Grid.Row="1">
-                <VerticalStackLayout Grid.Row="1" Padding="3" Spacing="5">
-                    <ListView ItemsSource="{Binding RoomModel}"
-                              ItemTemplate="{StaticResource RoomTemplate}">
-                    </ListView>
-                </VerticalStackLayout>
-            </Grid>
-        </Grid>
+        <ListView Grid.Row="1" 
+            Margin="0, 10, 0, 0"
+            x:Name="lvData"
+            BackgroundColor="Transparent"
+            RowHeight="100"
+            ItemTapped="lvData_ItemTapped"
+            ItemSelected="lvData_ItemSelected" 
+            SelectionMode="Single" 
+            SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout Spacing="10">
+                            <Image Source="{Binding Img}" 
+                                    WidthRequest="50" HeightRequest="50"
+                                    HorizontalOptions="StartAndExpand"
+                                   VerticalOptions="Center"/>
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Name}" FontSize="Small" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding type}" FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </ContentPage>

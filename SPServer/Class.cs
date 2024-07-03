@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace SP_Server
 {
@@ -44,10 +45,10 @@ namespace SP_Server
             string query = "SELECT * FROM [User].[Users], [User].[Info] WHERE id = _id AND id = " + id + ";";
             return loadUser(SqlQuery.getData(query));
         }
-
         //Load dữ liệu tài khoản User khi có DataTable
         public static User loadUser(DataTable dt, int index = 0)
         {
+            if (dt.Rows.Count <= 0) { MessageBox.Show("Lỗi loadUser"); return null; }
             string id = dt.Rows[index]["id"].ToString();
             string username = dt.Rows[index]["username"].ToString();
             string email = dt.Rows[index]["email"].ToString();
@@ -203,6 +204,60 @@ namespace SP_Server
             }
             return true;
         }
+        
+    }
+    public static class Hasher
+    {
+        /// <summary>
+        /// Size of salt.
+        /// </summary>
+        private const int SaltSize = 16;
 
+        /// <summary>
+        /// Size of hash.
+        /// </summary>
+        private const int HashSize = 20;
+        public static bool IsHashSupported(string hashString)
+        {
+            return hashString.Contains("HASH|V1$");
+        }
+        public static bool Verify(string password, string hashedPassword)
+        {
+            // Check hash
+            if (!IsHashSupported(hashedPassword))
+            {
+                throw new NotSupportedException("The hashtype is not supported");
+            }
+
+            // Extract iteration and Base64 string
+            var splittedHashString = hashedPassword.Replace("$HASH|V1$", "").Split('$');
+            var iterations = int.Parse(splittedHashString[0]);
+            var base64Hash = splittedHashString[1];
+
+            // Get hash bytes
+            var hashBytes = Convert.FromBase64String(base64Hash);
+
+            // Get salt
+            var salt = new byte[SaltSize];
+            Array.Copy(hashBytes, 0, salt, 0, SaltSize);
+
+            // Create hash with given salt
+            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
+            {
+                byte[] hash = pbkdf2.GetBytes(HashSize);
+
+                // Get result
+                for (var i = 0; i < HashSize; i++)
+                {
+                    if (hashBytes[i + SaltSize] != hash[i])
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+        }
     }
 }
