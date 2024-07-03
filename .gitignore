@@ -1,0 +1,30 @@
+
+*.apk
+*.dll
+*.idsig
+*.pdb
+*.json
+*.a
+*.dat
+*.dylib
+*.items
+*.items
+*.xml
+*.sln
+*.car
+*.sln
+*.plist
+*.plist
+*.nib
+*.nib
+*.ttf
+*.ttf
+*.bin
+*.x86_64
+*.ico
+*.pri
+*.exe
+*.appxrecipe
+/SPServer/obj
+/Sharing Place/obj
+/Sharing Place/bin

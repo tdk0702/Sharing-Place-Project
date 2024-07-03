@@ -2,6 +2,7 @@
 using Sharing_Place.Shells;
 using System.Windows.Input;
 using System.Data;
+using System.Net;
 
 namespace Sharing_Place.Views;
 
@@ -12,63 +13,45 @@ public partial class SignIn : ContentPage
 	public SignIn()
 	{
 		InitializeComponent();
-        new Thread(() =>
-        {
-            while (true)
-            {
-                try
-                {
-                    string query = "SELECT * FROM [User].[Users];";
-                    int cnt = 0;
-                    cnt = SqlQuery.getData(query).Rows.Count;
-                    Console.WriteLine("Check SQL : " + cnt.ToString());
-                    if (cnt > 0) { isSQLConnected = true; break; }
-                }
-                catch (Exception expt)
-                {
-                    Console.WriteLine("Lỗi SQL. \r\nErr: " + expt.ToString());
-                }
-            }
-            //Thread.CurrentThread.
-        }).Start();
     }
     private async void OnSignInClicked(object sender, EventArgs e)
     {
+        loadingIndicator.IsRunning = true;
         if (txtUser.Text == "admin" && txtPassword.Text == "admin")
         {
+            loadingIndicator.IsRunning = false;
             await DisplayAlert("Congratulation", "Fast login", "OK");
             UserAccount = new User();
             Application.Current.MainPage = new MenuShell();
             return;
         }
-        while (!isSQLConnected) loadingIndicator.IsRunning = true;
-        loadingIndicator.IsRunning = false;
         if (txtUser.Text.Length == 0 || txtPassword.Text.Length == 0)
         {
+            loadingIndicator.IsRunning = false;
             await DisplayAlert("Alert", "Username or Password cannot be empty", "Retry");
             return;
         }
-        //Use username to login
-        string query = string.Format("SELECT * FROM [User].[Users] WHERE username = N'{0}';", txtUser.Text.Trim());
-        //Use email to login
-        if (txtUser.Text.IndexOf('@') != -1 && txtUser.Text.IndexOf('@') < txtUser.Text.LastIndexOf('.'))
-            query = string.Format("SELECT * FROM [User].[Users] WHERE email = N'{0}';", txtUser.Text.Trim());
-        DataTable dt = SqlQuery.getData(query);
-        if (dt.Rows.Count == 0)
-        {
-            await DisplayAlert("Alert", "The account is not exist", "Retry");
+        string command = string.Format("./login {0} {1} {2}", ServerConnect.Id, txtUser.Text.Trim(), txtPassword.Text.Trim());
+        string data = ServerConnect.getData(command);
+        if (data.Contains("[EMPTY]")) {
+            loadingIndicator.IsRunning = false;
+            await DisplayAlert("Error","The account is not exist.","Retry");
             return;
         }
-        string passhash = SecurePasswordHasher.Hash(txtPassword.Text.Trim());
-        if (SecurePasswordHasher.Verify(passhash, dt.Rows[0]["password"].ToString()))
+        if (data.Contains("[WRONG PASS]"))
         {
-            await DisplayAlert("Alert", "The password is incorrect", "Retry");
+            loadingIndicator.IsRunning = false;
+            await DisplayAlert("Error", "The password is incorrect.", "Retry");
             return;
         }
-        UserAccount = new User(dt.Rows[0]["id"].ToString());
-        await DisplayAlert("Congratulation", "Welcome back " + txtUser.Text, "OK");
+        string[] dsplit = data.Replace("[OK] ","").Split(" ");
+        UserAccount = new User(dsplit[0], dsplit[1], dsplit[2], dsplit[3], dsplit[4], dsplit[5], dsplit[6]);
+        loadingIndicator.IsRunning = false;
+        await DisplayAlert("Success", "Welcome back, "+ txtUser.Text.Trim(), "OK");
         Application.Current.MainPage = new MenuShell();
     }
+
+    
 
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
@@ -78,7 +61,23 @@ public partial class SignIn : ContentPage
 
     private async void OnForgetClicked(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new ForgetViews.ForgetPassword();
+        Application.Current.MainPage = new NavigationPage(new ForgetViews.ForgetPassword());
+        await Navigation.PopAsync();
         //Navigation.InsertPageBefore(new ForgetPassword(), this);
+    }
+
+    bool isHidePass = true;
+    private void PassVisible_Click(object sender, TappedEventArgs e)
+    {
+        if (isHidePass)
+        {
+            imgHideShow.Source = "show_pass_icon";
+            txtPassword.IsPassword = false;
+        }
+        else
+        {
+            imgHideShow.Source = "hide_pass_icon";
+            txtPassword.IsPassword = true;
+        }
     }
 }

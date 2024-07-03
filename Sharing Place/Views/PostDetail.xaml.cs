@@ -1,4 +1,4 @@
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 
 namespace Sharing_Place.Views;
 
@@ -16,6 +16,17 @@ public partial class PostDetail : ContentPage
     }
     private async void btnShare_Click(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ShareOptionsPage());
+        var action = await DisplayActionSheet("Share Options", "Cancel", null,
+            "Chia sẻ lên bảng Feed", "Chia sẻ lên tin của bạn");
+
+        switch (action)
+        {
+            case "Chia sẻ lên bảng Feed":
+                await DisplayAlert("Shared", "Shared to Feed", "OK");
+                break;
+            case "Chia sẻ lên tin của bạn":
+                await DisplayAlert("Shared", "Shared to Your Story", "OK");
+                break;
+        }
     }
 }

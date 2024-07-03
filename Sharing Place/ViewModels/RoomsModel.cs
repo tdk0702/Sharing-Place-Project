@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sharing_Place.ViewModels
 {
-    internal class RoomsModel
+    public class RoomsModel
     {
-        public class RoomModel()
-        {
-            public string Name { get; set; }
-            public string Infomation { get; set; }
-            public string ImgAvt { get; set; }
-            public string Amount { get; set; }
-        }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Infomation { get; set; }
+        public string Img { get; set; }
+        public string Member_count { get; set; }
+        public string Owner {  get; set; }
+        public string type { get; set; }
     }
 }

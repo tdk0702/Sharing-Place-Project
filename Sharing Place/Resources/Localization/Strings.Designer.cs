@@ -88,6 +88,42 @@ namespace Sharing_Place.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add more rooms.
+        /// </summary>
+        internal static string rooms_more0 {
+            get {
+                return ResourceManager.GetString("rooms_more0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leave rooms.
+        /// </summary>
+        internal static string rooms_more1 {
+            get {
+                return ResourceManager.GetString("rooms_more1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More.
+        /// </summary>
+        internal static string rooms_more2 {
+            get {
+                return ResourceManager.GetString("rooms_more2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting.
+        /// </summary>
+        internal static string rooms_more3 {
+            get {
+                return ResourceManager.GetString("rooms_more3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rooms.
         /// </summary>
         internal static string rooms_tittle {

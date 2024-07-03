@@ -56,6 +56,10 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<!--ItemGroup>
+	  <MauiImage Remove="Resources\Images\home_icon_color.svg" />
+	</ItemGroup>
+
 	<ItemGroup>
 	  <None Remove="Resources\Images\circle.png" />
 	  <None Remove="Resources\Images\close.png" />
@@ -64,7 +68,7 @@
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\Logo_UIT_updated.jpg" />
 	  <None Remove="Resources\Images\volume.png" />
-	</ItemGroup>
+	</ItemGroup-->
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
@@ -82,13 +86,28 @@
 	  <MauiXaml Update="Page.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Shells\RoomShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Shells\MenuShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ForgetViews\RenewPass.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ListMessage - Copy.xaml">
+	<MauiXaml Update="Views\ForgetViews\ForgetPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+	  <MauiXaml Update="Views\ListMessage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RoomViews\RoomPost.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+    <MauiXaml Update="Views\RoomViews\ListRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+	  <MauiXaml Update="Views\NewPostPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MediaViewPage.xaml">
@@ -105,12 +124,27 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Strings.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Shells\RoomShell.xaml.cs">
+	    <DependentUpon>RoomShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Shells\MenuShell.xaml.cs">
 	    <DependentUpon>MenuShell.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ListMessage - Copy.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
+    <Compile Update="Views\ForgetViews\RenewPass.xaml.cs">
+      <DependentUpon>RenewPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ForgetViews\ForgetPassword.xaml.cs">
+      <DependentUpon>ForgetPassword.xaml</DependentUpon>
+    </Compile>
+	  <Compile Update="Views\ListMessage.xaml.cs">
+	    <DependentUpon>ListMessage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\RoomViews\RoomPost.xaml.cs">
+	    <DependentUpon>RoomPost.xaml</DependentUpon>
+	  </Compile>
+    <Compile Update="Views\RoomViews\ListRoom.xaml.cs">
+      <DependentUpon>ListRoom.xaml</DependentUpon>
+    </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -119,5 +153,7 @@
 	    <LastGenOutput>Strings.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionSharingPlaceHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -38,7 +38,7 @@ WidthRequest="20" HeightRequest="20"
            FontSize="Micro"
            HorizontalOptions="StartAndExpand"
                         />
-                    <Label Text="10 Common Friends"
+                    <Label Text="10 Mutual Friends"
                            FontSize="Micro"
                            HorizontalOptions="StartAndExpand"/>
                 </VerticalStackLayout>
