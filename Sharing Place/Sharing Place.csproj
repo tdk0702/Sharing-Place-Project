@@ -61,18 +61,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Remove="Views\RoomViews\ListRoom_view.xaml" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\Logo_UIT_updated.jpg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="Views\RoomViews\ListRoom_view.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -95,7 +85,7 @@
 	  <MauiXaml Update="Views\ForgetViews\RenewPass.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-    <MauiXaml Update="Views\ForgetViews\ForgetPassword.xaml">
+	<MauiXaml Update="Views\ForgetViews\ForgetPassword.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
 	  <MauiXaml Update="Views\ListMessage.xaml">
@@ -108,7 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
 	  <MauiXaml Update="Views\NewPostPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>s
+	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 

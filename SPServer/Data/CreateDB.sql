@@ -100,6 +100,8 @@ CREATE TABLE [Post].[Posts] (
 )
 GO
 
+--INSERT INTO [Post].[Posts] VALUES (<user_id>, N'<tittle>', N'<body>', DEFAULT, DEFAULT);
+
 CREATE TABLE [Post].[Comments] (
   [post_id] int,
   [user_id] int,

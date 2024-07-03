@@ -11,8 +11,8 @@ namespace Sharing_Place
         public App()
         {
             InitializeComponent();
-            MainPage = new MenuShell();
-            //new Thread(() =>{ connectServer(); }).Start();
+            MainPage = new LoginShell();
+            new Thread(() =>{ connectServer(); }).Start();
         }
         private void connectServer()
         {

@@ -21,6 +21,7 @@ public partial class ListRoom : ContentPage
     {
         string command = string.Format("./loadview {0} rooms", ServerConnect.Id);
         string data = ServerConnect.getData(command);
+        if (data.Contains("[EMPTY]")) return;
         string[] dtsplit = data.Split(";");
         for(int i = 0; i < dtsplit.Length; i++)
         {
