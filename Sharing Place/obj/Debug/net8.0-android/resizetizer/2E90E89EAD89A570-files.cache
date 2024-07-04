@@ -65,6 +65,8 @@ obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\send_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\send_icon_white.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\setting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\show_pass_icon.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\signin_icon_black.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\signup_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\account_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\accsetting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\add_people_icon_black.png
@@ -99,6 +101,8 @@ obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\send_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\send_icon_white.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\setting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\show_pass_icon.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\signin_icon_black.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\signup_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\account_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\accsetting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\add_people_icon_black.png
@@ -133,6 +137,8 @@ obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\send_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\send_icon_white.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\setting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\show_pass_icon.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\signin_icon_black.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\signup_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\account_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\accsetting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\add_people_icon_black.png
@@ -167,6 +173,8 @@ obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\send_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\send_icon_white.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\setting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\show_pass_icon.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\signin_icon_black.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\signup_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\account_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\accsetting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\add_people_icon_black.png
@@ -201,6 +209,8 @@ obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\send_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\send_icon_white.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\setting_icon_color.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\show_pass_icon.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\signin_icon_black.png
+obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\signup_icon_black.png
 obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
 obj\Debug\net8.0-android\resizetizer\r\mipmap-hdpi\appicon.png

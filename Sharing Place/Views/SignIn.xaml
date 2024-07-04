@@ -7,7 +7,12 @@
              NavigationPage.HasNavigationBar="False">
     <Grid RowDefinitions=".25*,.45*,.30*">
         <ActivityIndicator x:Name="loadingIndicator" IsRunning="False" />
-        <Grid BackgroundColor="#27D276"/>
+        <Grid Grid.Row="0" BackgroundColor="#27D276">
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
+                <Image Source="logo.png" HeightRequest="100" WidthRequest="100" 
+                   HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
         <Grid Grid.Row="1">
             <RoundRectangle Margin="-5,-30,-5,-2" 
                             CornerRadius="30,30,0,0"

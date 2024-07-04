@@ -4688,3 +4688,13 @@ D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\android\
 D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\android\src\mono\com\google\android\exoplayer2\video\VideoFrameMetadataListenerImplementor.java
 D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\android\src\mono\com\google\android\exoplayer2\video\VideoRendererEventListenerImplementor.java
 D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\android\bin\classes3.dex
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\signin_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\signup_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\signin_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\signup_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\signin_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\signup_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\signin_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\signup_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\signin_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\signup_icon_black.png

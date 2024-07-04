@@ -1,4 +1,4 @@
-using Sharing_Place.Models;
+﻿using Sharing_Place.Models;
 using Sharing_Place.ViewModels;
 namespace Sharing_Place.Views.RoomViews;
 
@@ -8,8 +8,8 @@ public partial class ListRoom : ContentPage
 	public ListRoom()
 	{
 		InitializeComponent();
-        if (ServerConnect.isConnected) loadRooms();
-        else loadRoomEx();
+        /*if (ServerConnect.isConnected) loadRooms();
+        else*/ loadRoomEx();
 	}
 
     protected override void OnAppearing()
@@ -36,12 +36,12 @@ public partial class ListRoom : ContentPage
     private void loadRoomEx()
     {
         Rooms = new List<RoomsModel>() {
-            new RoomsModel(){ Id="0", Name="Room1", Img="logo", type="private"},
-            new RoomsModel(){ Id="1", Name="Room2", Img="logo", type="private"},
-            new RoomsModel(){ Id="2", Name="Room3", Img="logo", type="private"},
-            new RoomsModel(){ Id="3", Name="Room4", Img="logo", type="private"},
-            new RoomsModel(){ Id="4", Name="Room5", Img="logo", type="private"},
-            new RoomsModel(){ Id="5", Name="Room6", Img="logo", type="private"},
+            new RoomsModel(){ Id="0", Name="Phòng Việt Nam", Img="logo", type="private"},
+            new RoomsModel(){ Id="1", Name="Sharing Place Test", Img="logo", type="private"},
+            new RoomsModel(){ Id="2", Name="Vn nhào vô!", Img="logo", type="private"},
+            new RoomsModel(){ Id="3", Name="Phòng dành cho newbie", Img="logo", type="private"},
+            new RoomsModel(){ Id="4", Name="Vui là chính!", Img="logo", type="private"},
+            new RoomsModel(){ Id="5", Name="Chủ phòng vui vẻ lắm", Img="logo", type="private"},
             new RoomsModel(){ Id="6", Name="Room7", Img="logo", type="private"},
             new RoomsModel(){ Id="7", Name="Room8", Img="logo", type="private"},
             new RoomsModel(){ Id="8", Name="Room9", Img="logo", type="private"},
