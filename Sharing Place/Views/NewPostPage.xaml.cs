@@ -12,6 +12,7 @@ namespace Sharing_Place.Views
     {
         public event EventHandler<Post> PostCompleted;
         private string _mediaFilePath;
+        private string _mediaFileType;
 
         public NewPostPage()
         {
@@ -24,6 +25,7 @@ namespace Sharing_Place.Views
             if (result != null)
             {
                 _mediaFilePath = result.FullPath;
+                _mediaFileType = result.ContentType.Contains("image") ? "image" : "video";
                 selectedFileLabel.Text = result.FileName;
             }
         }
@@ -53,7 +55,6 @@ namespace Sharing_Place.Views
             }
             catch (Exception ex)
             {
-                // Handle exceptions
                 await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
 
@@ -64,23 +65,19 @@ namespace Sharing_Place.Views
         {
             var newPost = new Post
             {
-                UserName = "John Doe", // Replace with actual user data
+                Id = new Random().Next(1, 10000),
+                Title = "Sample Title", // Replace with actual title
                 Body = postBodyEditor.Text,
-                TimeAgo = "Just now",
-                MediaFilePath = _mediaFilePath
+                CreatedAt = DateTime.Now,
+                ImagePath = _mediaFileType == "image" ? _mediaFilePath : null,
+                VideoPath = _mediaFileType == "video" ? _mediaFilePath : null
             };
 
             PostCompleted?.Invoke(this, newPost);
 
             await Navigation.PopAsync();
         }
-    }
 
-public class Post
-    {
-        public string UserName { get; set; }
-        public string Body { get; set; }
-        public string TimeAgo { get; set; }
-        public string MediaFilePath { get; set; }
     }
+  
 }

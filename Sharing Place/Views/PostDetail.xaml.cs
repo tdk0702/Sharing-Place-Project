@@ -8,14 +8,19 @@ namespace Sharing_Place.Views
         public PostDetail(Post post)
         {
             InitializeComponent();
-            userImage.Source = post.UserImage;
-            userNameLabel.Text = post.UserName;
-            timeAgoLabel.Text = post.TimeAgo;
+            userImage.Source = post.ImagePath ?? "default-user-image.jpg";
+            userNameLabel.Text = post.Title;
+            timeAgoLabel.Text = post.CreatedAt.ToString("g");
             bodyLabel.Text = post.Body;
 
-            if (!string.IsNullOrEmpty(post.MediaFilePath))
+            if (!string.IsNullOrEmpty(post.ImagePath))
             {
-                postImage.Source = post.MediaFilePath;
+                postImage.Source = post.ImagePath;
+            }
+            else if (!string.IsNullOrEmpty(post.VideoPath))
+            {
+                // You can add a video player here if you want to support video playback
+                postImage.Source = "video-thumbnail-placeholder.jpg"; // Placeholder for video
             }
             else
             {
@@ -27,6 +32,7 @@ namespace Sharing_Place.Views
         {
             await Navigation.PushAsync(new CommentPage());
         }
+
         private async void btnShare_Click(object sender, EventArgs e)
         {
             var action = await DisplayActionSheet("Share Options", "Cancel", null,
@@ -42,13 +48,15 @@ namespace Sharing_Place.Views
                     break;
             }
         }
-        public class Post
-        {
-            public string UserName { get; set; }
-            public string Body { get; set; }
-            public string TimeAgo { get; set; }
-            public string UserImage { get; set; }
-            public string MediaFilePath { get; set; }
-        }
+
+    }
+    public class Post
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string ImagePath { get; set; }
+        public string VideoPath { get; set; }
     }
 }

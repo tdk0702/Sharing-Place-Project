@@ -13,10 +13,10 @@ namespace Sharing_Place.Views
             InitializeComponent();
             Posts = new ObservableCollection<Post>
             {
-                new Post { UserName = "John Doe", Body = "Sample post content", TimeAgo = "2 hrs ago", UserImage = "profile-pic.jpg" },
-                new Post { UserName = "Jane Smith", Body = "Another sample post", TimeAgo = "1 hr ago", UserImage = "profile-pic.jpg" }
+                new Post { Id = 1, Title = "Sample Title 1", Body = "Sample post content", CreatedAt = DateTime.Now.AddHours(-2), ImagePath = "profile-pic.jpg" },
+                new Post { Id = 2, Title = "Sample Title 2", Body = "Another sample post", CreatedAt = DateTime.Now.AddHours(-1), ImagePath = "profile-pic.jpg" }
             };
-          
+            postsListView.ItemsSource = Posts;
         }
 
         private async void OnNewPostsClicked(object sender, EventArgs e)
@@ -24,7 +24,7 @@ namespace Sharing_Place.Views
             var newPostPage = new NewPostPage();
             newPostPage.PostCompleted += (source, post) =>
             {
-                Posts.Add(Post);
+                Posts.Add(post);
             };
             await Navigation.PushAsync(newPostPage);
         }
@@ -35,14 +35,6 @@ namespace Sharing_Place.Views
             {
                 await Navigation.PushAsync(new PostDetail(selectedPost));
             }
-        }
-        public class Post
-        {
-            public string UserName { get; set; }
-            public string Body { get; set; }
-            public string TimeAgo { get; set; }
-            public string UserImage { get; set; }
-            public string MediaFilePath { get; set; }
         }
     }
 }
