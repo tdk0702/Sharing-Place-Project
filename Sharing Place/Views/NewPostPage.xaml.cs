@@ -14,6 +14,7 @@ namespace Sharing_Place.Views
         private string _mediaFilePath;
         private string _mediaFileType;
 
+
         public NewPostPage()
         {
             InitializeComponent();
