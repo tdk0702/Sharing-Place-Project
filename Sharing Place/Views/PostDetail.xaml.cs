@@ -5,6 +5,7 @@ namespace Sharing_Place.Views
 {
     public partial class PostDetail : ContentPage
     {
+        private readonly Post _post;
         public PostDetail(Post post)
         {
             InitializeComponent();
@@ -12,6 +13,8 @@ namespace Sharing_Place.Views
             userNameLabel.Text = post.Title;
             timeAgoLabel.Text = post.CreatedAt.ToString("g");
             bodyLabel.Text = post.Body;
+            _post = post;
+
 
             if (!string.IsNullOrEmpty(post.ImagePath))
             {
@@ -30,7 +33,7 @@ namespace Sharing_Place.Views
 
         private async void btnComment_Click(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CommentPage());
+            await Navigation.PushAsync(new CommentPage(_post.Id));
         }
 
         private async void btnShare_Click(object sender, EventArgs e)
