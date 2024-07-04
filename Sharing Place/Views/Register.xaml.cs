@@ -44,6 +44,10 @@ public partial class Register : ContentPage
         }
         string hashpass = SecurePasswordHasher.Hash(txtPass.Text.Trim());
         string fullname = txtLname.Text.Trim() + " " + txtFname.Text.Trim();
+
+        loadingIndicator.IsRunning = true;
+        while (!ServerConnect.isConnected) ;
+        loadingIndicator.IsRunning = false;
         //Command:  ./register <client_id> <username> <email> <password> <fullname>
         string command = string.Format("./register {0} {1} {2} {3} {4}", 
             ServerConnect.Id, txtUser.Text.Trim(), txtEmail.Text.Trim(), hashpass, fullname);

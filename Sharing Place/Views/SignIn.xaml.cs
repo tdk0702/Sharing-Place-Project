@@ -31,6 +31,9 @@ public partial class SignIn : ContentPage
             await DisplayAlert("Alert", "Username or Password cannot be empty", "Retry");
             return;
         }
+        loadingIndicator.IsRunning = true;
+        while (!ServerConnect.isConnected) ;
+        loadingIndicator.IsRunning = false;
         string command = string.Format("./login {0} {1} {2}", ServerConnect.Id, txtUser.Text.Trim(), txtPassword.Text.Trim());
         string data = ServerConnect.getData(command);
         if (data.Contains("[EMPTY]")) {

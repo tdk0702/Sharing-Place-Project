@@ -528,10 +528,10 @@ namespace SP_Server
         }
 	private void forwardMessage(string receiverId, string message)
         {
-            UserClient receiver = userClients.Find(uc => uc.Id == receiverId);
+            UserClient receiver = userClients[receiverId];
             if (receiver != null)
             {
-                sendData(receiver, message);
+                sendData(receiver.Ip, message);
                 writeLog("Forwarded message to " + receiverId);
             }
         }
@@ -589,8 +589,8 @@ namespace SP_Server
         {
             foreach (var client in userClients)
             {
-                sendData(client, $"./emotion {senderId} {messageId} {emotion}");
-                writeLog("Forwarded emotion to " + client.Id);
+                sendData(client.Value.Ip, $"./emotion {senderId} {messageId} {emotion}");
+                writeLog("Forwarded emotion to " + client.Key);
             }
         }
 
@@ -644,7 +644,7 @@ namespace SP_Server
 
         private void forwardFile(string receiverId, string fileType, string fileName, byte[] fileData)
         {
-            UserClient receiver = userClients.Find(uc => uc.Id == receiverId);
+            UserClient receiver = userClients[receiverId];
             if (receiver != null)
             {
                 string fileDataBase64 = Convert.ToBase64String(fileData);
@@ -672,7 +672,7 @@ namespace SP_Server
                     Array.Copy(BitConverter.GetBytes(totalChunks), 0, chunk, 4, 4);
                     Array.Copy(sendBytes, i, chunk, 8, remainingBytes);
 
-                    udpClient.Send(chunk, chunk.Length, uc.IPaddress);
+                    udpClient.Send(chunk, chunk.Length, uc.Ip);
                     chunkId++;
                 }
             }
@@ -741,10 +741,10 @@ namespace SP_Server
 
         private void forwardVoiceMessage(string receiverId, string audioBase64)
         {
-            UserClient receiver = userClients.Find(uc => uc.Id == receiverId);
+            UserClient receiver = userClients[receiverId];
             if (receiver != null)
             {
-                sendData(receiver, audioBase64);
+                sendData(receiver.Ip, audioBase64);
             }
         }
 
@@ -778,12 +778,14 @@ namespace SP_Server
             Room room = Rooms.Find(r => r.Id == roomId);
             if (room != null)
             {
-                foreach (UserInfo member in room.Members)
+                foreach(var member in room.Members)
                 {
-                    UserClient receiver = userClients.Find(uc => uc.Id == member.Id);
+                    UserClient receiver = null;
+                    foreach (var client in userClients)
+                        if (client.Value.Id == member.Value.Id) receiver = client.Value;
                     if (receiver != null && receiver.Id != senderId)
                     {
-                        sendData(receiver, $"./groupmessage {roomId} {senderId} {message}");
+                        sendData(receiver.Ip, $"./groupmessage {roomId} {senderId} {message}");
                         writeLog($"Forwarded group message to {receiver.Id} in room {roomId}");
                     }
                 }

@@ -548,6 +548,7 @@ namespace Sharing_Place.Views
         {
             await StopRecordingAndSendAsync();
         }
+
         private async Task SendVoiceAsync(string filePath, string receiverId)
         {
             try
@@ -592,127 +593,5 @@ namespace Sharing_Place.Views
                 await DisplayAlert("Error", $"Failed to send file: {ex.Message}", "OK");
             }
         }
-
-
-        private bool isRecording = false;
-        private DateTime recordingStartTime;
-
-        private async void OnChatVoiceButtonClicked(object sender, EventArgs e)
-        {
-            try
-            {
-                var status = await Permissions.RequestAsync<Permissions.Microphone>();
-                if (status != PermissionStatus.Granted)
-                {
-                    await DisplayAlert("Lỗi", "Cần quyền truy cập microphone để ghi âm", "OK");
-                    return;
-                }
-                RecordingStack.IsVisible = !RecordingStack.IsVisible;
-                if (isRecording)
-                {
-                    await StopRecordingAndSendAsync();
-                }
-                else
-                {
-                    await StartRecordingAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error in voice message handling: {ex.Message}");
-                await DisplayAlert("Error", $"Failed to handle voice message: {ex.Message}", "OK");
-            }
-        }
-
-        private async Task StartRecordingAsync()
-        {
-            isRecording = true;
-            RecordingProgressBar.IsVisible = true;
-            RecordingTimeLabel.IsVisible = true;
-            StopRecordingButton.IsVisible = true;
-
-            recordingStartTime = DateTime.Now;
-            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
-            {
-                if (!isRecording) return false;
-                var elapsed = DateTime.Now - recordingStartTime;
-                RecordingTimeLabel.Text = elapsed.ToString(@"mm\:ss");
-                RecordingProgressBar.Progress = elapsed.TotalSeconds / 60.0; // Giả sử giới hạn ghi âm là 60 giây
-                return true;
-            });
-
-            await audioRecorderService.StartRecording();
-        }
-
-        private async Task StopRecordingAndSendAsync()
-        {
-            isRecording = false;
-            await audioRecorderService.StopRecording();
-            var audioFilePath = audioRecorderService.GetAudioFilePath();
-
-            if (File.Exists(audioFilePath))
-            {
-                var receiverId = "ReceiverClientId";
-                await SendVoiceAsync(audioFilePath, receiverId);
-
-                // Hiển thị tin nhắn giọng nói trong giao diện người dùng
-                AddMedia(audioFilePath, false, true);
-            }
-
-            RecordingProgressBar.IsVisible = false;
-            RecordingTimeLabel.IsVisible = false;
-            StopRecordingButton.IsVisible = false;
-        }
-
-        private async void OnStopRecordingButtonClicked(object sender, EventArgs e)
-        {
-            await StopRecordingAndSendAsync();
-        }
-        private async Task SendVoiceAsync(string filePath, string receiverId)
-        {
-            try
-            {
-                var fileInfo = new FileInfo(filePath);
-                if (fileInfo.Length > 100 * 1024 * 1024) // 100MB in bytes
-                {
-                    await DisplayAlert("Error", "File is too large. Maximum size is 100MB.", "OK");
-                    return;
-                }
-
-                var fileName = Path.GetFileName(filePath);
-                var message = $"./voice {clientId} {receiverId} {fileName} {fileInfo.Length}";
-                var messageBytes = Encoding.UTF8.GetBytes(message);
-
-                // Gửi thông tin tệp
-                await udpClient.SendAsync(messageBytes, messageBytes.Length, remoteEndPoint);
-
-                // Gửi dữ liệu tệp theo từng phần
-                using (var fileStream = File.OpenRead(filePath))
-                {
-                    var buffer = new byte[10000]; // Giới hạn kích thước gói UDP
-                    int bytesRead;
-                    long totalBytesSent = 0;
-                    while ((bytesRead = await fileStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                    {
-                        await udpClient.SendAsync(buffer, bytesRead, remoteEndPoint);
-                        totalBytesSent += bytesRead;
-
-                        // Cập nhật tiến độ 
-                        double progress = (double)totalBytesSent / fileInfo.Length;
-                        Console.WriteLine($"Send progress: {progress:P2}");
-                        await Task.Delay(10);
-                    }
-                }
-
-                Console.WriteLine("File sent successfully");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error sending file: {ex.Message}");
-                await DisplayAlert("Error", $"Failed to send file: {ex.Message}", "OK");
-            }
-        }
-
-
     }
 }

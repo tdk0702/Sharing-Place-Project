@@ -26,6 +26,11 @@ public partial class ForgetPassword : ContentPage
     {
         if (tbxUser.Text.Trim() == "test@gm.com") { await DisplayAlert("Tester", "PIN: 24680", "OK"); PIN = "24680"; return; }
         if (tbxUser.Text.Trim() == string.Empty) { await DisplayAlert("Alert", "Please input the username or email", "Retry"); return; }
+
+        loadingIndicator.IsRunning = true;
+        while (!ServerConnect.isConnected) ;
+        loadingIndicator.IsRunning = false;
+
         string command = string.Format("./forgetpass {0} {1}", ServerConnect.Id, tbxUser.Text.Trim());
         string data = ServerConnect.getData(command);
         if (data.Contains("[EMPTY]"))

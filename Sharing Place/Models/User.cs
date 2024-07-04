@@ -55,8 +55,8 @@ namespace Sharing_Place.Models
             Email = dt.Rows[0]["email"].ToString();
             Fullname = dt.Rows[0]["fullname"].ToString();
             Nickname = dt.Rows[0]["nickname"].ToString();
-            Birth = dt.Rows[0]["birth"].ToString();
-            Gender = !(dt.Rows[0]["gender"].ToString().Contains("female"));
+            Birthdate = dt.Rows[0]["birth"].ToString();
+            Gender = dt.Rows[0]["gender"].ToString();
 		}
     }
 }

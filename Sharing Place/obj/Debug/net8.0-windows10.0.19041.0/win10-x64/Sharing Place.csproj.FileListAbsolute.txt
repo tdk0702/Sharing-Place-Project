@@ -384,3 +384,18 @@ D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows1
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Data.SqlClient.SNI.dll
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\msalruntime.dll
 D:\Projects\GitHub\Sharing-Place-Project\Sharing Place\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\WebView2Loader.dll
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Sharing Place.csproj.AssemblyReference.cache
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauifont.inputs
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauisplash.inputs
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauimanifest.stamp
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.i.cs
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.cs
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\XamlTypeInfo.g.cs
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xaml
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\XamlSaveStateFile.xml
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Sharing Place.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Sharing Place.dll
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\refint\Sharing Place.dll
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Sharing Place.pdb
