@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sharing_Place.Views.NewPostPage"
-             Title="NewPostPage">
+             Title="New Post">
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
             <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White" Padding="10"
@@ -18,10 +18,17 @@
                     </HorizontalStackLayout>
 
                     <!-- New Post Content -->
-                    <Editor Placeholder="What's on your mind?" 
+                    <Editor x:Name="postBodyEditor" Placeholder="What's on your mind?" 
                             FontSize="Medium"
                             BackgroundColor="#f0f2f5"
                             Margin="0,10,0,0"/>
+
+                    <!-- Select File Button -->
+                    <Button Text="Select Image/Video" FontSize="Medium" FontAttributes="Bold"
+                            BackgroundColor="#27D276" TextColor="White"
+                            Clicked="OnSelectFileButtonClicked"/>
+
+                    <Label x:Name="selectedFileLabel" Text="No file selected" FontSize="Small"/>
 
                     <!-- Post Button -->
                     <Button Text="Post" FontSize="Medium" FontAttributes="Bold"
