@@ -1,64 +1,54 @@
-namespace Sharing_Place;
+using Microsoft.Maui.Controls;
+using Sharing_Place.Models;
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 
-public partial class CommentPage : ContentPage
+namespace Sharing_Place
 {
-    public CommentPage()
+    public partial class CommentPage : ContentPage
     {
-        InitializeComponent();
-    }
+        private ObservableCollection<Comment> Comments { get; set; }
+        private int PostId { get; set; } // Add a property to store the current post ID
 
-    private void PostComment_Clicked(object sender, EventArgs e)
-    {
-        if (!string.IsNullOrEmpty(commentEntry.Text))
+        public CommentPage(int postId)
         {
-            var newComment = new Frame
+            InitializeComponent();
+            PostId = postId; // Initialize the post ID
+            LoadComments();
+        }
+
+        private void LoadComments()
+        {
+            // Replace this with actual database retrieval logic based on PostId
+            Comments = new ObservableCollection<Comment>
             {
-                CornerRadius = 10,
-                HasShadow = true,
-                BackgroundColor = Colors.White,
-                Padding = 10,
-                Margin = new Thickness(0, 0, 0, 10),
-                Content = new VerticalStackLayout
-                {
-                    Children =
-                        {
-                            new HorizontalStackLayout
-                            {
-                                Spacing = 10,
-                                Children =
-                                {
-                                    new Image
-                                    {
-                                        Source = "profile-pic.jpg",
-                                        WidthRequest = 40,
-                                        HeightRequest = 40,
-                                       
-                                    },
-                                    new VerticalStackLayout
-                                    {
-                                        Children =
-                                        {
-                                            new Label
-                                            {
-                                                Text = "You",
-                                                FontAttributes = FontAttributes.Bold,
-                                                FontSize = 16
-                                            },
-                                            new Label
-                                            {
-                                                Text = commentEntry.Text,
-                                                FontSize = 14
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                }
+                new Comment { UserName = "Jane Doe", Body = "This is a sample comment." },
+                new Comment { UserName = "John Smith", Body = "Another comment here." }
             };
 
-            commentsList.Children.Add(newComment);
-            commentEntry.Text = string.Empty;
+            commentsListView.ItemsSource = Comments;
         }
+
+        private void PostComment_Clicked(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(commentEntry.Text))
+            {
+                var newComment = new Comment
+                {
+                    UserName = "You", // Replace with actual user data
+                    Body = commentEntry.Text
+                };
+
+                Comments.Add(newComment); // Add the new comment to the collection
+                commentEntry.Text = string.Empty;
+            }
+        }
+    }
+    public class Comment
+    {
+        public string UserName { get; set; }
+        public string Body { get; set; }
+        
     }
 }

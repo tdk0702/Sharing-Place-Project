@@ -7,22 +7,25 @@
     <VerticalStackLayout Padding="10" Spacing="10">
         <!-- Comments Section -->
         <ScrollView>
-            <VerticalStackLayout x:Name="commentsList" Spacing="10">
-                <!-- Sample Comments -->
-                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White" Padding="10" Margin="0">
-                    <VerticalStackLayout>
-                        <HorizontalStackLayout Spacing="10">
-                            <Image Source="profile-pic.jpg"
-                                   WidthRequest="40" HeightRequest="40"
-                                   />
-                            <VerticalStackLayout>
-                                <Label Text="Jane Doe" FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Text="This is a sample comment." FontSize="Small"/>
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
-                </Frame>
-            </VerticalStackLayout>
+            <ListView x:Name="commentsListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White" Padding="10" Margin="0">
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Image Source="profile-pic.jpg" WidthRequest="40" HeightRequest="40" />
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding UserName}" FontAttributes="Bold" FontSize="Medium"/>
+                                            <Label Text="{Binding Body}" FontSize="Small"/>
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollView>
 
         <!-- Add Comment Section -->

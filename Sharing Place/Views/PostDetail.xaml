@@ -26,20 +26,20 @@
                            Margin="10,0,10,0">
                         <VerticalStackLayout>
                             <HorizontalStackLayout HorizontalOptions="Fill">
-                                <Image Source="profile-pic.jpg"
+                                <Image x:Name="userImage"
                                        WidthRequest="50" HeightRequest="50"
                                        HorizontalOptions="StartAndExpand"/>
                                 <VerticalStackLayout Margin="10,0,0,0">
-                                    <Label Text="John Doe" FontSize="Medium" FontAttributes="Bold"/>
-                                    <Label Text="2 hrs" FontSize="Small" FontAttributes="Italic"
+                                    <Label x:Name="userNameLabel" FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label x:Name="timeAgoLabel" FontSize="Small" FontAttributes="Italic"
                                            HorizontalTextAlignment="End" HorizontalOptions="End"/>
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                             <VerticalStackLayout>
-                                <Label Text="This is an example post content!"
+                                <Label x:Name="bodyLabel"
                                        FontSize="Small"/>
                             </VerticalStackLayout>
-                            <Image Source="post-image.jpg" Aspect="AspectFill" HeightRequest="200"/>
+                            <Image x:Name="postImage" Aspect="AspectFill" HeightRequest="200"/>
                             <Grid ColumnDefinitions="*,*,*" HorizontalOptions="Fill" Margin="0,5,0,0" ColumnSpacing="5">
                                 <StackLayout>
                                     <Button Text="Likes" FontSize="Small" FontAttributes="Bold"
