@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\GitHub\\Sharing-Place\\SPServer\\SPServer.csproj": {}
+    "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\GitHub\\Sharing-Place\\SPServer\\SPServer.csproj": {
+    "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\GitHub\\Sharing-Place\\SPServer\\SPServer.csproj",
+        "projectUniqueName": "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj",
         "projectName": "SPServer",
-        "projectPath": "D:\\Projects\\GitHub\\Sharing-Place\\SPServer\\SPServer.csproj",
-        "packagesPath": "C:\\Users\\dkduy\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\GitHub\\Sharing-Place\\SPServer\\obj\\",
+        "projectPath": "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\AppSP\\Sharing-Place-Project\\SPServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dkduy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

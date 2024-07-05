@@ -62034,24 +62034,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dkduy\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\GitHub\\Sharing-Place\\Sharing Place\\Sharing Place.csproj",
+      "projectUniqueName": "D:\\AppSP\\Sharing-Place-Project\\Sharing Place\\Sharing Place.csproj",
       "projectName": "Sharing Place",
-      "projectPath": "D:\\Projects\\GitHub\\Sharing-Place\\Sharing Place\\Sharing Place.csproj",
-      "packagesPath": "C:\\Users\\dkduy\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\GitHub\\Sharing-Place\\Sharing Place\\obj\\",
+      "projectPath": "D:\\AppSP\\Sharing-Place-Project\\Sharing Place\\Sharing Place.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\AppSP\\Sharing-Place-Project\\Sharing Place\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\dkduy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

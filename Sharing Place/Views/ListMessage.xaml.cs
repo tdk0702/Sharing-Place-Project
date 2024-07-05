@@ -2,100 +2,163 @@ using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Sharing_Place.Models;
+using System.Windows.Input;
+using System.Threading.Tasks;
 using Sharing_Place.ViewModels;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace Sharing_Place.Views
 {
-    public partial class ListMessage : ContentPage
+    public partial class ListMessage : ContentPage, INotifyPropertyChanged
     {
-        private ObservableCollection<User> _userSuggestions;
-        public ReadOnlyObservableCollection<User> UserSuggestions { get; }
-        public ObservableCollection<MessageModel> Messages { get; set; }
-        public static Dictionary<string, string> ChatPerson = new Dictionary<string, string>();
+        private readonly ObservableCollection<User> _friends;
+        private bool _isUserSuggestionsVisible;
+        public ObservableCollection<User> UserSuggestions { get; }
+        public ObservableCollection<MessagesModel> Messages { get; }
+        public ICommand DeleteMessageCommand { get; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public ListMessage()
         {
             InitializeComponent();
-            _userSuggestions = new ObservableCollection<User>();
-            UserSuggestions = new ReadOnlyObservableCollection<User>(_userSuggestions);
-            Messages = new ObservableCollection<MessageModel>();
-
+            _friends = InitializeFriends();
+            UserSuggestions = new ObservableCollection<User>();
+            Messages = new ObservableCollection<MessagesModel>();
+            DeleteMessageCommand = new Command<MessagesModel>(ExecuteDeleteMessage);
             BindingContext = this;
+        }
 
-            //loadListUser();
+        private static ObservableCollection<User> InitializeFriends() => new()
+        {
+            new User { Username = "quanglam", ImgAvt = "user1.png", IsOnline = true },
+            new User { Username = "tdk0702", ImgAvt = "user2.png", IsOnline = false },
+            new User { Username = "YelloIsMe", ImgAvt = "user3.png", IsOnline = true },
+        };
+
+        private void ExecuteDeleteMessage(MessagesModel message)
+        {
+            if (message != null)
+            {
+                Messages.Remove(message);
+            }
+        }
+
+        public bool IsUserSuggestionsVisible
+        {
+            get => _isUserSuggestionsVisible;
+            set
+            {
+                if (_isUserSuggestionsVisible != value)
+                {
+                    _isUserSuggestionsVisible = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         private void OnSearchBarTextChanged(object sender, TextChangedEventArgs e)
         {
-            string searchText = e.NewTextValue?.Trim();
-
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                UserSuggestionListView.IsVisible = false;
-            }
-            else
-            {
-                UpdateUserSuggestions(searchText);
-                UserSuggestionListView.IsVisible = true;
-            }
+            string searchText = e.NewTextValue;
+            UpdateUserSuggestions(searchText);
+            IsUserSuggestionsVisible = !string.IsNullOrWhiteSpace(searchText);
         }
 
-        private void OnUserSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void OnUserSelected(object sender, SelectionChangedEventArgs e)
         {
-            if (e.SelectedItem is User selectedUser)
+            if (e.CurrentSelection.FirstOrDefault() is User selectedUser)
             {
-                Navigation.PushAsync(new Message(selectedUser));
-                UserSuggestionListView.SelectedItem = null;
+                ((CollectionView)sender).SelectedItem = null;
+                await NavigateToMessagePage(selectedUser);
             }
         }
 
         private void UpdateUserSuggestions(string searchText)
         {
-            var suggestions = GetUserSuggestions(searchText).ToList();
-            _userSuggestions.Clear();
+            var suggestions = _friends.Where(user => user.Username.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+            UserSuggestions.Clear();
             foreach (var suggestion in suggestions)
             {
-                _userSuggestions.Add(suggestion);
+                UserSuggestions.Add(suggestion);
             }
         }
 
-        private IEnumerable<User> GetUserSuggestions(string searchText)
+        public void AddOrUpdateMessage(MessagesModel message)
         {
-            var users = new List<User>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                new User { Username = "quanglam", ImgAvt = "user1.png", IsOnline = true },
-                new User {Username = "tdk0702", ImgAvt = "user2.png", IsOnline = false },
-                new User { Username = "YelloIsMe", ImgAvt = "user3.png", IsOnline = true },
-            };
-            return users.Where(user => user.Username.Contains(searchText, StringComparison.OrdinalIgnoreCase));
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            //loadListUser();
-        }
-        /*private void loadListUser()
-        {
-            string command =
-            string.Format("./runquery {0} SELECT user1_id,user2_id,body FROM [User].[Messages],[User].[Info] WHERE (user1_id = {1} AND user2_id = _id)"
-                + " OR (user2_id = {1} AND user1_id = _id);",
-            ServerConnect.Id,SignIn.UserAccount.Id);
-            string data = ServerConnect.getData(command);
-            if (data.Contains("[EMPTY]")) return;
-            data = data.Substring(data.IndexOf(" ") + 1);
-            data = data.Substring(0, data.Length - 1);
-            string[] dtsplit = data.Split(";");
-                for (int i = 0; i < dtsplit.Length; i++)
+                var existingMessage = Messages.FirstOrDefault(m => m.Name == message.Name);
+                if (existingMessage != null)
                 {
-                    string[] dsplit = dtsplit[i].Split(" ");
-                    if (dsplit[0].Contains(SignIn.UserAccount.Id)) ChatPerson.Add(dsplit[1], dsplit[2]);
-                    else ChatPerson.Add(dsplit[0], dsplit[2]);
+                    existingMessage.Message = message.Message;
+                    existingMessage.SentAt = message.SentAt;
                 }
-        }*/
+                else
+                {
+                    Messages.Add(message);
+                }
+                var orderedMessages = new ObservableCollection<MessagesModel>(Messages.OrderByDescending(m => m.SentAt));
+                Messages.Clear();
+                foreach (var m in orderedMessages)
+                {
+                    Messages.Add(m);
+                }
+            });
+        }
+
+        private async void OnMessageSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection.FirstOrDefault() is MessagesModel selectedMessage)
+            {
+                var user = _friends.FirstOrDefault(u => u.Username == selectedMessage.Name);
+                if (user != null)
+                {
+                    await NavigateToMessagePage(user);
+                    MessagesListView.SelectedItem = null;
+                }
+            }
+        }
+
+        private async Task NavigateToMessagePage(User user)
+        {
+            var existingPage = Navigation.NavigationStack
+                .OfType<Message>()
+                .FirstOrDefault(p => p.chatUser.Username == user.Username);
+
+            if (existingPage != null)
+            {
+                await Navigation.PushAsync(existingPage);
+            }
+            else
+            {
+                var newPage = new Message(user, AddOrUpdateMessage);
+                await Navigation.PushAsync(newPage);
+            }
+        }
     }
-    public class MessageModel
-    {
-        public string Name { get; set; }
-        public string MessageText { get; set; }
-        public string ImgAvt { get; set; }
-    }
-}
+}        
+/*private void loadListUser()
+{
+    string command =
+    string.Format("./runquery {0} SELECT user1_id,user2_id,body FROM [User].[Messages],[User].[Info] WHERE (user1_id = {1} AND user2_id = _id)"
+        + " OR (user2_id = {1} AND user1_id = _id);",
+    ServerConnect.Id,SignIn.UserAccount.Id);
+    string data = ServerConnect.getData(command);
+    if (data.Contains("[EMPTY]")) return;
+    data = data.Substring(data.IndexOf(" ") + 1);
+    data = data.Substring(0, data.Length - 1);
+    string[] dtsplit = data.Split(";");
+        for (int i = 0; i < dtsplit.Length; i++)
+        {
+            string[] dsplit = dtsplit[i].Split(" ");
+            if (dsplit[0].Contains(SignIn.UserAccount.Id)) ChatPerson.Add(dsplit[1], dsplit[2]);
+            else ChatPerson.Add(dsplit[0], dsplit[2]);
+        }
+}*/
+    
+
+

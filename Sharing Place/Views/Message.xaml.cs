@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sharing_Place.Models;
 using Plugin.AudioRecorder;
+using Sharing_Place.ViewModels;
 
 namespace Sharing_Place.Views
 {
@@ -17,17 +18,18 @@ namespace Sharing_Place.Views
         private readonly UdpClient udpClient;
         private readonly IPEndPoint remoteEndPoint;
         private readonly string clientId;
-        private readonly User chatUser;
+        public User chatUser;
         private readonly AudioRecorderService audioRecorderService;
         private List<User> groupMembers;
-        public Message(User user)
+        private Action<MessagesModel> _addOrUpdateMessageCallback;
+        public Message(User user, Action<MessagesModel> addOrUpdateMessageCallback)
         {
             InitializeComponent();
             chatUser = user;
             List<User> members = null;
             udpClient = new UdpClient();
             remoteEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 7070);
-
+            _addOrUpdateMessageCallback = addOrUpdateMessageCallback;
             clientId = user.Id;
 
             Task.Run(ReceiveMessagesAsync);
@@ -72,6 +74,15 @@ namespace Sharing_Place.Views
             {
                 MessageEntry.Text = string.Empty;
                 AddMessage(messageText, true);
+                var currentTime = DateTime.Now;
+
+                var newMessage = new MessagesModel
+                {
+                    ImgAvt = chatUser.ImgAvt,
+                    Name = chatUser.Username,
+                    Message = messageText,
+                    SentAt = currentTime.ToString("HH:mm")
+                };
                 await SendMessageAsync(messageText, receiverId);
             }
         }
