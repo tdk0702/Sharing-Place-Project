@@ -83,6 +83,7 @@ namespace Sharing_Place.Views
                     Message = messageText,
                     SentAt = currentTime.ToString("HH:mm")
                 };
+                _addOrUpdateMessageCallback(newMessage);
                 await SendMessageAsync(messageText, receiverId);
             }
         }
