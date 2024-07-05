@@ -31,8 +31,10 @@ public partial class SignIn : ContentPage
             await DisplayAlert("Alert", "Username or Password cannot be empty", "Retry");
             return;
         }
-        string passhash = SecurePasswordHasher.Hash(txtPassword.Text.Trim());
-        string command = string.Format("./login {0} {1} {2}", ServerConnect.Id, txtUser.Text.Trim(), passhash);
+        loadingIndicator.IsRunning = true;
+        while (!ServerConnect.isConnected) ;
+        loadingIndicator.IsRunning = false;
+        string command = string.Format("./login {0} {1} {2}", ServerConnect.Id, txtUser.Text.Trim(), txtPassword.Text.Trim());
         string data = ServerConnect.getData(command);
         if (data.Contains("[EMPTY]")) {
             loadingIndicator.IsRunning = false;
@@ -46,9 +48,9 @@ public partial class SignIn : ContentPage
             return;
         }
         string[] dsplit = data.Replace("[OK] ","").Split(" ");
-        UserAccount = new User(dsplit[0], dsplit[1], dsplit[2], dsplit[3], dsplit[4], dsplit[5], dsplit[6]);
+        UserAccount = new User(dsplit[0], dsplit[1], dsplit[2], dsplit[3].Replace("_"," "), dsplit[4], dsplit[5], dsplit[6]);
         loadingIndicator.IsRunning = false;
-        await DisplayAlert("Success", "Welcome back, "+ UserAccount.Nickname, "OK");
+        await DisplayAlert("Success", "Welcome back, "+ txtUser.Text.Trim(), "OK");
         Application.Current.MainPage = new MenuShell();
     }
 
@@ -62,7 +64,23 @@ public partial class SignIn : ContentPage
 
     private async void OnForgetClicked(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new ForgetViews.ForgetPassword();
+        Application.Current.MainPage = new NavigationPage(new ForgetViews.ForgetPassword());
+        await Navigation.PopAsync();
         //Navigation.InsertPageBefore(new ForgetPassword(), this);
+    }
+
+    bool isHidePass = true;
+    private void PassVisible_Click(object sender, TappedEventArgs e)
+    {
+        if (isHidePass)
+        {
+            imgHideShow.Source = "show_pass_icon";
+            txtPassword.IsPassword = false;
+        }
+        else
+        {
+            imgHideShow.Source = "hide_pass_icon";
+            txtPassword.IsPassword = true;
+        }
     }
 }

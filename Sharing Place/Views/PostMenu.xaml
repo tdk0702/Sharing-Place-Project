@@ -21,50 +21,53 @@
             <RoundRectangle Margin="-5,-30,-5,-2" 
                             CornerRadius="40,40,0,0"
                             Fill="White"/>
-            <VerticalStackLayout Padding="3" Spacing="5">
-                <ListView x:Name="postsListView" ItemSelected="OnPostSelected">
+            <StackLayout>
+                <ListView x:Name="postsListView" BackgroundColor="Transparent" ItemTapped="Post_Tapped"
+                          HorizontalOptions="Fill" HasUnevenRows="True" 
+                          ItemSelected="OnPostSelected" SeparatorVisibility="Default">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Frame CornerRadius="10" 
                                        HasShadow="True"
                                        BorderColor="#27D276"
-                                       Margin="10,0,10,0">
-                                    <VerticalStackLayout>
-                                        <HorizontalStackLayout HorizontalOptions="Fill">
-                                            <Image Source="{Binding UserImage}" 
+                                       BackgroundColor="Transparent"
+                                       Margin="10,5,10,5">
+                                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                                        <Grid ColumnDefinitions=".2*, .8*" HorizontalOptions="Fill">
+                                            <Image Grid.Column="0" Source="{Binding ImagePath}" 
                                                    WidthRequest="50" HeightRequest="50"
                                                    HorizontalOptions="StartAndExpand"/>
-                                            <VerticalStackLayout Margin="10,0,0,0">
+                                            <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
                                                 <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold"/>
-                                                <Label Text="{Binding CreatedAt, StringFormat='{0:g}'}" FontSize="Small" FontAttributes="Italic"
-                                                       HorizontalTextAlignment="End" HorizontalOptions="End"/>
+                                                <StackLayout HorizontalOptions="EndAndExpand">
+                                                    <Label Text="{Binding CreatedAt, StringFormat='{0:g}'} " FontSize="Small" FontAttributes="Italic" 
+                                                           Padding="0,0,15,0" HorizontalTextAlignment="Center"/>
+                                                </StackLayout>
                                             </VerticalStackLayout>
-                                        </HorizontalStackLayout>
+                                        </Grid>
                                         <VerticalStackLayout>
                                             <Label Text="{Binding Body}" FontSize="Small"/>
                                         </VerticalStackLayout>
                                         <Grid ColumnDefinitions="*,*,*" HorizontalOptions="Fill" Margin="0,5,0,0" ColumnSpacing="5">
-                                            <StackLayout>
-                                                <Button Text="Likes" FontSize="Small" FontAttributes="Bold" 
+                                    
+                                            <Button Grid.Column="0" Text="Likes" FontSize="Small" FontAttributes="Bold" 
                                                         BackgroundColor="#27D276" TextColor="White"/>
-                                            </StackLayout>
-                                            <StackLayout Grid.Column="1">
-                                                <Button Text="Comments" FontSize="Small" FontAttributes="Bold" 
+                                            
+                                            <Button Grid.Column="1" Text="Comments" FontSize="Small" FontAttributes="Bold" 
                                                         BackgroundColor="#27D276" TextColor="White"/>
-                                            </StackLayout>
-                                            <StackLayout Grid.Column="2">
-                                                <Button Text="Share" FontSize="Small" FontAttributes="Bold" 
+
+                                            <Button Grid.Column="2" Text="Share" FontSize="Small" FontAttributes="Bold" 
                                                         BackgroundColor="#27D276" TextColor="White"/>
-                                            </StackLayout>
+                                            
                                         </Grid>
-                                    </VerticalStackLayout>
+                                    </StackLayout>
                                 </Frame>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </VerticalStackLayout>
+            </StackLayout>
         </Grid>
     </Grid>
 </ContentPage>

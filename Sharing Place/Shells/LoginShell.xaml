@@ -16,13 +16,13 @@
         <ShellContent 
             x:Name="signin"
             Title="SIGN IN"
-            Icon="appicon.svg"
+            Icon="signin_icon_black"
             ContentTemplate="{DataTemplate local:SignIn}"
             Route="SignIn"/>
         <ShellContent 
             x:Name="signup"
             Title="SIGN UP"
-            Icon="appicon.svg"
+            Icon="signup_icon_black"
             ContentTemplate="{DataTemplate local:Register}"
             Route="Register" />
     </TabBar>

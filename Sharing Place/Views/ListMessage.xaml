@@ -1,49 +1,93 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Sharing_Place.ViewModels"
+             xmlns:local="clr-namespace:Sharing_Place.Views"
              x:Class="Sharing_Place.Views.ListMessage"
              Title="Messages">
-    <ContentPage.Resources>
-        <DataTemplate x:Key="MessageTemplate">
-            <ViewCell>
-                <HorizontalStackLayout>
+
+        <ContentPage.Resources>
+            <DataTemplate x:Key="MessageTemplate">
+                <SwipeView>
+                    <SwipeView.RightItems>
+                        <SwipeItems>
+                            <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ListMessage}}, Path=DeleteMessageCommand}" CommandParameter="{Binding .}"/>
+                        </SwipeItems>
+                    </SwipeView.RightItems>
+                    <Grid Padding="10" ColumnDefinitions="Auto, *, Auto">
+                        <Image Source="{Binding Sender.ImgAvt}" 
+                   WidthRequest="50" HeightRequest="50"
+                   Aspect="AspectFill"
+                   VerticalOptions="Center"/>
+                        <StackLayout Grid.Column="1" Margin="10,0" VerticalOptions="Center">
+                            <Label Text="{Binding Sender.Username}" 
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                       TextColor="Black"/>
+                            <Label Text="{Binding Message}" 
+                       FontSize="Small" 
+                       TextColor="Gray"
+                       LineBreakMode="TailTruncation"/>
+                        </StackLayout>
+                        <Label Grid.Column="2"
+                   Text="{Binding SentAt, StringFormat='{0:HH:mm}'}" 
+                   FontSize="Small" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="End"/>
+                    </Grid>
+                </SwipeView>
+            </DataTemplate>
+
+            <DataTemplate x:Key="UserSuggestionTemplate">
+                <Grid Padding="10" ColumnDefinitions="Auto, *">
                     <Image Source="{Binding ImgAvt}" 
-                                WidthRequest="50" HeightRequest="50"
-                                HorizontalOptions="StartAndExpand"/>
-                    <VerticalStackLayout>
-                        <Label Text="{Binding Name}" FontSize="Small" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
-                        <Label Text="{Binding Message}" FontSize="Small" HorizontalOptions="StartAndExpand"/>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </ViewCell>
-        </DataTemplate>
-    </ContentPage.Resources>
-    <Grid RowDefinitions=".10*, .90*">
-        <Grid Grid.Row="0">
-            <!--HorizontalStackLayout Padding="10" Spacing="10"
-                                   BackgroundColor="LimeGreen">
-                <Image Source="Resources\Images\back.png"
-                       WidthRequest="20"
-                       HeightRequest="20"
-                       HorizontalOptions="Start"/>
-                <Label Text="Messages" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
-            </HorizontalStackLayout-->
-            <VerticalStackLayout HorizontalOptions="Center" Margin="5">
-                <SearchBar Placeholder="Search"/>
-            </VerticalStackLayout>
-        </Grid>
-        <Grid Grid.Row="1" RowDefinitions=".1*, .9*">
-            <VerticalStackLayout HorizontalOptions="Center">
-                <Label Text="List Messages" FontSize="Medium" HorizontalTextAlignment="Center"/>
-            </VerticalStackLayout>
-            <Grid Grid.Row="1">
-                <VerticalStackLayout Grid.Row="1" Padding="3" Spacing="5">
-                    <ListView ItemsSource="{Binding MessageModel}"
-                              ItemTemplate="{StaticResource MessageTemplate}">
-                    </ListView>
-                </VerticalStackLayout>
-            </Grid>
-        </Grid>
+                       WidthRequest="50" HeightRequest="50"
+                       Aspect="AspectFill"
+                       VerticalOptions="Center"/>
+                    <StackLayout Grid.Column="1" Margin="10,0" VerticalOptions="Center">
+                        <Label Text="{Binding Username}" 
+                           FontAttributes="Bold"
+                           FontSize="Medium"/>
+                        <Label Text="{Binding IsOnline, StringFormat='Online: {0}'}" 
+                           FontSize="Small" 
+                           TextColor="Gray"/>
+                    </StackLayout>
+                </Grid>
+            </DataTemplate>
+        </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, Auto, *">
+        <!-- Thanh tìm kiếm -->
+        <SearchBar Grid.Row="0"
+                   Placeholder="Tìm kiếm trên Messenger" 
+                   TextChanged="OnSearchBarTextChanged"/>
+
+        <!-- Danh sách gợi ý người dùng -->
+        <CollectionView Grid.Row="1"
+                        x:Name="UserSuggestionListView" 
+                        ItemsSource="{Binding UserSuggestions}" 
+                        ItemTemplate="{StaticResource UserSuggestionTemplate}" 
+                        IsVisible="{Binding IsUserSuggestionsVisible}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnUserSelected"
+                        HeightRequest="200"
+                        Margin="0,0,0,10">
+        </CollectionView>
+
+        <!-- ScrollView chứa danh sách tin nhắn -->
+        <ScrollView Grid.Row="2">
+            <StackLayout>
+                <Label Text="List Messages" 
+                       FontSize="Medium" 
+                       HorizontalTextAlignment="Center"
+                       Padding="10"/>
+                <CollectionView x:Name="MessagesListView" 
+                                ItemsSource="{Binding Messages}" 
+                                ItemTemplate="{StaticResource MessageTemplate}"
+                                SelectionMode="Single"
+                                SelectionChanged="OnMessageSelected">
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>
+  

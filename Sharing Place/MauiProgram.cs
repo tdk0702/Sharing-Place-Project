@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace Sharing_Place
 {
@@ -11,11 +12,13 @@ namespace Sharing_Place
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("Times.New.Roman_n.ttf", "TimesNewRomanRegular");
-                    fonts.AddFont("timesbd.ttf", "TimesNewRomanbold");
+                    fonts.AddFont("MaterialIconsOutlined-Regular.otf", "MaterialIconsOutlined-Regular");
+                    fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIcons-Regular");
+                    //fonts.AddFont("Times.New.Roman_n.ttf", "TimesNewRomanRegular");
+                    //fonts.AddFont("timesbd.ttf", "TimesNewRomanbold");
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                }).UseMauiCommunityToolkitMediaElement();
             //var ConnectString = builder.Configuration["ConnectionStrings:SqlConnectString"];
 
 #if DEBUG

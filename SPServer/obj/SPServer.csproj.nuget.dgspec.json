@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\SPServer.csproj": {}
+    "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj": {}
   },
   "projects": {
-    "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\SPServer.csproj": {
+    "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\SPServer.csproj",
+        "projectUniqueName": "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj",
         "projectName": "SPServer",
-        "projectPath": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\SPServer.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "E:\\Lap trinh ung dung di dong\\DO AN\\Sharing\\SPServer\\obj\\",
+        "projectPath": "D:\\AppSP\\Sharing-Place-Project\\SPServer\\SPServer.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\AppSP\\Sharing-Place-Project\\SPServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

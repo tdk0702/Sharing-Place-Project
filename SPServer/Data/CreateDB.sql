@@ -7,6 +7,7 @@ WHERE  TABLE_TYPE = 'BASE TABLE'
 Exec Sp_executesql @sql
 GO
 */
+
 CREATE SCHEMA [User]
 GO
 
@@ -18,6 +19,7 @@ GO
 
 CREATE SCHEMA [Group]
 GO
+
 
 CREATE TABLE [Images] (
   [id] int PRIMARY KEY IDENTITY(0, 1),
@@ -98,6 +100,8 @@ CREATE TABLE [Post].[Posts] (
   [created_at] DATETIME DEFAULT GETDATE(),
 )
 GO
+
+--INSERT INTO [Post].[Posts] VALUES (<user_id>, N'<tittle>', N'<body>', DEFAULT, DEFAULT);
 
 CREATE TABLE [Post].[Comments] (
   [post_id] int,

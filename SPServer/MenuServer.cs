@@ -8,6 +8,9 @@ using System.Data.SqlClient;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using System.Reflection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SP_Server
 {
@@ -88,7 +91,8 @@ namespace SP_Server
                 }
             }
         }
-        private void sendData(IPEndPoint host, string data)
+        
+	private void sendData(IPEndPoint host, string data)
         {
             using (UdpClient udpClient = new UdpClient())
             {
@@ -118,7 +122,7 @@ namespace SP_Server
                 return;
             }
 
-            if (command.Contains("./register "))
+            if (command.Contains("./register"))
             {
                 //Command:  ./register <client_id> <username> <email> <password> <fullname>
                 //Example: ./register 1 tdk@123 tester@gm.com XXXXXXX Tester_User
@@ -131,8 +135,8 @@ namespace SP_Server
             if (command.Contains("./loadview"))
             {
                 //Command:  ./loadview <client_id> <view> [<subview_id>]
-                //Example: ./loadview 1 000001 rooms 
-                //Example: ./loadview 1 000001 roompost 1 
+                //Example: ./loadview 1 rooms 
+                //Example: ./loadview 1 roompost 1 
                 string[] cmdsplit = command.Split(" ");
                 writeLog(command, cmdsplit[1]);
                 if (!userClients.ContainsKey(cmdsplit[1])) { writeLog("Lỗi - Không tìm thấy client có id:" + cmdsplit[1]); return; }
@@ -147,12 +151,83 @@ namespace SP_Server
             //Quên mật khẩu, lấy mã PIN xác thực
             if (command.Contains("./forgetpass"))
             {
-                //Command: ./forgetpass <client_id> <user_id>
-                //Example: ./forgetpass 1 000001 
+                //Command: ./forgetpass <client_id> <username>|<email>
+                //Example: ./forgetpass 1 tdk0702 
+                //Example: ./forgetpass 1 tester@gm.com 
                 string[] cmdsplit = command.Split(" ");
                 writeLog(command, cmdsplit[1]);
                 forgetPassword(cmdsplit[1], cmdsplit[2]);
                 return;
+            }
+            //Đặt lại mật khẩu
+            if (command.Contains("./renewpass"))
+            {
+                //Command: ./renewpass <client_id> <user_id> <password>
+                //Example: ./renewpass 1 001 XXXXXX 
+                string[] cmdsplit = command.Split(" ");
+                writeLog(command, cmdsplit[1]);
+                renewPassword(cmdsplit[1], cmdsplit[2], cmdsplit[3]);
+                return;
+            }
+	    if (command.Contains("./message"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string receiverId = cmdsplit[2];
+                string message = string.Join(" ", cmdsplit, 3, cmdsplit.Length - 3);
+                saveMessageToDatabase(senderId, receiverId, message);
+                forwardMessage(receiverId, message);
+                return;
+            }
+            if (command.Contains("./emotion"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string messageId = cmdsplit[2];
+                string emotion = cmdsplit[3];
+                saveEmotionToDatabase(senderId, messageId, emotion);
+                forwardEmotion(senderId, messageId, emotion);
+                return;
+            }
+            if (command.StartsWith("./file"))
+            {
+                handleFileTransfer(command);
+                return;
+            }
+            if (command.Contains("./voice"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string receiverId = cmdsplit[2];
+                string audioBase64 = cmdsplit[3];
+                saveVoiceMessageToDatabase(senderId, receiverId, audioBase64);
+                forwardVoiceMessage(receiverId, audioBase64);
+                return;
+            }
+            if (command.Contains("./groupmessage"))
+            {
+                string[] cmdsplit = command.Split(" ");
+                string senderId = cmdsplit[1];
+                string roomId = cmdsplit[2];
+                string message = string.Join(" ", cmdsplit, 3, cmdsplit.Length - 3);
+                saveGroupMessageToDatabase(senderId, roomId, message);
+                forwardGroupMessage(roomId, senderId, message);
+                return;
+            }
+            if (command.Contains("./runquery"))
+            {
+                //Command: ./runquery <client_id> <query>
+                //Example: ./runquery 1 SELECT Id,name,fullname [User].[Users] WHERE ...
+                //Bỏ ./runquery
+                writeLog(command);
+                string query = command.Substring(command.IndexOf(" ") + 1);
+                string id = query.Substring(0,query.IndexOf(" "));
+                query = query.Substring(query.IndexOf(" ") + 1);
+                //Lấy selected items: id, name, fullname 
+                string item = query.Substring(query.IndexOf(" ") + 1);
+                string[] items = item.Substring(0,item.IndexOf("F")-1).Split(",");
+                try { runQuery(userClients[id], query, items); }
+                catch (Exception) { writeLog("Lỗi: " + id); }
             }
         }
 
@@ -174,7 +249,7 @@ namespace SP_Server
 
             string id = dt.Rows[0]["id"].ToString();
             string password = dt.Rows[0]["password"].ToString();
-            if (pass != password) { writeLog("Mật khẩu không khớp"); sendData(userClients[client_id].Ip, "[WRONG PASS]"); return; }
+            if (!Hasher.Verify(pass, password)) { writeLog("Mật khẩu không khớp"); sendData(userClients[client_id].Ip, "[WRONG PASS]"); return; }
             userClients[client_id].Id = id;
             writeLog("Đăng nhập thành công UserID: " + id);
             sendData(userClients[client_id].Ip, "[OK] " + getUser(id));
@@ -185,13 +260,14 @@ namespace SP_Server
             string query = string.Format("SELECT id FROM [User].[Users] WHERE username = '{0}' OR email = '{1}';", username, email);
             DataTable dt = SqlQuery.getData(query); 
             if (dt.Rows.Count > 0) { writeLog("Đã tồn tại tài khoản id: " + dt.Rows[0]["id"].ToString()); sendData(userClients[client_id].Ip, "[EXIST]"); return; }
-            query = string.Format("INSERT INTO [User].[Users] VALUES (N'{0}', N'{1}', N'{2}', DEFAULT);", username, email, pass);
+            query = string.Format("INSERT INTO [User].[Users] VALUES (N'{0}', N'{1}', N'{2}', DEFAULT);", username, pass, email);
             SqlQuery.queryData(query);
             query = "SELECT id FROM [User].[Users] WHERE username = '" + username +"';";
             dt = SqlQuery.getData(query);
             if (dt.Rows.Count <= 0) { writeLog("Lỗi không đăng ký được."); sendData(userClients[client_id].Ip, "[ERROR]"); return; }
             string id = dt.Rows[0]["id"].ToString();
-            query = string.Format("INSERT INTO [User].[Info] VALUES({0}, N'{1}', NULL, NULL, DEFAULT, NULL, DEFAULT);", id, name);
+            query = string.Format("INSERT INTO [User].[Info] VALUES({0}, N'{1}', NULL, NULL, N'male', NULL, DEFAULT);", id, name);
+            SqlQuery.queryData(query);
             writeLog("Đăng ký thành công UserID: " + id);
             sendData(userClients[client_id].Ip, "[OK] " + id);
         }
@@ -208,20 +284,30 @@ namespace SP_Server
             data += " " + user.Info.Gender;
             return data;
         }
-        private void forgetPassword(string client_id, string user_id)
+        private void forgetPassword(string client_id, string username)
         {
             if (!userClients.ContainsKey(client_id)) { writeLog("Lỗi - Không tìm thấy client có id:" + client_id); return; }
-            User user = User.loadUser(user_id);
-            string PIN = sendEmailForget(user.Email);
-            sendData(userClients[client_id].Ip, "[OK] " + PIN);
+            string query = string.Format("SELECT id,username,email FROM [User].[Users] WHERE username = '{0}' OR email = '{0}';", username);
+            DataTable dt = SqlQuery.getData(query);
+            if (dt.Rows.Count <= 0) { writeLog("Không tồn tại tài khoản: " + username); sendData(userClients[client_id].Ip, "[EXIST]"); return; }
+            string email;
+            string id = dt.Rows[0]["id"].ToString();
+            if (!(username.Contains("@") && username.Contains(".")))
+            {
+                email = dt.Rows[0]["email"].ToString();
+            }
+            else email = username;
+            string PIN = sendEmailForget(email);
+            writeLog("Đã gửi mail, mã PIN: " + PIN);
+            sendData(userClients[client_id].Ip, string.Join(" ","[OK]",id,PIN));
         }
         private string sendEmailForget(string email)
         {
-            //eojh pefj sann yywt
+            //skad yybw ohhd sfml
             string PIN = randomOTP();
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             NetworkCredential credential = new NetworkCredential(
-                "sharingplace.mobile@gmail.com", "eojhpefjsannyywt");
+                "sharingplace.mobile@gmail.com", "skadyybwohhdsfml");
             MailMessage message = new MailMessage();
             smtp.Credentials = credential;
             smtp.EnableSsl = true;
@@ -230,10 +316,12 @@ namespace SP_Server
             message.Subject = "XÁC THỰC LẤY LẠI MẬT KHẨU";
             message.Body = "Mã xác thực: " + PIN;
             message.IsBodyHtml = true;
-            while (true)
+            int TTL = 3;
+            while (TTL>0)
             {
                 try
                 {
+                    TTL--;
                     smtp.Send(message);
                     break;
                 }
@@ -245,6 +333,20 @@ namespace SP_Server
         private string randomOTP()
         {
             return new Random().Next(100000, 999999).ToString();
+        }
+
+        private void renewPassword(string client_id, string user_id ,string password)
+        {
+            if (!userClients.ContainsKey(client_id)) { writeLog("Lỗi - Không tìm thấy client có id:" + client_id); return; }
+            string query = string.Format("SELECT id FROM [User].[Users] WHERE id = {0} ;", user_id);
+            DataTable dt = SqlQuery.getData(query);
+            if (dt.Rows.Count <= 0) { writeLog("Không tồn tại tài khoản id: " + user_id); sendData(userClients[client_id].Ip, "[EXIST]"); return; }
+
+            query = string.Format("UPDATE [User].[Users] SET password = N'{1}' WHERE id = {0};", user_id, password);
+            bool isquery = SqlQuery.queryData(query);
+
+            if (!isquery) { writeLog("Không thể update CSDL"); sendData(userClients[client_id].Ip, "[ERROR]"); }
+            else { writeLog("Cập nhật mật khẩu thành công id: " + user_id); sendData(userClients[client_id].Ip, "[OK]"); }
         }
         private void loadView(KeyValuePair<string, UserClient> host, string view, string subview_id = "-1")
         {
@@ -260,9 +362,9 @@ namespace SP_Server
             string data = string.Empty;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                data += dt.Rows[i]["id"] + " ";
-                data += dt.Rows[i]["roomname"] + " ";
-                data += dt.Rows[i]["type"] + ";";
+                data += dt.Rows[i]["id"].ToString() + " ";
+                data += dt.Rows[i]["roomname"].ToString().Replace(" ","_") + " ";
+                data += dt.Rows[i]["type"].ToString() + ";";
             }
             writeLog(data, host.Key);
             sendData(host.Value.Ip, data);
@@ -411,6 +513,293 @@ namespace SP_Server
                 lvRooms.Items.Add(lvi);
             }
 
+        }
+        //Chạy query
+        private void runQuery(UserClient host,string query, string[] items)
+        {
+            DataTable dt = SqlQuery.getData(query);
+            if (dt.Rows.Count <= 0) { writeLog("Sai query"); sendData(host.Ip, "[ERROR]"); return; }
+            string data = string.Empty;
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                try
+                {
+                    for (int j = 0; j < items.Length; j++) data += dt.Rows[i][items[j]].ToString().Replace(" ","_") + " ";
+                }
+                catch (Exception ex) { writeLog("Sai query"); sendData(host.Ip, "[ERROR]"); return; }
+                data = data.Trim() + ";";
+            }
+            writeLog(data);
+            sendData(host.Ip, "[OK] " + data);
+        }
+	private void forwardMessage(string receiverId, string message)
+        {
+            UserClient receiver = userClients[receiverId];
+            if (receiver != null)
+            {
+                sendData(receiver.Ip, message);
+                writeLog("Forwarded message to " + receiverId);
+            }
+        }
+
+        private void saveMessageToDatabase(string senderId, string receiverId, string message)
+        {
+            try
+            {
+                string query = "INSERT INTO [Messages] (SenderId, ReceiverId, Message, Timestamp) VALUES (@SenderId, @ReceiverId, @Message, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@ReceiverId", receiverId);
+                        cmd.Parameters.AddWithValue("@Message", message);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved message to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving message to database: " + ex.Message);
+            }
+        }
+
+        private void saveEmotionToDatabase(string senderId, string messageId, string emotion)
+        {
+            try
+            {
+                string query = "INSERT INTO [Emotions] (SenderId, MessageId, Emotion, Timestamp) VALUES (@SenderId, @MessageId, @Emotion, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@MessageId", messageId);
+                        cmd.Parameters.AddWithValue("@Emotion", emotion);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved emotion to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving emotion to database: " + ex.Message);
+            }
+        }
+        private void forwardEmotion(string senderId, string messageId, string emotion)
+        {
+            foreach (var client in userClients)
+            {
+                sendData(client.Value.Ip, $"./emotion {senderId} {messageId} {emotion}");
+                writeLog("Forwarded emotion to " + client.Key);
+            }
+        }
+
+        private const int MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
+
+        private void handleFileTransfer(string command)
+        {
+            string[] cmdsplit = command.Split(" ");
+            string senderId = cmdsplit[1];
+            string receiverId = cmdsplit[2];
+            string fileType = cmdsplit[3];
+            string fileName = cmdsplit[4];
+            byte[] fileData = Convert.FromBase64String(cmdsplit[5]);
+
+            if (fileData.Length > MAX_FILE_SIZE)
+            {
+                writeLog($"File size exceeds 100MB limit. Actual size: {fileData.Length / (1024 * 1024)}MB");
+                return;
+            }
+
+            saveFileToDatabase(senderId, receiverId, fileType, fileName, fileData);
+            forwardFile(receiverId, fileType, fileName, fileData);
+        }
+
+        private void saveFileToDatabase(string senderId, string receiverId, string fileType, string fileName, byte[] fileData)
+        {
+            try
+            {
+                string query = "INSERT INTO [Files] (SenderId, ReceiverId, FileType, FileName, FileData, Timestamp) VALUES (@SenderId, @ReceiverId, @FileType, @FileName, @FileData, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@ReceiverId", receiverId);
+                        cmd.Parameters.AddWithValue("@FileType", fileType);
+                        cmd.Parameters.AddWithValue("@FileName", fileName);
+                        cmd.Parameters.AddWithValue("@FileData", fileData);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved file to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving file to database: " + ex.Message);
+            }
+        }
+
+        private void forwardFile(string receiverId, string fileType, string fileName, byte[] fileData)
+        {
+            UserClient receiver = userClients[receiverId];
+            if (receiver != null)
+            {
+                string fileDataBase64 = Convert.ToBase64String(fileData);
+                sendFile(receiver, $"./file {fileType} {fileName} {fileDataBase64}");
+                writeLog("Forwarded file to " + receiverId);
+            }
+        }
+
+
+        private void sendFile(UserClient uc, string data)
+        {
+            using (UdpClient udpClient = new UdpClient())
+            {
+                byte[] sendBytes = Encoding.UTF8.GetBytes(data);
+                int maxChunkSize = 65000; // Slightly less than maximum UDP packet size for safety
+                int chunkId = 0;
+                int totalChunks = (int)Math.Ceiling((double)sendBytes.Length / maxChunkSize);
+
+                for (int i = 0; i < sendBytes.Length; i += maxChunkSize)
+                {
+                    int remainingBytes = Math.Min(maxChunkSize, sendBytes.Length - i);
+                    byte[] chunk = new byte[remainingBytes + 8]; // 4 bytes for chunkId, 4 bytes for totalChunks
+
+                    Array.Copy(BitConverter.GetBytes(chunkId), 0, chunk, 0, 4);
+                    Array.Copy(BitConverter.GetBytes(totalChunks), 0, chunk, 4, 4);
+                    Array.Copy(sendBytes, i, chunk, 8, remainingBytes);
+
+                    udpClient.Send(chunk, chunk.Length, uc.Ip);
+                    chunkId++;
+                }
+            }
+        }
+
+        private string receiveFile(UdpClient udp)
+        {
+            IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            Dictionary<int, byte[]> receivedChunks = new Dictionary<int, byte[]>();
+            int totalChunks = -1;
+
+            while (true)
+            {
+                Byte[] receiveBytes = udp.Receive(ref RemoteIpEndPoint);
+                int chunkId = BitConverter.ToInt32(receiveBytes, 0);
+                int currentTotalChunks = BitConverter.ToInt32(receiveBytes, 4);
+
+                if (totalChunks == -1)
+                {
+                    totalChunks = currentTotalChunks;
+                }
+
+                byte[] chunkData = new byte[receiveBytes.Length - 8];
+                Array.Copy(receiveBytes, 8, chunkData, 0, chunkData.Length);
+                receivedChunks[chunkId] = chunkData;
+
+                if (receivedChunks.Count == totalChunks)
+                {
+                    break;
+                }
+            }
+
+            List<byte> completeData = new List<byte>();
+            for (int i = 0; i < totalChunks; i++)
+            {
+                completeData.AddRange(receivedChunks[i]);
+            }
+
+            string data = Encoding.UTF8.GetString(completeData.ToArray());
+            return data;
+        }
+        private void saveVoiceMessageToDatabase(string senderId, string receiverId, string audioBase64)
+        {
+            string query = "INSERT INTO [Messages].[Messages] (sender_id, receiver_id, message, date, time, type) VALUES (@senderId, @receiverId, @audioBase64, GETDATE(), GETDATE(), 'voice')";
+            List<SqlParameter> parameters = new List<SqlParameter>
+    {
+        new SqlParameter("@senderId", senderId),
+        new SqlParameter("@receiverId", receiverId),
+        new SqlParameter("@audioBase64", audioBase64)
+    };
+
+            string connectionString = "Connected";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddRange(parameters.ToArray());
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        private void forwardVoiceMessage(string receiverId, string audioBase64)
+        {
+            UserClient receiver = userClients[receiverId];
+            if (receiver != null)
+            {
+                sendData(receiver.Ip, audioBase64);
+            }
+        }
+
+        private void saveGroupMessageToDatabase(string senderId, string roomId, string message)
+        {
+            try
+            {
+                string query = "INSERT INTO [GroupMessages] (SenderId, RoomId, Message, Timestamp) VALUES (@SenderId, @RoomId, @Message, @Timestamp)";
+                using (SqlConnection conn = new SqlConnection("Your_Connection_String"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SenderId", senderId);
+                        cmd.Parameters.AddWithValue("@RoomId", roomId);
+                        cmd.Parameters.AddWithValue("@Message", message);
+                        cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                writeLog("Saved group message to database");
+            }
+            catch (Exception ex)
+            {
+                writeLog("Error saving group message to database: " + ex.Message);
+            }
+        }
+
+        private void forwardGroupMessage(string roomId, string senderId, string message)
+        {
+            Room room = Rooms.Find(r => r.Id == roomId);
+            if (room != null)
+            {
+                foreach(var member in room.Members)
+                {
+                    UserClient receiver = null;
+                    foreach (var client in userClients)
+                        if (client.Value.Id == member.Value.Id) receiver = client.Value;
+                    if (receiver != null && receiver.Id != senderId)
+                    {
+                        sendData(receiver.Ip, $"./groupmessage {roomId} {senderId} {message}");
+                        writeLog($"Forwarded group message to {receiver.Id} in room {roomId}");
+                    }
+                }
+            }
+            else
+            {
+                writeLog($"Room with id {roomId} not found");
+            }
         }
         //Viết lịch sử lệnh gửi nhận
         public static void writeLog(string data, string client_id = null)

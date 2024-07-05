@@ -56,20 +56,38 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="Resources\Images\logo.png" />
-	  <None Remove="Resources\Images\Logo_UIT_updated.jpg" />
+	<!--ItemGroup>
+	  <MauiImage Remove="Resources\Images\home_icon_color.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+	  <None Remove="Resources\Images\circle.png" />
+	  <None Remove="Resources\Images\close.png" />
+	  <None Remove="Resources\Images\delete.png" />
+	  <None Remove="Resources\Images\interface_icon.png" />
+	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\Logo_UIT_updated.jpg" />
+	  <None Remove="Resources\Images\volume.png" />
+	</ItemGroup-->
+
+	<ItemGroup>
+    <!--PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="4.0.0" /-->
+    <PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="4.0.0" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.61" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Plugin.AudioRecorder" Version="1.1.0" />
+		<PackageReference Include="Plugin.Maui.Audio" Version="3.0.0" />
+		<!--PackageReference Include="Xamarin.Essentials" Version="1.8.1" /-->
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Page.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Shells\RoomShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Shells\MenuShell.xaml">
@@ -78,10 +96,22 @@
 	  <MauiXaml Update="Views\ForgetViews\RenewPass.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ListMessage - Copy.xaml">
+	<MauiXaml Update="Views\ForgetViews\ForgetPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+	  <MauiXaml Update="Views\ListMessage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\RoomViews\RoomPost.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+    <MauiXaml Update="Views\RoomViews\ListRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
 	  <MauiXaml Update="Views\NewPostPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MediaViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -95,12 +125,27 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Strings.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Shells\RoomShell.xaml.cs">
+	    <DependentUpon>RoomShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Shells\MenuShell.xaml.cs">
 	    <DependentUpon>MenuShell.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ListMessage - Copy.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
+    <Compile Update="Views\ForgetViews\RenewPass.xaml.cs">
+      <DependentUpon>RenewPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ForgetViews\ForgetPassword.xaml.cs">
+      <DependentUpon>ForgetPassword.xaml</DependentUpon>
+    </Compile>
+	  <Compile Update="Views\ListMessage.xaml.cs">
+	    <DependentUpon>ListMessage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\RoomViews\RoomPost.xaml.cs">
+	    <DependentUpon>RoomPost.xaml</DependentUpon>
+	  </Compile>
+    <Compile Update="Views\RoomViews\ListRoom.xaml.cs">
+      <DependentUpon>ListRoom.xaml</DependentUpon>
+    </Compile>
 	</ItemGroup>
 
 	<ItemGroup>

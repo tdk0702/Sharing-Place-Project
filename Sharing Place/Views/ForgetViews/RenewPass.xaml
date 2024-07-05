@@ -2,11 +2,25 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sharing_Place.Views.ForgetViews.RenewPass"
-             Title="RenewPass">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Renew Password">
+    <VerticalStackLayout Margin="10" Spacing="15">
+        <Label Text="Rewrite a new password" FontSize="Large" HorizontalOptions="Center" />
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Margin="0,0,0,10">
+            <Grid ColumnDefinitions=".9*, .1*" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <VerticalStackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Entry x:Name="tbxPass" Placeholder="New password" FontSize="Medium" IsPassword="True"/>
+                    <Entry x:Name="tbxRePass" Placeholder="Repeat password" FontSize="Medium" IsPassword="True"/>
+                </VerticalStackLayout>
+                <Image Grid.Column="1"
+                    x:Name="imgHideShow" Source="hide_pass_icon" HeightRequest="30" WidthRequest="30" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PassVisible_Click"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+            <Button Text="Recreate a new pass" FontSize="Medium" BackgroundColor="#27D276" Clicked="resetPass_Click" />
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
