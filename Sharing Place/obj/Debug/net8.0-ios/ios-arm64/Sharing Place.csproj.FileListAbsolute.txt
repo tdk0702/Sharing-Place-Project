@@ -521,3 +521,9 @@ D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\Sh
 D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\refint\Sharing Place.dll
 D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\Sharing Place.pdb
 D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\mauiimage.outputs
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\signup_icon_black@3x.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\signup_icon_black@2x.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\signup_icon_black.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\signin_icon_black@3x.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\signin_icon_black@2x.png
+D:\Projects\GitHub\Sharing-Place\Sharing Place\obj\Debug\net8.0-ios\ios-arm64\resizetizer\r\signin_icon_black.png

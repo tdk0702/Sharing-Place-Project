@@ -23,7 +23,7 @@
                 HorizontalOptions="Start"/>
                 
                 <Label Text="Edit " TextColor="Blue"
-                        FontSize="Micro"
+                        FontSize="Small"
                        FontAttributes="Bold"
                         HorizontalOptions="EndAndExpand"/>
                 
@@ -32,18 +32,16 @@
                    WidthRequest="70" HeightRequest="70"
                    HorizontalOptions="CenterAndExpand"/>
             <Label Text="Infomation"
-                   FontSize="Small" FontAttributes="Bold"
+                   FontSize="Medium" FontAttributes="Bold"
                    HorizontalOptions="Start"/>
             <StackLayout Orientation="Horizontal">
                 <Image Source="Resources\Images\user.png"
                         WidthRequest="20" HeightRequest="20"
                         HorizontalOptions="End"/>
                 <Label Text=" Username: "
-                       FontSize="Micro"
+                       FontSize="Small"
                        HorizontalOptions="Start"/>
-                <Label Text=" Name "
-       FontSize="Micro"
-       HorizontalOptions="Start"/>
+                <Label x:Name="lbUser" FontSize="Small" HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                        WidthRequest="20" HeightRequest="20"
                        HorizontalOptions="EndAndExpand"/>
@@ -53,11 +51,9 @@
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Name: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" Name "
-FontSize="Micro"
-HorizontalOptions="Start"/>
+                <Label x:Name="lbName" FontSize="Small" HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
                 HorizontalOptions="EndAndExpand"/>
@@ -65,14 +61,12 @@ HorizontalOptions="Start"/>
 
             <StackLayout Orientation="Horizontal">
                 <Image Source="Resources\Images\birthdaycake.png"
-WidthRequest="20" HeightRequest="20"
+WidthRequest="20" HeightRequest="20" 
 HorizontalOptions="End"/>
                 <Label Text=" Date of Birth: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" 24/08/2004 "
-FontSize="Micro"
-HorizontalOptions="Start"/>
+                <Label x:Name="lbBirth" Text="24/08/2004" FontSize="Small" HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
                 HorizontalOptions="EndAndExpand"/>
@@ -83,10 +77,10 @@ HorizontalOptions="Start"/>
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Gender: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" Male "
-FontSize="Micro"
+                <Label x:Name="lbGender" Text=" Male "
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -98,10 +92,10 @@ HorizontalOptions="Start"/>
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Phone Number: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" 0735462728 "
-FontSize="Micro"
+                <Label x:Name="lbPhone" Text=" 0735462728 "
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -113,10 +107,10 @@ WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 
                 <Label Text=" Email: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" abc@gmail.com "
-FontSize="Micro"
+                <Label x:Name="lbEmail" Text=" abc@gmail.com "
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -124,7 +118,7 @@ HorizontalOptions="Start"/>
             </StackLayout>
 
             <Label Text="Detail"
-FontSize="Small" FontAttributes="Bold"
+FontSize="Medium" FontAttributes="Bold"
 HorizontalOptions="Start"/>
 
             <StackLayout Orientation="Horizontal">
@@ -132,10 +126,10 @@ HorizontalOptions="Start"/>
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Hobbies: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" ...  "
-FontSize="Micro"
+                <Label Text="none"
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -147,10 +141,10 @@ HorizontalOptions="Start"/>
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Place: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" HCM City  "
-FontSize="Micro"
+                <Label Text="Thu Duc, Ho Chi Minh City"
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -161,10 +155,10 @@ HorizontalOptions="Start"/>
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Workplace: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" UIT  "
-FontSize="Micro"
+                <Label Text="UIT In Me"
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -175,10 +169,10 @@ HorizontalOptions="Start"/>
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Education: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
-                <Label Text=" University "
-FontSize="Micro"
+                <Label x:Name="lbSchool" Text="University of Infỏmation Technology"
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -189,10 +183,10 @@ HorizontalOptions="Start"/>
 WidthRequest="20" HeightRequest="20"
 HorizontalOptions="End"/>
                 <Label Text=" Relationship: "
-                FontSize="Micro"
+                FontSize="Small"
                 HorizontalOptions="Start"/>
                 <Label Text=" Single "
-FontSize="Micro"
+FontSize="Small"
 HorizontalOptions="Start"/>
                 <Image Source="Resources\Images\edittext.png"
                 WidthRequest="20" HeightRequest="20"
@@ -200,11 +194,11 @@ HorizontalOptions="Start"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="My biography"
-FontSize="Small" FontAttributes="Bold"
+FontSize="Medium" FontAttributes="Bold"
 HorizontalOptions="Start"/>
                 
                 <Label Text="Edit " TextColor="Blue"
-FontSize="Micro"
+FontSize="Small"
 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             
@@ -213,16 +207,16 @@ FontSize="Small"
 HorizontalOptions="CenterAndExpand"/>
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="Link"
-FontSize="Small" FontAttributes="Bold"
+                <Label Text="Website Link"
+FontSize="Medium" FontAttributes="Bold"
 HorizontalOptions="Start"/>
                
                 <Label Text="Edit " TextColor="Blue"
-FontSize="Micro"
+FontSize="Small"
 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <Label Text=" www.facebook.com/abc " 
-FontSize="Micro"
+FontSize="Small"
 HorizontalOptions="StartAndExpand"/>
         </VerticalStackLayout>
     </ScrollView>

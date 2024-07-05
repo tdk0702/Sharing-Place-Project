@@ -12,7 +12,7 @@ namespace Sharing_Place
         {
             InitializeComponent();
             MainPage = new LoginShell();
-            new Thread(() =>{ connectServer(); }).Start();
+;            new Thread(() =>{ connectServer(); }).Start();
         }
         private void connectServer()
         {

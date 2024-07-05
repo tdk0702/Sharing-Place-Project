@@ -72,7 +72,7 @@ namespace Sharing_Place.Models
         }
         public IPEndPoint getIP()
         {
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            IPAddress ip = IPAddress.Parse("172.17.7.13");
 #if ANDROID
                 WifiManager wifiManager = (WifiManager) Android.App.Application.Context.GetSystemService(Service.WifiService);
                 int ipaddress = wifiManager.ConnectionInfo.IpAddress;

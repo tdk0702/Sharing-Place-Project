@@ -7,6 +7,7 @@ WHERE  TABLE_TYPE = 'BASE TABLE'
 Exec Sp_executesql @sql
 GO
 */
+
 CREATE SCHEMA [User]
 GO
 

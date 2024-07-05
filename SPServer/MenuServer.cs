@@ -219,12 +219,15 @@ namespace SP_Server
                 //Command: ./runquery <client_id> <query>
                 //Example: ./runquery 1 SELECT Id,name,fullname [User].[Users] WHERE ...
                 //Bỏ ./runquery
+                writeLog(command);
                 string query = command.Substring(command.IndexOf(" ") + 1);
-                string id = query.Substring(0,command.IndexOf(" "));
-                query = query.Substring(command.IndexOf(" ") + 1);
+                string id = query.Substring(0,query.IndexOf(" "));
+                query = query.Substring(query.IndexOf(" ") + 1);
                 //Lấy selected items: id, name, fullname 
-                string[] items = command.Substring(command.IndexOf(" ") + 1, command.IndexOf("]") - 1).Split(",");
-                runQuery(userClients[id], query, items);
+                string item = query.Substring(query.IndexOf(" ") + 1);
+                string[] items = item.Substring(0,item.IndexOf("F")-1).Split(",");
+                try { runQuery(userClients[id], query, items); }
+                catch (Exception) { writeLog("Lỗi: " + id); }
             }
         }
 
@@ -263,7 +266,8 @@ namespace SP_Server
             dt = SqlQuery.getData(query);
             if (dt.Rows.Count <= 0) { writeLog("Lỗi không đăng ký được."); sendData(userClients[client_id].Ip, "[ERROR]"); return; }
             string id = dt.Rows[0]["id"].ToString();
-            query = string.Format("INSERT INTO [User].[Info] VALUES({0}, N'{1}', NULL, NULL, DEFAULT, NULL, DEFAULT);", id, name);
+            query = string.Format("INSERT INTO [User].[Info] VALUES({0}, N'{1}', NULL, NULL, N'male', NULL, DEFAULT);", id, name);
+            SqlQuery.queryData(query);
             writeLog("Đăng ký thành công UserID: " + id);
             sendData(userClients[client_id].Ip, "[OK] " + id);
         }
@@ -524,7 +528,9 @@ namespace SP_Server
                 }
                 catch (Exception ex) { writeLog("Sai query"); sendData(host.Ip, "[ERROR]"); return; }
                 data = data.Trim() + ";";
-            }    
+            }
+            writeLog(data);
+            sendData(host.Ip, "[OK] " + data);
         }
 	private void forwardMessage(string receiverId, string message)
         {

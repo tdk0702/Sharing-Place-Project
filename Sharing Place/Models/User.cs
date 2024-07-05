@@ -38,7 +38,8 @@ namespace Sharing_Place.Models
             this.Email = email;
             this.Fullname = fullname;
             this.Nickname = nick;
-            this.Birthdate = birth;
+            if (birth.Trim() != string.Empty) this.Birthdate = birth;
+            else this.Birthdate = "1-1-2000";
             this.Gender = gender;
             this.Created_At = created;
         }

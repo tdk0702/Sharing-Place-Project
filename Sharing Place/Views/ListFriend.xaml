@@ -13,36 +13,38 @@ WidthRequest="20" HeightRequest="20"
                 <Label 
             Text="List Friends"
             HorizontalOptions="CenterAndExpand"
-            FontSize="Small"/>
+            FontSize="Medium"/>
                 
             </StackLayout>
             <VerticalStackLayout Padding="10" Spacing="5">
                 <SearchBar Placeholder="Search..."></SearchBar>
-                <Label Text="10 Friends"
-       FontSize="Micro"
-                       HorizontalOptions="StartAndExpand"/>
-                <HorizontalStackLayout Padding="10" Spacing="10">
-                    <Image 
-                        Source="Resources\Images\user4.png"
-                        WidthRequest="50"
-                        HeightRequest="50"
-                        HorizontalOptions="Start"
-                        />
-                    <VerticalStackLayout Padding="10" Spacing="10" >
-                        <Label Text="Name"
-                        FontSize="Micro"
-                               HorizontalOptions="StartAndExpand"/>
-                        <Label Text="10 Common Friends"
-                        FontSize="Micro"
-                               HorizontalOptions="StartAndExpand"/>
-                    </VerticalStackLayout>
-                    <Button Text="Delete"
-                            BackgroundColor="LimeGreen"
-                            WidthRequest="80"
-                            HeightRequest="20"
-                            TextColor="White"
-                            HorizontalOptions="EndAndExpand"
-                            />
+                <Label x:Name="lbCount" Text="10 Friends"
+                       FontSize="Small" Margin="10"/>
+                <HorizontalStackLayout Margin="10">
+                    <ListView x:Name="lvFriends" SeparatorVisibility="None"
+                              ItemTapped="lvFriends_ItemTapped" ItemSelected="lvFriends_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Margin="5">
+                                        <Grid ColumnDefinitions=".3*,.7*">
+                                            <Image 
+                                            Source="logo.png"
+                                            WidthRequest="50"
+                                            HeightRequest="50"
+                                            HorizontalOptions="Start"
+                                            />
+                                            <VerticalStackLayout Grid.Column="1" Padding="10" Spacing="10" >
+                                                <Label Text="{Binding Name}" FontSize="Small" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                                <Label Text="Online" FontSize="Small" TextColor="LimeGreen" />
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
                 </HorizontalStackLayout>
             </VerticalStackLayout>
             

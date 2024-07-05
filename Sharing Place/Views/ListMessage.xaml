@@ -59,7 +59,8 @@
                    Padding="10"/>
             <CollectionView x:Name="MessagesListView" 
                             ItemsSource="{Binding Messages}" 
-                            ItemTemplate="{StaticResource MessageTemplate}">
+                            ItemTemplate="{StaticResource MessageTemplate}"
+                            SelectionChanged="OnUserSelected">
             </CollectionView>
         </VerticalStackLayout>
     </Grid>

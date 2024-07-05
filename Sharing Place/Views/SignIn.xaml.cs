@@ -48,7 +48,7 @@ public partial class SignIn : ContentPage
             return;
         }
         string[] dsplit = data.Replace("[OK] ","").Split(" ");
-        UserAccount = new User(dsplit[0], dsplit[1], dsplit[2], dsplit[3], dsplit[4], dsplit[5], dsplit[6]);
+        UserAccount = new User(dsplit[0], dsplit[1], dsplit[2], dsplit[3].Replace("_"," "), dsplit[4], dsplit[5], dsplit[6]);
         loadingIndicator.IsRunning = false;
         await DisplayAlert("Success", "Welcome back, "+ txtUser.Text.Trim(), "OK");
         Application.Current.MainPage = new MenuShell();
