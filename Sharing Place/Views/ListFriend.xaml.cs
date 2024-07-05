@@ -24,8 +24,8 @@ public partial class ListFriend : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        //loadFriendEx();
-        loadData();
+        loadFriendEx();
+        //loadData();
     }
     private void loadFriendEx()
     {

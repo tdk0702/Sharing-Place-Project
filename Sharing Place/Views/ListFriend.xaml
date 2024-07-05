@@ -22,6 +22,7 @@ WidthRequest="20" HeightRequest="20"
                        FontSize="Small" Margin="10"/>
                 <HorizontalStackLayout Margin="10">
                     <ListView x:Name="lvFriends" SeparatorVisibility="None"
+                              HorizontalOptions="Fill" HasUnevenRows="True"
                               ItemTapped="lvFriends_ItemTapped" ItemSelected="lvFriends_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
